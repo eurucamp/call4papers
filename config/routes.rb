@@ -1,4 +1,7 @@
 Cfp::Application.routes.draw do
+  resources :papers
+  root :to => "papers#new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
