@@ -1,49 +1,83 @@
 <%= form_for(@paper) do |f| %>
-  <% if @paper.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
 
-      <ul>
-      <% @paper.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <% if @paper.errors.any? %>
+    <div id="error_explanation" class="alert-message block-message error">
+      <h2>Doh! <%= pluralize(@paper.errors.count, "error") %> prohibited this paper from being saved</h2>
     </div>
   <% end %>
 
   <fieldset>
     
-    <div class="clearfix">
+    <div class="clearfix <%= @paper.errors[:email].present? ? :error : nil %>">
       <%= f.label :email %>
       <div class="input">
+        <span class="help-block">
+          Your email address. If you don't have it (~_^)
+          you can create a new one on <%= link_to "gmail", "http://gmail.com" %>.
+          Don't worry, we won't sell it.
+        </span>
         <div class="input-prepend">
           <span class="add-on">@</span>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, :class => :error %>
+          <% @paper.errors[:email].each do |err| %>
+            <span class="help-block">
+              <strong><%= err %></strong>
+            </end>
+          <% end%>
         </div>
       </div>
-    </div>
+    </div><br />
 
-    <div class="clearfix">
+    <div class="clearfix <%= @paper.errors[:bio].present? ? :error : nil %>">
       <%= f.label :bio %><br />
       <div class="input">
+        <span class="help-block">
+          Tell us everything we need to know about
+          you to accept your proposal. Nothing more,
+          nothing less.
+        </span>
+
         <%= f.text_area :bio %>
+
+        <% @paper.errors[:bio].each do |err| %>
+          <span class="help-block">
+            <strong><%= err %></strong>
+          </end>
+        <% end%>
       </div>
-    </div>
+    </div><br />
     
-    <div class="clearfix">
+    <div class="clearfix <%= @paper.errors[:description].present? ? :error : nil %>">
      <%= f.label :description %><br />
       <div class="input">
-        <%= f.text_area :description %>
-        <span class="help-inline">
+        <span class="help-block">
           Tell us as much as you can about the talk.
-          I you already know the title that's greate!
-          Otherwise, no problem!
+          If you already know the title that's great!
+          Otherwise, no problem! We would appreciate a link
+          to any of your previous video but it is no mandatory. 
+          If you want to
+          be a participant in one of our fight, do not 
+          hesitate to mention it. If you know a villain that
+          would be a good opponent for you, share his/her name
+          with us.
         </span>
+
+        <%= f.text_area :description %>
+
+        <% @paper.errors[:description].each do |err| %>
+          <span class="help-block">
+            <strong><%= err %></strong>
+          </end>
+        <% end%>
       </div>
     </div>
 
     <div class="actions">
       <%= f.submit("Submit your propsal", :class => "btn primary") %>
+      <span class="help-block">
+        <strong>Note:</strong> 
+        You can change it in the future!
+      </span>
     </div>
   </fieldset>
 <% end %>
