@@ -86,7 +86,10 @@
             <%= yield %>
           </div>
           <div class="span4">
-            <%= yield :secondary %>
+            <%= secondary = yield :secondary %>
+            <% if secondary.blank? %>
+              <%= image_tag("krasnal.png") %>
+            <% end %>
           </div>
         </div>
       </div>

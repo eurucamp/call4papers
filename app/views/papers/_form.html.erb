@@ -73,7 +73,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit("Submit your propsal", :class => "btn primary") %>
+      <% btn = @paper.new_record? ? "Submit your proposal" : "Update it!" %>
+      <%= f.submit(btn, :class => "btn primary") %>
       <span class="help-block">
         <strong>Note:</strong> 
         You can change it in the future!

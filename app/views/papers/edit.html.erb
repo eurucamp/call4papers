@@ -1,6 +1,10 @@
-<h1>Editing paper</h1>
+<% content_for :header do %>
+  <h1>
+    Editing proposal.
+    <small>Trying to be more creative than last time? Good luck!</small>
+  </h1>
+<% end %>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @paper %> |
-<%= link_to 'Back', papers_path %>
