@@ -44,7 +44,7 @@ class PapersController < ApplicationController
 
     respond_to do |format|
       if @paper.save
-        format.html { redirect_to @paper, notice: 'Paper was successfully created.' }
+        format.html { redirect_to @paper, notice: :created }
         format.json { render json: @paper, status: :created, location: @paper }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class PapersController < ApplicationController
 
     respond_to do |format|
       if @paper.update_attributes(params[:paper])
-        format.html { redirect_to @paper, notice: 'Paper was successfully updated.' }
+        format.html { redirect_to @paper, notice: :updated }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

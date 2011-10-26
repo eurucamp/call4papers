@@ -1,5 +1,35 @@
-<p id="notice"><%= notice %></p>
+<% content_for :header do %>
+  <h1>
+    Your proposal as it is
+    <small>Feel free to modify it and make it even better</small>
+  </h1>
+<% end %>
 
+<% if notice == :created %>
+  <div class="alert-message block-message success">
+  <a class="close" href="#">×</a>
+  <p>
+    <strong>Well done!</strong> You successfully proposed a paper for wroc_love.rb conference.</p>
+    <div>Please <strong>bookmark this page</strong> if you want to modify your proposal later</div>
+    <div class="alert-actions">
+      <%= link_to "Tweet about it!", "http://twitter.com/", :class => "btn small" %>
+      <%= link_to "or not", request.path, :class => "btn small" %>
+    </div>
+  </div>
+<% end %>
+
+<% if notice == :updated %>
+  <div class="alert-message block-message success">
+  <a class="close" href="#">×</a>
+  <p>
+    <strong>Well done!</strong> Your proposal has been updated.</p>
+    <div>Please <strong>bookmark this page</strong> if you still want to modify your proposal later</div>
+    <div class="alert-actions">
+      <%= link_to "Tweet about the conference!", "http://twitter.com/", :class => "btn small" %>
+      <%= link_to "or not", request.path, :class => "btn small" %>
+    </div>
+  </div>
+<% end %>
 <p>
   <b>Id:</b>
   <%= @paper.id %>
