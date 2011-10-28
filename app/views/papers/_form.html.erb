@@ -37,7 +37,7 @@
           nothing less.
         </span>
 
-        <%= f.text_area :bio %>
+        <%= f.text_area :bio, :rows => 7, :class => "xxlarge" %>
 
         <% @paper.errors[:bio].each do |err| %>
           <span class="help-block">
@@ -62,7 +62,7 @@
           with us.
         </span>
 
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :rows => 7, :class => "xxlarge" %>
 
         <% @paper.errors[:description].each do |err| %>
           <span class="help-block">
