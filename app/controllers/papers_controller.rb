@@ -1,4 +1,14 @@
 class PapersController < ApplicationController
+
+  before_filter :only => [:index, :destroy] do
+    user = File.open(File.join(Rails.root, *%w(config user.cnf)) ){|f| f.read }
+    pass = File.open(File.join(Rails.root, *%w(config pass.cnf)) ){|f| f.read }
+
+    unless(authenticate_with_http_basic {|u, p| user == u && pass == p })
+      request_http_basic_authentication and return
+    end
+  end
+
   # GET /papers
   # GET /papers.json
   def index
