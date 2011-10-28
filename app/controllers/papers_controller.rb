@@ -54,6 +54,7 @@ class PapersController < ApplicationController
 
     respond_to do |format|
       if @paper.save
+        PapersMailer.created( @paper.email, paper_url(@paper) ).deliver
         format.html { redirect_to @paper, notice: :created }
         format.json { render json: @paper, status: :created, location: @paper }
       else
