@@ -41,7 +41,7 @@ end
 namespace :deploy do
   desc "Create configuration symlinks."
   task :create_symlinks do
-    ['database.yml', 'unicorn.rb'].each do |config|
+    %w(database.yml unicorn.rb user.cnf pass.cnf).each do |config|
       run "cd #{release_path} && ln -snf #{shared_path}/#{config} #{release_path}/config/#{config}"
     end
     run "ln -nfs #{shared_path}/log #{release_path}/log"
