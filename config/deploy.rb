@@ -44,7 +44,14 @@ namespace :deploy do
     ['database.yml', 'unicorn.rb'].each do |config|
       run "cd #{release_path} && ln -snf #{shared_path}/#{config} #{release_path}/config/#{config}"
     end
+    run "ln -nfs #{shared_path}/log #{release_path}/log"
+    run "ln -nfs #{shared_path}/tmp #{release_path}/tmp"
+  end
+
+  task :pipeline_precompile do
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 
 after 'deploy:update_code', 'deploy:create_symlinks'
+after "deploy:update_code", "deploy:pipeline_precompile"
