@@ -22,11 +22,15 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :development do
+  gem 'capistrano'
+  gem 'rvm'
+end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

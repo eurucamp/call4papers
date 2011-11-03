@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+bin/
 .sass-cache/
 config/pass.cnf
 config/user.cnf
