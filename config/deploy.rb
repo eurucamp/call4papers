@@ -46,6 +46,7 @@ namespace :deploy do
     end
     run "ln -nfs #{shared_path}/log #{release_path}/log"
     run "ln -nfs #{shared_path}/tmp #{release_path}/tmp"
+    run "rm #{release_path}/config/environments/production.rb && ln -nfs #{shared_path}/production.rb #{release_path}/config/environments/production.rb"
   end
 
   task :pipeline_precompile do

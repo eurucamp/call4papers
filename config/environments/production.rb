@@ -1,3 +1,6 @@
+# XXX: edit #{shared_path}/production.rb instead !!!
+# XXX: !!!
+#
 Cfp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
