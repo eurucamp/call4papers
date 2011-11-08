@@ -87,6 +87,8 @@
             <%= secondary = yield :secondary %>
             <% if secondary.blank? %>
               <%= image_tag("krasnal.png") %>
+              <h3>Supporters:</h3>
+              <%= image_tag("github.png", :size => "200x90") %>
             <% end %>
           </div>
         </div>
