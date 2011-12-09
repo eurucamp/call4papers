@@ -10,3 +10,6 @@
 .input-xxlarge, input.xxlarge, textarea.xxlarge, select.xxlarge {
   width: 400px;
 }
+
+
+div.supporters img {display: block;   margin-left: auto;   margin-right: auto; padding-bottom: 25px}

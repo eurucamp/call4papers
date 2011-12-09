@@ -88,7 +88,11 @@
             <% if secondary.blank? %>
               <%= image_tag("krasnal.png") %>
               <h3>Supporters:</h3>
-              <%= image_tag("github.png", :size => "200x90") %>
+              <div class="supporters">
+                <%= link_to image_tag("github.png", :size => "200x90"), "http://github.com" %>
+                <%= link_to image_tag("anixe2.png"), "http://anixe.pl/en" %>
+                <%= link_to image_tag("arkency2.png"), "http://rails.arkency.com" %>
+              </div>
             <% end %>
           </div>
         </div>
