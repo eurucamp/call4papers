@@ -12,7 +12,8 @@ class PapersController < ApplicationController
   # GET /papers
   # GET /papers.json
   def index
-    @papers = Paper.all
+    self.skip_secondary = true
+    @papers = Paper.order("created_at DESC").all
 
     respond_to do |format|
       format.html # index.html.erb

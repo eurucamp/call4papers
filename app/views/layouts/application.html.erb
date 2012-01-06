@@ -66,25 +66,28 @@
           <%= yield :header %>
         </div>
         <div class="row">
-          <div class="span10">
+          <% size = skip_secondary ? 16 : 10 %>
+          <div class="span<%= size -%>">
             <%= yield %>
           </div>
-          <div class="span5 offset1" style="text-align: center;">
-            <%= secondary = yield :secondary %>
-            <% if secondary.blank? %>
-              <%= image_tag("krasnal.png") %>
-              <h2>Supporters:</h2>
-              <div class="supporters">
-                <%= link_to image_tag("github.png", :size => "200x90"), "http://github.com" %>
-                <%= link_to image_tag("anixe2.png"), "http://anixe.pl/en" %>
-                <%= link_to image_tag("arkency2.png"), "http://rails.arkency.com" %>
-              </div>
-              <h2>Patronage:</h2>
-              <div class="supporters">
-                <%= link_to image_tag("osnews2.png"), "http://osnews.pl" %>
-              </div>
-            <% end %>
-          </div>
+          <% unless skip_secondary %>
+            <div class="span5 offset1" style="text-align: center;">
+              <%= secondary = yield :secondary %>
+              <% if secondary.blank? %>
+                <%= image_tag("krasnal.png") %>
+                <h2>Supporters:</h2>
+                <div class="supporters">
+                  <%= link_to image_tag("github.png", :size => "200x90"), "http://github.com" %>
+                  <%= link_to image_tag("anixe2.png"), "http://anixe.pl/en" %>
+                  <%= link_to image_tag("arkency2.png"), "http://rails.arkency.com" %>
+                </div>
+                <h2>Patronage:</h2>
+                <div class="supporters">
+                  <%= link_to image_tag("osnews2.png"), "http://osnews.pl" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
 

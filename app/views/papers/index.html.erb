@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Email</th>
+    <th>Email & Created at</th>
     <th>Bio</th>
     <th>Description</th>
     <th></th>
@@ -10,7 +10,7 @@
 
 <% @papers.each do |paper| %>
   <tr>
-    <td><%= paper.email %></td>
+    <td><%= paper.email %><br /><%= paper.created_at %></td>
     <td><%= paper.bio %></td>
     <td><%= paper.description %></td>
     <td>
