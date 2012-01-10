@@ -3,16 +3,17 @@
 <table>
   <tr>
     <th>Email & Created at</th>
-    <th>Bio</th>
-    <th>Description</th>
+    <th>Bio & Description</th>
     <th></th>
   </tr>
 
 <% @papers.each do |paper| %>
   <tr>
     <td><%= paper.email %><br /><%= paper.created_at %></td>
-    <td><%= paper.bio %></td>
-    <td><%= paper.description %></td>
+    <td>
+      <%= paper.bio %><br /><br />
+      <%= paper.description %>
+    </td>
     <td>
       <%= link_to 'Show', paper %>
       <%= link_to 'Edit', edit_paper_path(paper) %>
