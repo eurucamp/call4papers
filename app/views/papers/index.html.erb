@@ -11,8 +11,8 @@
   <tr>
     <td><%= paper.email %><br /><%= paper.created_at %></td>
     <td>
-      <%= paper.bio %><br /><br />
-      <%= paper.description %>
+      <%= simple_format paper.bio %><br /><br />
+      <%= simple_format paper.description %>
     </td>
     <td>
       <%= link_to 'Show', paper %>
