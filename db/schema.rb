@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111019210422) do
 
-  create_table "call_for_papers", :id => false, :force => true do |t|
-    t.integer  "id",          :null => false
-    t.string   "email",       :null => false
-    t.text     "bio",         :null => false
-    t.text     "description", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "papers", :id => false, :force => true do |t|
     t.string   "id",          :null => false
     t.string   "email",       :null => false
