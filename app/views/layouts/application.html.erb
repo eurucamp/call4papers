@@ -1,108 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>[wroc_love.rb] Call for (papers|haters) </title>
+    <title>Call for Papers | wroc_love.rb 2013</title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <style type="text/css">
-      /* Override some defaults */
-      html, body {
-        background-color: #eee;
-      }
-      body {
-        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
-      }
-      .container > footer p {
-        text-align: center; /* center align it with the container */
-      }
-
-      /* The white background content wrapper */
-      .content {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-        -webkit-border-radius: 0 0 6px 6px;
-        -moz-border-radius: 0 0 6px 6px;
-        border-radius: 0 0 6px 6px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-        box-shadow: 0 1px 2px rgba(0,0,0,.15);
-      }
-
-      /* Page header tweaks */
-      .page-header {
-        background-color: #f5f5f5;
-        padding: 20px 20px 10px;
-        margin: -20px -20px 20px;
-      }
-
-
-      .topbar .btn {
-        border: 0;
-      }
-
-    </style>
   </head>
   <body>
-
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">wroc_love.rb</a>
-          <ul class="nav">
-            <li class="active"><a href="#">Call For Papers</a></li>
-            <li><a href="http://wrocloverb.com/">About the conference</a></li>
-            <li><a href="http://blog.wrocloverb.com/">Blog</a></li>
-          </ul>
+          <a class="brand" href="#">wroc_love.rb 2013</a>
+            <%= render "main/nav" %>
+            <%= render "main/profile" %>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <div class="content">
-        <div class="page-header">
-          <%= yield :header %>
-        </div>
-        <div class="row">
-          <% size = skip_secondary ? 16 : 10 %>
-          <div class="span<%= size -%>">
-            <%= yield %>
-          </div>
-          <% unless skip_secondary %>
-            <div class="span5 offset1" style="text-align: center;">
-              <%= secondary = yield :secondary %>
-              <% if secondary.blank? %>
-                <%= image_tag("krasnal.png") %>
-                <h2>Supporters:</h2>
-                <div class="supporters">
-                  <%= link_to image_tag("github.png", :size => "200x90"), "http://github.com" %>
-                  <%= link_to image_tag("anixe2.png"), "http://anixe.pl/en" %>
-                  <%= link_to image_tag("arkency2.png"), "http://rails.arkency.com" %>
-                  <%= link_to image_tag("polak20.png", :size => "228x78"), "http://polak20.org/" %>
-                  <%= link_to image_tag("netguru.jpg", :size => "279x64"), "http://netguru.pl/" %>
-                  <%= link_to image_tag("railslove.png", :size => "273x65"), "http://railslove.com/" %>
-                  <%= link_to image_tag("monterail-small-logo.png", :size => "300x60"), "http://monterail.com/" %>
-                  <%= link_to image_tag("shelly_cloud_logo.png", :size => "289x62"), "http://shellycloud.com/" %>
-                  <%= link_to image_tag("espago.png", :size => "302x59"), "http://espago.pl" %>
-                </div>
-                <h2>Patronage:</h2>
-                <div class="supporters">
-                  <%= link_to image_tag("osnews2.png"), "http://osnews.pl" %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-      <footer>
-        <p>© DRUG 2011</p>
-      </footer>
-
+      <%= render"main/alerts" %>
+      <%= yield %>
+      <%= render "main/footer" %>
     </div>
-
   </body>
 </html>
