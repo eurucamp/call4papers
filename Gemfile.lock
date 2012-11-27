@@ -15,6 +15,10 @@ GEM
       rack-mount (~> 0.8.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.0.2)
+    active_schema (0.1.0)
+      activerecord
+      foreigner
+      foreigner
     activemodel (3.1.1)
       activesupport (= 3.1.1)
       builder (~> 3.0.0)
@@ -56,6 +60,8 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    foreigner (1.2.1)
+      activerecord (>= 3.0.0)
     highline (1.6.2)
     hike (1.2.1)
     i18n (0.6.0)
@@ -142,6 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_schema
   capistrano
   coffee-rails (~> 3.1.1)
   debugger
