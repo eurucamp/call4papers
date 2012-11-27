@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>[wroc_love.rb] Call for (papers|haters) </title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <style type="text/css">
+  <head>
+    <title>[wroc_love.rb] Call for (papers|haters) </title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <style type="text/css">
       /* Override some defaults */
       html, body {
         background-color: #eee;
@@ -23,11 +23,11 @@
         padding: 20px;
         margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
         -webkit-border-radius: 0 0 6px 6px;
-           -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
+        -moz-border-radius: 0 0 6px 6px;
+        border-radius: 0 0 6px 6px;
         -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+        box-shadow: 0 1px 2px rgba(0,0,0,.15);
       }
 
       /* Page header tweaks */
@@ -43,10 +43,10 @@
       }
 
     </style>
-</head>
-<body>
+  </head>
+  <body>
 
-  <div class="topbar">
+    <div class="topbar">
       <div class="fill">
         <div class="container">
           <a class="brand" href="#">wroc_love.rb</a>
@@ -60,7 +60,8 @@
     </div>
 
     <div class="container">
-
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <div class="content">
         <div class="page-header">
           <%= yield :header %>
@@ -103,5 +104,5 @@
 
     </div>
 
-</body>
+  </body>
 </html>
