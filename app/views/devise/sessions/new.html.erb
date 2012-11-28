@@ -1,15 +1,40 @@
-<h2>Sign in</h2>
+<div class="jumbotron">
+  <h1>Show us what you've got!</h1>
+  <p class="lead">
+    Submit your proposal and impress us. Make sure to be creative. And hurry up, call for papers <strong>ends on last day of January!</strong>
+  </p>
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+  <div class="row">
+    <div class="span9 oauth-auth">
+      <a class="btn-auth btn-github large" href="#">Sign in with <b>GitHub</b></a>
+      <a class="btn-auth btn-twitter large" href="#">Sign in with <b>Twitter</b></a>
+    </div>
+
+    <p class="hint">
+      Don't use these services?
+      <%= link_to 'Sign up', new_registration_path(:user) %>
+      or
+      <%= link_to 'sign in', new_session_path(:user) %>
+      with password.
+    </p>
+
+    <div class="span9 classic-auth">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true %>
+        <%= f.input :remember_me, as: :boolean %>
+
+        <div class="form-actions">
+          <div class="btn-toolbar">
+            <%= f.button :submit, "Sign in", class: 'btn btn-success' %>
+
+            <div class="btn-group pull-right">
+              <%= link_to 'Sign up', new_registration_path(:user), class: 'btn' %>
+              <%= link_to 'Reset password', new_password_path(:user), class: 'btn' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>

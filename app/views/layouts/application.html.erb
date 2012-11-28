@@ -5,22 +5,18 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="#">wroc_love.rb 2013</a>
-            <%= render "main/nav" %>
-            <%= render "main/profile" %>
-        </div>
+    <div class="container container-narrow">
+      <div class="masthead">
+        <%= render "main/nav" %>
+        <h3 class="muted">wroc_love.rb 2013 Call For Papers</h3>
       </div>
-    </div>
-
-    <div class="container">
+      <hr>
       <%= render"main/alerts" %>
       <%= yield %>
-      <%= render "main/footer" %>
+      <%#= render "main/footer" %>
     </div>
   </body>
 </html>

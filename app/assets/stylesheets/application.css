@@ -3,15 +3,71 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require bootstrap.min.css
+ *= require auth-buttons
  *= require_self
  *= require papers.css.scss
-*/
+ */
 
-/*
-.input-xxlarge, input.xxlarge, textarea.xxlarge, select.xxlarge {
-  width: 400px;
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
 }
 
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
 
-div.supporters img {display: block;   margin-left: auto;   margin-right: auto; padding-bottom: 25px}
-*/
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.jumbotron p.lead {
+  margin-bottom: 2em;
+}
+
+.jumbotron .oauth-auth {
+  margin-bottom: 4em;
+}
+
+.jumbotron .hint a {
+  font-weight: bold;
+}
+
+.jumbotron .classic-auth {
+  text-align: left;
+  display: none;
+}
+
+.jumbotron form {
+  width: 510px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.jumbotron form div.form-actions {
+  background-color: inherit;
+  padding: 0;
+  border: none;
+}
+
+.jumbotron .btn {
+  font-size: 18px;
+  padding: 8px 18px;
+  border-radius: 2px;
+}
