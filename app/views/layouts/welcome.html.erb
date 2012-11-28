@@ -15,7 +15,16 @@
       </div>
       <hr>
       <%= render"main/alerts" %>
-      <%= yield %>
+
+      <div class="jumbotron">
+        <h1>Show us what you've got</h1>
+        <p class="lead">
+          Submit your proposal and impress us. Make sure to be creative.<br>
+          And hurry up, call for papers <strong>ends on last day of January!</strong>
+        </p>
+
+        <%= yield %>
+      </div>
       <%= render "main/footer" %>
     </div>
   </body>

@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user!
+  before_filter :authenticate
 
-  attr_accessor :skip_secondary
-  helper_method :skip_secondary
+  def authenticate
+    redirect_to authentications_path unless user_signed_in?
+  end
 end

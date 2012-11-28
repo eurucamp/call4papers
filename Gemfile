@@ -5,6 +5,9 @@ gem 'sqlite3'
 gem 'active_schema'
 gem 'devise'
 gem 'simple_form'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
