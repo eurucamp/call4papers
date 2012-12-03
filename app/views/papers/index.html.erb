@@ -1,26 +1,29 @@
-<h1>Listing papers</h1>
+<h1>My papers</h1>
 
-<table>
-  <tr>
-    <th>Email & Created at</th>
-    <th>Bio & Description</th>
-    <th></th>
-  </tr>
+<div class="papers">
+  <% if @papers.empty? %>
+    No submissions yet? Create one now and give us a solid reason to choose you!
+  <% else %>
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
+        <th></th>
+      </tr>
 
-<% @papers.each do |paper| %>
-  <tr>
-    <td><%= paper.email %><br /><%= paper.created_at %></td>
-    <td>
-      <%= simple_format paper.bio %><br /><br />
-      <%= simple_format paper.description %>
-    </td>
-    <td>
-      <%= link_to 'Show', paper %>
-      <%= link_to 'Edit', edit_paper_path(paper) %>
-      <%= link_to 'Destroy', paper, confirm: 'Are you sure?', method: :delete %>
-    </td>
-  </tr>
-<% end %>
-</table>
+      <% @papers.each do |paper| %>
+        <tr>
+          <td class="title"><%= paper.title %></td>
+          <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
+          <td>
+            <%= link_to 'show', paper %>
+            <%= link_to 'edit', edit_paper_path(paper) %>
+            <%= link_to 'destroy', paper, confirm: 'Are you sure?', method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
 
-<br />
+<%= link_to 'New proposal', new_paper_path, class: 'btn btn-success' %>

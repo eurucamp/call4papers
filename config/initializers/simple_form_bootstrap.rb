@@ -5,9 +5,9 @@ SimpleForm.setup do |config|
     b.use :placeholder
     b.use :label
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
+      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
       ba.use :input
       ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
-      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end
   end
 
@@ -32,8 +32,8 @@ SimpleForm.setup do |config|
       input.wrapper :tag => 'div', :class => 'input-append' do |append|
         append.use :input
       end
-      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
       input.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
     end
   end
 

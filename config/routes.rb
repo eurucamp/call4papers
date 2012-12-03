@@ -11,5 +11,5 @@ Cfp::Application.routes.draw do
   resources  :papers
   resources  :authentications
 
-  root :to => "papers#new"
+  root :to => "papers#index"
 end

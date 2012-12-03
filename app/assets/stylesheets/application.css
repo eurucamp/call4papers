@@ -52,16 +52,32 @@ h1, h2, h3 {
   text-align: left;
 }
 
-.jumbotron form div.form-actions {
-  background-color: inherit;
-  padding: 0;
-  border: none;
-}
-
-.jumbotron .btn {
+.btn {
   font-size: 18px;
   padding: 8px 18px;
   border-radius: 2px;
+}
+
+.papers, .profile, .bio {
+  margin: 50px 0;
+}
+
+.papers textarea#paper_public_description {
+  height: 100px;
+}
+
+.profile textarea#user_bio {
+  height: 200px;
+  width: 100%;
+}
+
+.papers input[type=text], .papers textarea {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.papers table td.title {
+  width: 50%;
 }
 
 footer span.separator {

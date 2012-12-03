@@ -1,12 +1,30 @@
 <h1>My profile</h1>
 
-<dl>
-  <dt>Name</dt>
-  <dd><%= @user.name %></dd>
-  <dt>Email</dt>
-  <dd><%= @user.email %></dd>
-  <dt>GitHub nickname</dt>
-  <dd><%= @user.github_handle %></dd>
-  <dt>Twitter nickname</dt>
-  <dd><%= @user.twitter_handle %></dd>
-</dl>
+<div class="profile">
+  <table class="table">
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>GitHub</td>
+      <td>Twitter</td>
+    </tr>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.email %></td>
+      <td><%= @user.github_handle %></td>
+      <td><%= @user.twitter_handle %></td>
+    </tr>
+  </table>
+
+</div>
+<div class="bio">
+  <h2>Bio</h2>
+
+  <% if @user.bio.blank? %>
+    Tell us more about yourself!
+  <% else %>
+    <%= markdown(@user.bio) %>
+  <% end %>
+</div>
+
+<%= link_to "Edit profile and bio", edit_profile_path, class: 'btn btn-success' %>

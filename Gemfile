@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'sqlite3'
 gem 'active_schema'
 gem 'devise'
 gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
+gem 'pg'
+gem 'redcarpet'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -20,7 +21,6 @@ gem 'jquery-rails'
 
 group :production do
   gem 'unicorn'
-  gem 'pg'
 end
 
 group :development do
