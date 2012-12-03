@@ -4,5 +4,4 @@ log/
 tmp/
 bin/
 .sass-cache/
-config/pass.cnf
-config/user.cnf
+config/initializers/secret_token.rb
