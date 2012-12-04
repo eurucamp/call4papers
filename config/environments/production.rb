@@ -1,6 +1,3 @@
-# XXX: edit #{shared_path}/production.rb instead !!!
-# XXX: !!!
-#
 Cfp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -50,7 +47,7 @@ Cfp::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => "c4p.wrocloverb.com" }
+  config.action_mailer.default_url_options = { :host => "cfp.wrocloverb.com" }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -61,4 +58,6 @@ Cfp::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  CFP_EMAIL = 'all@wrocloverb.com'
 end
