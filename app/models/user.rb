@@ -27,4 +27,9 @@ class User < ActiveRecord::Base
   def password_required?
     (authentications.empty? || password.present?) && super
   end
+
+  def can_edit_paper?(paper)
+    papers.exists?(paper)
+  end
+
 end
