@@ -9,6 +9,6 @@
   <% end %>
 </div>
 
-<% if current_user.can_edit_paper?(@paper) %>
+<% if current_user && current_user.can_edit_paper?(@paper) %>
   <%= link_to 'Edit', edit_paper_path(@paper), class: 'btn btn-success' %>
 <% end %>
