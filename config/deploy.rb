@@ -11,6 +11,9 @@ set :ssh_options, {:forward_agent => true}
 set :keep_releases, 5
 set :bundle_without, %w(test development)
 set :use_sudo, false
+set :unicorn_binary, "unicorn"
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
 
 default_run_options[:pty] = true
 
@@ -19,6 +22,27 @@ role :app, "cfp.wrocloverb.com"
 role :db,  "cfp.wrocloverb.com", :primary => true
 
 namespace :deploy do
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && #{try_sudo} bundle exec #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+  end
+
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill `cat #{unicorn_pid}`"
+  end
+
+  task :graceful_stop, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill -s QUIT `cat #{unicorn_pid}`"
+  end
+
+  task :reload, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
+  end
+
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    stop
+    start
+  end
+
   desc "Create configuration symlinks."
   task :create_symlinks do
     %w(database.yml unicorn.rb).each do |config|
