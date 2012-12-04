@@ -9,4 +9,6 @@
   <% end %>
 </div>
 
-<%= link_to_if current_user, 'Edit', edit_paper_path(@paper), class: 'btn btn-success' %>
+<%= if current_user %>
+  <%= link_to 'Edit', edit_paper_path(@paper), class: 'btn btn-success' %>
+<% end %>
