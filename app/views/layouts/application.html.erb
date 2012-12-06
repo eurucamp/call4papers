@@ -11,7 +11,9 @@
     <div class="container container-narrow">
       <div class="masthead">
         <%= render "main/nav" %>
-        <h3 class="muted">wroc_love.rb 2013 Call For Papers</h3>
+        <%= link_to root_path, class: 'root' do %>
+          <h3 class="muted">wroc_love.rb 2013 Call For Papers</h3>
+        <% end %>
       </div>
       <hr>
       <%= render"main/alerts" %>
