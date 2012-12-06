@@ -96,3 +96,7 @@ footer span.separator {
   padding: 0 1px;
   font-weight: bold;
 }
+
+.twitter-share-button {
+    vertical-align: top;
+}

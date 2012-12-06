@@ -8,6 +8,14 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=294933543947037";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container container-narrow">
       <div class="masthead">
         <%= render "main/nav" %>
@@ -25,8 +33,14 @@
           Submit your proposal and impress us. Be creative!<br>
           And hurry up, call for papers <strong>ends on January 31st!</strong>
         </p>
-
+          
         <%= yield %>
+
+        <div>
+          <div class="fb-like" data-href="http://cfp.wrocloverb.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.wrocloverb.com" data-text="CFP for wroclove.rb ends on Jan 31rd 2013. Submit yours now!" data-via="wrocloverb" data-related="wrocloverb">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
       </div>
       <%= render "main/footer" %>
     </div>
