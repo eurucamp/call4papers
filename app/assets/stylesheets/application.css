@@ -58,7 +58,7 @@ h1, h2, h3 {
   border-radius: 2px;
 }
 
-.papers, .profile, .bio {
+.papers, .profile, .bio, .rules {
   margin: 50px 0;
 }
 
@@ -78,6 +78,10 @@ h1, h2, h3 {
 
 .papers table td.title {
   width: 50%;
+}
+
+.rules ul li {
+  margin: 5px 0;
 }
 
 footer span.separator {

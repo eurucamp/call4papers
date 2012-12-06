@@ -1,4 +1,6 @@
 Cfp::Application.routes.draw do
+  get "home/show"
+
   match '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users, :controllers => {
@@ -11,5 +13,5 @@ Cfp::Application.routes.draw do
   resources  :papers
   resources  :authentications
 
-  root :to => "papers#index"
+  root :to => "home#show"
 end
