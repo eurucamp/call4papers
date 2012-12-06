@@ -29,7 +29,7 @@ a.root:hover h3 {
 
 .container-narrow {
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 730px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -93,6 +93,6 @@ a.root:hover h3 {
 }
 
 footer span.separator {
-  padding: 0 8px;
+  padding: 0 1px;
   font-weight: bold;
 }
