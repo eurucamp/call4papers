@@ -1,0 +1,29 @@
+<%= link_to "Users", admin_users_path %> | <%= link_to "Papers", admin_papers_path %>
+<h1>All users</h1>
+
+<% for user in @users %>
+	<div class="profile">
+	  <table class="table">
+	    <tr>
+	      <td>Name</td>
+	      <td>Email</td>
+	      <td>GitHub</td>
+	      <td>Twitter</td>
+	    </tr>
+	    <tr>
+	      <td><%= user.name %></td>
+	      <td><%= user.email %></td>
+	      <td><%= user.github_handle %></td>
+	      <td><%= user.twitter_handle %></td>
+	    </tr>
+	  </table>
+	</div>
+	<% if user.has_bio? %>
+		<div class="bio">
+		  <h2>Bio</h2>
+		    <%= markdown(user.bio) %>
+		</div>
+	<% end %>
+	<hr/>
+<% end %>
+

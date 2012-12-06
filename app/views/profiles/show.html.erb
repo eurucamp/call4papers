@@ -20,10 +20,10 @@
 <div class="bio">
   <h2>Bio</h2>
 
-  <% if @user.bio.blank? %>
-    Tell us more about yourself!
-  <% else %>
+  <% if @user.has_bio? %>
     <%= markdown(@user.bio) %>
+  <% else %>
+	Tell us more about yourself!    
   <% end %>
 </div>
 

@@ -31,5 +31,8 @@ class User < ActiveRecord::Base
   def can_edit_paper?(paper)
     papers.exists?(paper)
   end
-
+  
+  def has_bio?
+    ! bio.blank?
+  end
 end

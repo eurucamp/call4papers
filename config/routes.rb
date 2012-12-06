@@ -15,6 +15,7 @@ Cfp::Application.routes.draw do
   
   namespace :admin do
     resources :papers
+    resources :users
     root :to => "papers#index"
   end
   root :to => "home#show"
