@@ -3,19 +3,39 @@
   <head>
     <title>Call for Papers | wroc_love.rb 2013</title>
     <%= stylesheet_link_tag    "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <script>
+      (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=294933543947037";
       fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
+      }(document, 'script', 'facebook-jssdk'));
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24474861-2']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      // Google +1
+      (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      // Twitter
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
     <div class="container container-narrow">
       <div class="masthead">
         <%= render "main/nav" %>
@@ -36,23 +56,19 @@
           
         <%= yield %>
 
-        <div>
-          <div class="fb-like" data-href="http://cfp.wrocloverb.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.wrocloverb.com" data-text="CFP for wroclove.rb ends on Jan 31rd 2013. Submit yours now!" data-via="wrocloverb" data-related="wrocloverb">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <div class="socialmedia">
+          <div class="wrapper">
+            <div class="fb-like" data-href="http://cfp.wrocloverb.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+          </div>
+          <div class="wrapper">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.wrocloverb.com" data-text="CFP for wroclove.rb ends on Jan 31rd 2013. Submit yours now!" data-via="wrocloverb" data-related="wrocloverb">Tweet</a>
+          </div>
+          <div class="wrapper">
+            <div class="g-plusone" data-size="medium" data-href="http://cfp.wrocloverb.com"></div>
+          </div>
         </div>
       </div>
       <%= render "main/footer" %>
     </div>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-24474861-2']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
   </body>
 </html>

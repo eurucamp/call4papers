@@ -97,6 +97,9 @@ footer span.separator {
   font-weight: bold;
 }
 
-.twitter-share-button {
+.socialmedia .wrapper {
+    width: 75px;
     vertical-align: top;
+    display: inline-block;
+    margin: 7px;
 }
