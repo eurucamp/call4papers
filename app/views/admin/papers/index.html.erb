@@ -1,0 +1,29 @@
+<h1>All papers</h1>
+
+<div class="papers">
+  <% if @papers.empty? %>
+    No submissions yet.
+  <% else %>
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
+        <th>Author</th>
+        <th></th>
+      </tr>
+
+      <% @papers.each do |paper| %>
+        <tr>
+          <td class="title"><%= paper.title %></td>
+          <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
+		  <td><%= paper.user.name %>
+          <td>
+            <%= link_to 'show', paper %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<%= link_to 'New proposal', new_paper_path, class: 'btn btn-success' %>
