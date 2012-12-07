@@ -1,29 +1,26 @@
-<%= link_to "Users", admin_users_path %> | <%= link_to "Papers", admin_papers_path %>
 <h1>All users</h1>
 
-<% for user in @users %>
-	<div class="profile">
-	  <table class="table">
-	    <tr>
-	      <td>Name</td>
-	      <td>Email</td>
-	      <td>GitHub</td>
-	      <td>Twitter</td>
-	    </tr>
-	    <tr>
-	      <td><%= user.name %></td>
-	      <td><%= user.email %></td>
-	      <td><%= user.github_handle %></td>
-	      <td><%= user.twitter_handle %></td>
-	    </tr>
-	  </table>
-	</div>
-	<% if user.has_bio? %>
-		<div class="bio">
-		  <h2>Bio</h2>
-		    <%= markdown(user.bio) %>
-		</div>
-	<% end %>
-	<hr/>
-<% end %>
+<div class="profiles">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>GitHub</th>
+      <th>Twitter</th>
+      <th>Has bio</th>
+    </tr>
 
+    <% for user in @users %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to user.github_handle, "http://github.com/#{user.github_handle}" %></td>
+        <td><%= link_to user.twitter_handle, "http://twitter.com/#{user.twitter_handle}" %></td>
+        <td><%= user.has_bio? ? "yes" : "" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "Users", admin_users_path, class: 'btn btn-success' %>
+<%= link_to "Papers", admin_papers_path, class: 'btn btn-success' %>
