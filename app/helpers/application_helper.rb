@@ -5,7 +5,7 @@ module ApplicationHelper
     markdown.render(h(text)).html_safe
   end
 
-  def twiiter_link(handle)
+  def twitter_link(handle)
     link_to(handle, "http://twiiter.com/#{handle}").html_safe if handle
   end
 
