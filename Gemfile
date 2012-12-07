@@ -21,6 +21,7 @@ gem 'jquery-rails'
 
 group :production do
   gem 'unicorn'
+  gem 'chillout', :path => "vendor/gems/chillout-0.0.1"
 end
 
 group :development do

@@ -60,4 +60,5 @@ Cfp::Application.configure do
   config.active_support.deprecation = :notify
 
   CFP_EMAIL = 'all@wrocloverb.com'
+  config.middleware.use Chillout::Rack, Chillout::Client.new('f9d8b0cfda551755e4bf3fa9b99ef3f7', port: 8080, hostname: 'production-chillout.arkency')
 end
