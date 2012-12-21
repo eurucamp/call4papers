@@ -5,3 +5,4 @@ tmp/
 bin/
 .sass-cache/
 config/initializers/secret_token.rb
+config/database.yml
