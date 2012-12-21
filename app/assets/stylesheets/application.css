@@ -107,9 +107,29 @@ footer span.separator {
   font-weight: bold;
 }
 
+.socialmedia {
+  text-align: center;
+}
+
 .socialmedia .wrapper {
     width: 75px;
     vertical-align: top;
     display: inline-block;
     margin: 7px;
+}
+
+.counters {
+  padding: 1em;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.counters h1 {
+  font-size: 400%;
+}
+
+.counters span {
+  padding: 0 1em;
+  display: table-cell;
 }
