@@ -7,17 +7,19 @@
       <th>Email</th>
       <th>GitHub</th>
       <th>Twitter</th>
-      <th>Has bio</th>
+      <th>Bio</th>
+      <th>Proposal</th>
       <th>Created at</th>
     </tr>
 
     <% for user in @users %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <td class="muted"><%= user.email %></td>
         <td><%= github_link(user.github_handle) %></td>
         <td><%= twitter_link(user.twitter_handle) %></td>
-        <td><%= user.has_bio? ? "yes" : "" %></td>
+        <td><%= "✔" if user.has_bio? %></td>
+        <td><%= "✔" if user.has_proposal? %></td>
         <td><%= user.created_at.strftime("%B %d, %Y") %></td>
       </tr>
     <% end %>

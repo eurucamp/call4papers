@@ -6,10 +6,12 @@ module ApplicationHelper
   end
 
   def twitter_link(handle)
-    link_to(handle, "http://twiiter.com/#{handle}").html_safe if handle
+    handle = h(handle.to_s.sub(/\A@/, ''))
+    link_to(truncate(handle, length: 20), "http://twitter.com/#{handle}") unless handle.blank?
   end
 
   def github_link(handle)
-    link_to(handle, "http://github.com/#{handle}").html_safe if handle
+    handle = h(handle.to_s.sub(/\A@/, ''))
+    link_to(truncate(handle, length: 20), "http://github.com/#{handle}") unless handle.blank?
   end
 end

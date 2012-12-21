@@ -1,4 +1,6 @@
 class Admin::AdminController < ApplicationController
+  layout 'admin'
+
   before_filter :allow_staff_only
 
   def allow_staff_only
