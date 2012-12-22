@@ -18,7 +18,8 @@ class AuthenticationsController < ApplicationController
     elsif current_user
       current_user.authentications.find_or_create_by_provider_and_uid(provider, uid)
       current_user.apply_provider_handle(omniauth)
-      flash[:notice] = 'Authentication successful'
+      current_user.save
+      flash[:notice] = 'Connected successfully'
       redirect_to :back
     else
       user = User.new
