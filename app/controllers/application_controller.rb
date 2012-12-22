@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
   def load_counters
     @paper_count = Paper.count
-    @user_count  = User.count
+    @user_count  = User.contributor.count
   end
 end

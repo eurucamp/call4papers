@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
 
+  scope :staff,       where(staff: true)
+  scope :contributor, where(staff: nil)
+
   def apply_omniauth(omniauth)
     provider, uid, info = omniauth.values_at('provider', 'uid', 'info')
     self.email = info['email'] if email.blank?
