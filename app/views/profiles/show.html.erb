@@ -11,8 +11,20 @@
     <tr>
       <td><%= @user.name %></td>
       <td><%= @user.email %></td>
-      <td><%= @user.github_handle %></td>
-      <td><%= @user.twitter_handle %></td>
+      <td>
+        <% if @user.connected_with_github? %>
+          <%= github_link(@user.github_handle) %>
+        <% else %>
+          <a class="btn-auth btn-github" href="/auth/github">connect <b>GitHub</b></a>
+        <% end %>
+      </td>
+      <td>
+        <% if @user.connected_with_twitter? %>
+          <%= twitter_link(@user.twitter_handle) %>
+        <% else %>
+          <a class="btn-auth btn-twitter" href="/auth/twitter">connect <b>Twitter</b></a>
+        <% end %>
+      </td>
     </tr>
   </table>
 
@@ -23,7 +35,7 @@
   <% if @user.has_bio? %>
     <%= markdown(@user.bio) %>
   <% else %>
-	Tell us more about yourself!    
+    Tell us more about yourself!
   <% end %>
 </div>
 

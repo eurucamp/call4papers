@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :name, :email, :bio, :website_url, :twitter_handle, :github_handle,
-                  :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :bio, :website_url, :password, :password_confirmation, :remember_me
 
   validates :name, presence: true
   validates :email, presence: true
@@ -18,7 +17,9 @@ class User < ActiveRecord::Base
 
     case provider
     when /github/
-      self.github_handle = info['nickname'] if github_handle.blank?
+      self.github_handle  = info['nickname'] if github_handle.blank?
+    when /twitter/
+      self.twitter_handle = info['nickname'] if twitter_handle.blank?
     end
 
     authentications.build(provider: provider, uid: uid)
@@ -26,6 +27,14 @@ class User < ActiveRecord::Base
 
   def password_required?
     (authentications.empty? || password.present?) && super
+  end
+
+  def connected_with_twitter?
+    authentications.where(provider: 'twitter').first
+  end
+
+  def connected_with_github?
+    authentications.where(provider: 'github').first
   end
 
   def can_edit_paper?(paper)
