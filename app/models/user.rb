@@ -15,14 +15,19 @@ class User < ActiveRecord::Base
     self.email = info['email'] if email.blank?
     self.name  = info['name']  if name.blank?
 
+    apply_provider_handle(omniauth)
+    authentications.build(provider: provider, uid: uid)
+  end
+
+  def apply_provider_handle(omniauth)
+    provider, info = omniauth.values_at('provider', 'info')
+
     case provider
     when /github/
       self.github_handle  = info['nickname'] if github_handle.blank?
     when /twitter/
       self.twitter_handle = info['nickname'] if twitter_handle.blank?
     end
-
-    authentications.build(provider: provider, uid: uid)
   end
 
   def password_required?
