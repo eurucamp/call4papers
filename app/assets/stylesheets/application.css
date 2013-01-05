@@ -133,3 +133,19 @@ footer span.separator {
   padding: 0 1em;
   display: table-cell;
 }
+
+.profiles .table img {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  padding: 0;
+  margin: 0;
+}
+
+.profile .table img {
+  width: 64px;
+  height: 64px;
+  border: 1px solid #ddd;
+  padding: 0;
+  margin: 0;
+}

@@ -3,12 +3,16 @@
 <div class="profile">
   <table class="table">
     <tr>
+      <th>Avatar</th>
       <th>Name</th>
       <th>Email</th>
       <th>GitHub</th>
       <th>Twitter</th>
     </tr>
     <tr>
+      <td>
+        <%= image_tag(avatar_url(@user, 64)) %>
+      </td>
       <td><%= @user.name %></td>
       <td><%= @user.email %></td>
       <td>

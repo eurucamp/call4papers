@@ -3,6 +3,7 @@
 <div class="profiles">
   <table class="table">
     <tr>
+      <th>Avatar</th>
       <th>Name</th>
       <th>Email</th>
       <th>GitHub</th>
@@ -14,6 +15,7 @@
 
     <% for user in @users %>
       <tr>
+        <td><%= image_tag(avatar_url(user, 32)) %></td>
         <td><%= user.name %></td>
         <td class="muted"><%= user.email %></td>
         <td><%= github_link(user.github_handle) %></td>
