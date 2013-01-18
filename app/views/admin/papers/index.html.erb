@@ -13,7 +13,7 @@
       </tr>
 
       <% @papers.each do |paper| %>
-        <tr>
+        <tr class="<%= 'selected' if paper.selected? %>">
           <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
           <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
           <td><%= paper.updated_at.strftime('%B %d, %Y') if paper.updated? %></td>

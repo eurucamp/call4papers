@@ -149,3 +149,12 @@ footer span.separator {
   padding: 0;
   margin: 0;
 }
+
+.selected {
+  color: #ddd;
+}
+
+.selected td:first-child, .selected td:last-child {
+  font-weight: bold;
+  color: #08c;
+}
