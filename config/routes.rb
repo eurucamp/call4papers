@@ -12,9 +12,14 @@ Cfp::Application.routes.draw do
   resource   :profile
   resources  :papers
   resources  :authentications
-  
+
   namespace :admin do
-    resources :papers
+    resources :papers do
+      member do
+        post :upvote
+        post :downvote
+      end
+    end
     resources :users
     root :to => "papers#index"
   end
