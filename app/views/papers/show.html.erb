@@ -15,9 +15,6 @@
   <% end %>
 
   <% if current_user.staff? %>
-    <%= vote_button(@paper) %>
-    <%= link_to "Back to admin papers", admin_papers_path, class: 'btn btn-primary' %>
-
     <hr>
     <h2><%= @user.name %></h2>
 

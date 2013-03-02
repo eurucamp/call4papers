@@ -151,5 +151,10 @@ footer span.separator {
 }
 
 .selected {
-  background-color: #d6ffd6;
+  color: #ddd;
+}
+
+.selected td:first-child, .selected td:last-child {
+  font-weight: bold;
+  color: #08c;
 }

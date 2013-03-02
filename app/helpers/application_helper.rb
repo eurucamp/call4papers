@@ -28,12 +28,4 @@ module ApplicationHelper
     return twitter_avatar_url(user.twitter_handle) if user.twitter_handle
     gravatar_avatar_url(user, size)
   end
-
-  def vote_button(paper)
-    if paper.upvoted_by? current_user
-      link_to 'Take upvote', downvote_admin_paper_path(paper), class: 'btn btn-danger', method: :post
-    else
-      link_to 'Give upvote', upvote_admin_paper_path(paper), class: 'btn btn-success', method: :post
-    end
-  end
 end

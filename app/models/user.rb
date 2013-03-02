@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentications
   has_many :papers
-  has_many :upvotes
-  has_many :upvoted_papers, through: :upvotes, source: :paper
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -12,8 +10,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
 
-  scope :staff,        where(staff: true)
-  scope :contributor,  where(staff: nil)
+  scope :staff,       where(staff: true)
+  scope :contributor, where(staff: nil)
 
   def apply_omniauth(omniauth)
     provider, uid, info = omniauth.values_at('provider', 'uid', 'info')
@@ -57,14 +55,5 @@ class User < ActiveRecord::Base
 
   def has_proposal?
     ! papers.empty?
-  end
-
-  def give_upvote!(paper)
-    return if paper.upvoted_by? self
-    upvoted_papers << paper
-  end
-
-  def take_upvote!(paper)
-    upvoted_papers.delete(paper)
   end
 end

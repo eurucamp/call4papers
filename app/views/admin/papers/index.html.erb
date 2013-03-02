@@ -9,17 +9,15 @@
         <th>Title</th>
         <th>Created at</th>
         <th>Updated at</th>
-        <th>Upvotes</th>
         <th>Author</th>
       </tr>
 
       <% @papers.each do |paper| %>
         <tr class="<%= 'selected' if paper.selected? %>">
           <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
-          <td><%= paper.created_at.strftime('%b %d, %Y') %></td>
-          <td><%= paper.updated_at.strftime('%b %d, %Y') if paper.updated? %></td>
-		      <td><%= paper.upvote_count unless paper.upvote_count.to_i.zero? || paper.selected? %></td>
-		      <td><%= paper.user_name %></td>
+          <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
+          <td><%= paper.updated_at.strftime('%B %d, %Y') if paper.updated? %></td>
+		      <td><%= paper.user.name %></td>
         </tr>
       <% end %>
     </table>
