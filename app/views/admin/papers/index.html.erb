@@ -15,9 +15,9 @@
       <% @papers.each do |paper| %>
         <tr class="<%= 'selected' if paper.selected? %>">
           <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
-          <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
-          <td><%= paper.updated_at.strftime('%B %d, %Y') if paper.updated? %></td>
-		      <td><%= paper.user.name %></td>
+          <td><%= paper.created_at.strftime('%b %d, %Y') %></td>
+          <td><%= paper.updated_at.strftime('%b %d, %Y') if paper.updated? %></td>
+          <td><%= paper.user_name %></td>
         </tr>
       <% end %>
     </table>
