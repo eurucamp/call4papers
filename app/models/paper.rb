@@ -1,7 +1,7 @@
 class Paper < ActiveRecord::Base
   set_primary_key :id
 
-  before_validation :on => :create do
+  before_validation on: :create do
     self.id = SecureRandom.hex(16)
   end
 
