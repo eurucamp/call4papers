@@ -17,11 +17,14 @@ class ActiveSupport::TestCase
 end
 
 OmniAuth.config.test_mode = true
-#OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-#  provider: 'twitter',
-#  uid:      'ecc22050'
-#})
-OmniAuth.config.add_mock(:twitter, {
-  uid:      'e644e6e0',
-  nickname: 'fooman'
+
+OmniAuth.config.add_mock(:github, {
+  uid:      'ac8b12448990eaef0b420f7153ec8d58',
+  nickname: 'rockstar',
+  email:    'user@99cookies.com',
+  image:    'rockstar.jpg'
+})
+OmniAuth.config.add_mock(:twitter,  {
+  uid:      'ac8b12448990eaef0b420f7153ec8d58',
+  nickname: 'rockstar'
 })

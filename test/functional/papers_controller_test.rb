@@ -26,6 +26,11 @@ class PapersControllerTest < ActionController::TestCase
     assert_redirected_to paper_path(assigns(:paper))
   end
 
+  test 'should not create an invalid paper' do
+    post :create, paper: {}
+    assert_template :new
+  end
+
   test "should show paper" do
     get :show, id: @paper.to_param
     assert_response :success
@@ -39,6 +44,11 @@ class PapersControllerTest < ActionController::TestCase
   test "should update paper" do
     put :update, id: @paper.to_param, paper: @paper.attributes
     assert_redirected_to paper_path(assigns(:paper))
+  end
+
+  test 'should not update an invalid paper' do
+    put :update, id: @paper.to_param, paper: { title: nil }
+    assert_template :edit
   end
 
   test "should destroy paper" do

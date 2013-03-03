@@ -1,15 +1,24 @@
 rockstar:
-  name: MyString
-  email: user@rockstar.com
-  bio: MyText
-  website_url: MyString
-  twitter_handle: MyString
-  github_handle: MyString
+  name:           Max Super
+  email:          user@rockstar.com
+  bio:            Web Dev for 5 years.
+  website_url:    http://rockstar.com/
+  twitter_handle: rockstar
+  github_handle:  rockstar
 
 wannabe_rockstar:
-  name: MyString
-  email: user@99cookies.com
-  bio: MyText
-  website_url: MyString
-  twitter_handle: MyString
-  github_handle: MyString
+  name:           Max Mustermann
+  email:          user@99cookies.com
+  bio:            Programmer for 20 years.
+  website_url:    http://99cookies.com/
+  twitter_handle: wannabe_rockstar
+  github_handle:  wannabe_rockstar
+
+admin_user:
+  name:           Max Admin
+  email:          admin@99cookies.com
+  bio:            Sysadmin for 10 years.
+  website_url:    http://99cookies.com/
+  twitter_handle: wannabe_sysadmin
+  github_handle:  wannabe_sysadmin
+  staff:          true

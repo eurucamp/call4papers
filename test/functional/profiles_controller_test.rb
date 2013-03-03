@@ -21,4 +21,9 @@ class ProfilesControllerTest < ActionController::TestCase
     assert_redirected_to profile_path
   end
 
+  test 'should not update profile when user invalid' do
+    put :update, user: { name: nil }
+    assert_template :edit
+  end
+
 end
