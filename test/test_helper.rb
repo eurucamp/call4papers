@@ -10,4 +10,15 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include Devise::TestHelpers
 end
+
+OmniAuth.config.test_mode = true
+#OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+#  provider: 'twitter',
+#  uid:      'ecc22050'
+#})
+OmniAuth.config.add_mock(:twitter, {
+  uid:      'e644e6e0',
+  nickname: 'fooman'
+})

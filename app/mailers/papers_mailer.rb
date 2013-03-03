@@ -1,5 +1,6 @@
 class PapersMailer < ActionMailer::Base
   default from: "cfp@wrocloverb.com"
+  CFP_EMAIL = ''
 
   def created(title, url)
     @title = title

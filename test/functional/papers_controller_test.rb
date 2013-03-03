@@ -2,7 +2,9 @@ require 'test_helper'
 
 class PapersControllerTest < ActionController::TestCase
   setup do
+    @request.env['devise.mapping'] = Devise.mappings[:user]
     @paper = papers(:one)
+    sign_in users(:rockstar)
   end
 
   test "should get index" do

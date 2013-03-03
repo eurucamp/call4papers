@@ -1,16 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
+rockstar:
   name: MyString
-  email: MyString
+  email: user@rockstar.com
   bio: MyText
   website_url: MyString
   twitter_handle: MyString
   github_handle: MyString
 
-two:
+wannabe_rockstar:
   name: MyString
-  email: MyString
+  email: user@99cookies.com
   bio: MyText
   website_url: MyString
   twitter_handle: MyString
