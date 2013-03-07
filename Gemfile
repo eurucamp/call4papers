@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.10'
+gem 'rails', '3.1.11'
 gem 'active_schema'
 gem 'devise'
 gem 'simple_form'
