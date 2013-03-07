@@ -4,7 +4,7 @@ gem 'rails', '3.2.12'
 gem 'strong_parameters'
 
 gem 'active_schema'
-gem 'devise'
+gem 'devise', '~> 2.2.3'
 gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-github'

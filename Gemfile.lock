@@ -57,10 +57,11 @@ GEM
     debugger-linecache (1.1.2)
       debugger-ruby_core_source (>= 1.1.1)
     debugger-ruby_core_source (1.2.0)
-    devise (1.5.3)
+    devise (2.2.3)
       bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -117,7 +118,7 @@ GEM
       omniauth (~> 1.0)
     omniauth-twitter (0.0.9)
       omniauth-oauth (~> 1.0)
-    orm_adapter (0.0.7)
+    orm_adapter (0.4.0)
     pg (0.11.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -185,7 +186,7 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    warden (1.1.0)
+    warden (1.2.1)
       rack (>= 1.0)
 
 PLATFORMS
@@ -196,7 +197,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.2)
   debugger
-  devise
+  devise (~> 2.2.3)
   jquery-rails
   omniauth
   omniauth-github

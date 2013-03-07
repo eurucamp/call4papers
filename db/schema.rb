@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20130118203443) do
 
   create_table "papers", :id => false, :force => true do |t|
     t.string   "id",                                     :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "title",                                  :null => false
     t.text     "public_description"
     t.text     "private_description",                    :null => false
