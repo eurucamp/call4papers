@@ -30,5 +30,6 @@ group :development do
 end
 
 group :test do
-  gem 'turn', require: false
+  gem 'turn',       require: false
+  gem 'simplecov',  require: false
 end
