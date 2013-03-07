@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.12'
+gem 'strong_parameters'
+
 gem 'active_schema'
 gem 'devise'
 gem 'simple_form'
