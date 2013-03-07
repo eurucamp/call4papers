@@ -26,6 +26,7 @@ end
 group :development do
   gem 'capistrano'
   gem 'debugger'
+  gem 'puma'
 end
 
 group :test do
