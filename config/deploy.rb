@@ -17,9 +17,9 @@ set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
 
 default_run_options[:pty] = true
 
-role :web, "cfp.wrocloverb.com"
-role :app, "cfp.wrocloverb.com"
-role :db,  "cfp.wrocloverb.com", :primary => true
+role :web, "cfp.eurucamp.org"
+role :app, "cfp.eurucamp.org"
+role :db,  "cfp.eurucamp.org", :primary => true
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do

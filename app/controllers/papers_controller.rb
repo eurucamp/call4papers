@@ -23,7 +23,7 @@ class PapersController < ApplicationController
 
     if @paper.save
       notify_excited_organizers
-      redirect_to @paper, notice: "Great job! You've successfully propsed a paper for wroc_love.rb conference."
+      redirect_to @paper, notice: "Great job! You've successfully proposed a paper for eurucamp."
     else
       render :new
     end
