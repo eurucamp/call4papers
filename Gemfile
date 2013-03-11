@@ -26,9 +26,9 @@ group :production do
 end
 
 group :development do
-  gem 'capistrano'
   gem 'debugger'
   gem 'puma'
+  gem 'heroku_san',     '~> 3.0.2'
 end
 
 group :test do
