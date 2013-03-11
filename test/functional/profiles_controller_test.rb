@@ -16,14 +16,19 @@ class ProfilesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update profile" do
-    put :update
-    assert_redirected_to profile_path
+  test 'should not update profile given an invalid request' do
+    put :update, user: {}
+    assert_response 400
   end
 
-  test 'should not update profile when user invalid' do
+  test 'should not update profile given an invalid user' do
     put :update, user: { name: nil }
     assert_template :edit
+  end
+
+  test 'should update a profile given a valid user' do
+    put :update, user: { name: 'New Name' }
+    assert_redirected_to profile_path
   end
 
 end

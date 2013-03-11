@@ -19,7 +19,7 @@ class PapersController < ApplicationController
   end
 
   def create
-    @paper = current_user.papers.new(params[:paper])
+    @paper = current_user.papers.new(paper_params)
 
     if @paper.save
       notify_excited_organizers
@@ -32,7 +32,7 @@ class PapersController < ApplicationController
   def update
     @paper = current_user.papers.find(params[:id])
 
-    if @paper.update_attributes(params[:paper])
+    if @paper.update_attributes(paper_params)
       redirect_to @paper, notice: "Well done! Your proposal has been updated."
     else
       render :edit
@@ -46,9 +46,14 @@ class PapersController < ApplicationController
     redirect_to papers_url
   end
 
-  protected
+  private
 
   def notify_excited_organizers
     PapersMailer.created(@paper.title, paper_url(@paper)).deliver
   end
+
+  def paper_params
+    params.require(:paper).permit(:title, :public_description, :private_description)
+  end
+
 end
