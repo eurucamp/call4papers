@@ -27,7 +27,6 @@ end
 
 group :development do
   gem 'debugger'
-  gem 'puma'
   gem 'heroku_san',     '~> 3.0.2'
 end
 

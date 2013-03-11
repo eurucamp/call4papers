@@ -1,1 +1,1 @@
-web: ./script/rails server puma
+web: ./script/rails server
