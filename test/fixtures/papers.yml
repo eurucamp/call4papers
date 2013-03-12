@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
-  id: MyString
-  email: MyString
-  bio: MyText
-  description: MyText
+  id: 1
+  title: Awesome talk
+  public_description: I am a Rockstar
+  private_description: Hope you like my suggestion.
+  user: rockstar
 
 two:
-  id: MyString
-  email: MyString
-  bio: MyText
-  description: MyText
+  id: 2
+  title: Not-so-awesome talk
+  public_description: I am a wannabe Rockstar.
+  private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
+  user: wannabe_rockstar

@@ -1,39 +1,32 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require bootstrap.min.css
- *= require auth-buttons
  *= require_self
- *= require papers.css.scss
+ *= require auth-buttons
  */
 
+// eurucamp 2013 colours
 $blue:              #00d2d8;
 $black:             #2e2e2e;
 $light-grey:        #596571;
 $white:             #eeeee7;
 $translucent-black: rgba(0, 0, 0, 0.5);
 
+// Bootstrap Customisations
+$textColor:         $white;
+$linkColor:         $blue;
+$sansFontFamily:    'Open Sans', sans-serif;
+$headingsFontFamily:'Lato', sans-serif;
+
+@import "bootstrap";
+
+
 body {
   padding-top: 20px;
   padding-bottom: 40px;
-  font-family: 'Open Sans', sans-serif;
   background: transparent url(/assets/background_tile.jpg);
-  color: $white;
 }
 
 h1, h2, h3 {
   text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  color: $white;
-}
-
-a {
-  color: $blue;
-  &:hover {
-    color: $blue;
-    text-decoration: underline;
-  }
 }
 
 a.root:hover {
@@ -59,8 +52,6 @@ a.root:hover h3 {
   &:active, &:hover, &.active {
     background-color: $blue;
   }
-
-
 }
 
 // navigation

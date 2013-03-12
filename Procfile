@@ -1,1 +1,1 @@
-web: ./script/rails server puma
+web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
