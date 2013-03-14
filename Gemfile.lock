@@ -47,12 +47,11 @@ GEM
       execjs
     coffee-script-source (1.6.1)
     columnize (0.3.6)
-    debugger (1.3.3)
+    debugger (1.5.0)
       columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
+      debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.0)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
+    debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -202,7 +201,7 @@ DEPENDENCIES
   active_schema
   bootstrap-sass (~> 2.3.0.1)
   coffee-rails (~> 3.2.2)
-  debugger
+  debugger (~> 1.5)
   devise (~> 2.2.3)
   heroku_san (~> 3.0.2)
   jquery-rails (~> 2.0.3)

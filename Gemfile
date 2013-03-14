@@ -24,7 +24,7 @@ gem 'jquery-rails',     '~> 2.0.3'
 gem 'unicorn'
 
 group :development do
-  gem 'debugger'
+  gem 'debugger',       '~> 1.5'
   gem 'heroku_san',     '~> 3.0.2'
 end
 
