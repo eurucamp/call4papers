@@ -10,10 +10,10 @@
   <body>
     <div class="container container-narrow">
       <div class="masthead">
-        <%= render "main/nav" %>
         <%= link_to root_path, class: 'root' do %>
           <%= image_tag('logo_small.png') %>
         <% end %>
+        <%= render "main/nav" %>
       </div>
       <hr>
       <%= render"main/alerts" %>
