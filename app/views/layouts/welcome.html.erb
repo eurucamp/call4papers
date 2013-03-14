@@ -38,12 +38,12 @@
     </script>
     <div class="container container-narrow">
       <div class="masthead">
-        <%= render "main/nav" %>
-        <h3 class="muted">eurucamp 2013 Call For Papers</h3>
-        <p>
-          european Ruby Camp taking place on <strong>16-18th August 2013</strong> in Berlin, Germany. See also <%= link_to 'main eurucamp site', 'http://2013.eurucamp.org/' %>.
+        <%= link_to 'http://2013.eurucamp.org', class: 'root' do %>
+          <%= image_tag('logo_small.png') %>
+        <% end %>
+        <p class="claim">
+          european Ruby Camp taking place on <strong>16-18th August 2013</strong> in Berlin, Germany. Go to <%= link_to 'main eurucamp site', 'http://2013.eurucamp.org/' %>.
         </p>
-
       </div>
       <hr>
       <%= render"main/alerts" %>
