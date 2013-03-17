@@ -7,7 +7,18 @@
     <div class="inputs">
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :bio, :hint => "Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here." %>
+      <%#
+        <div id="toolbar"></div>
+      %>
+      <div id="markdown-bio" class="row">
+        <div id="source" class="span5">
+          <%= f.input :bio, :hint => "Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.", input_html: { id: 'editor' } %>
+        </div>
+        <div id="preview-container" class="span4">
+          <h2>Preview</h2>
+          <div id="preview"></div>
+        </div>
+      </div>
     </div>
 
     <div class="actions">
@@ -15,3 +26,16 @@
     </div>
   <% end %>
 </div>
+
+<%#
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <div id="filename" class="span6">New File (Unsaved)</div>
+      <div class="span6">Statistics
+        <span id="stat" style="padding-left:20px"></span>
+      </div>
+    </div>
+  </div>
+</div>
+%>

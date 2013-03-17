@@ -1,0 +1,20 @@
+#markdown-bio {
+  //@extend .row;
+}
+
+#source {
+  //@extend .span6;
+  textarea {
+    width: 100%;
+  }
+}
+
+#preview-container {
+  //@extend .span6;
+  #preview {
+    margin:           5px;
+    padding:          5px;
+    background-color: white;
+    color:            black;
+  }
+}
