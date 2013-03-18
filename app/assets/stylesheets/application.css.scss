@@ -10,12 +10,14 @@ $light-grey:        #596571;
 $white:             #eeeee7;
 $translucent-black: rgba(0, 0, 0, 0.5);
 
+@import "fonts";
+
 // Bootstrap Customisations
 $textColor:         $white;
 $linkColor:         $blue;
 $linkColorHover:    $blue;
-$sansFontFamily:    'Open Sans', sans-serif;
-$headingsFontFamily:'Lato', sans-serif;
+$sansFontFamily:    'sonarnormal', sans-serif;
+$headingsFontFamily:'sonarnormal', sans-serif;
 
 @import "bootstrap";
 
