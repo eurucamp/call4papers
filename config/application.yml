@@ -2,7 +2,7 @@ defaults: &defaults
   mailers:
     from: "cfp@eurucamp.org"
     notifications:
-      - new_paper: "alex.coles@gmail.com"
+      new_paper: "alex.coles@gmail.com"
   conference:
     time_slots:
       - 15 minutes
@@ -20,13 +20,13 @@ test:
   <<: *defaults
   mailers:
     notifications:
-      - new_paper: "somebody@somewhere.com"
+      new_paper: "somebody@somewhere.com"
 
 staging:
   <<: *defaults
   mailers:
     notifications:
-      - new_paper: "pietia@appgrinder.pl"
+      new_paper: "pietia@appgrinder.pl"
 
 production:
   <<: *defaults
