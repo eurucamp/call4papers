@@ -13,6 +13,7 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'redcarpet'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',     '~> 3.2.6'
