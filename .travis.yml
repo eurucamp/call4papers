@@ -1,6 +1,6 @@
 branches:
   only:
-    - branding
+    - master
 before_script: cp config/database.yml.example config/database.yml
 language: ruby
 rvm:
