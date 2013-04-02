@@ -6,3 +6,4 @@ bin/
 coverage/
 .sass-cache/
 config/database.yml
+.env
