@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118203443) do
+ActiveRecord::Schema.define(:version => 20130402130008) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20130118203443) do
     t.text     "private_description",                    :null => false
     t.integer  "user_id",                                :null => false
     t.boolean  "selected",            :default => false, :null => false
+    t.string   "time_slot"
+    t.string   "track"
   end
 
   create_table "users", :force => true do |t|

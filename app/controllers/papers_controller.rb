@@ -53,7 +53,7 @@ class PapersController < ApplicationController
   end
 
   def paper_params
-    params.require(:paper).permit(:title, :public_description, :private_description)
+    params.require(:paper).permit(:title, :public_description, :private_description, :track, :time_slot)
   end
 
 end

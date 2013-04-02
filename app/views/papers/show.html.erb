@@ -1,12 +1,18 @@
 <h1><%= @paper.title %></h1>
 
 <div class="papers">
-  <%= markdown @paper.private_description %>
+  <h4><%= @paper.track %></h4>
 
-  <% if @paper.public_description.present? %>
-    <hr>
-    <%= markdown @paper.public_description %>
-  <% end %>
+  <div class="time-slot"><%= @paper.time_slot %></div>
+
+  <div class="descriptions">
+    <%= markdown @paper.private_description %>
+
+    <% if @paper.public_description.present? %>
+      <hr>
+      <%= markdown @paper.public_description %>
+    <% end %>
+  </div>
 </div>
 
 <% if current_user %>

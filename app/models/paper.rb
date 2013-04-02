@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :user
 
-  validates_presence_of :id, :title, :private_description
+  validates_presence_of :id, :title, :private_description, :time_slot, :track
 
   def updated?
     created_at != updated_at

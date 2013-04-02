@@ -1,0 +1,19 @@
+defaults: &defaults
+  conference:
+    time_slots:
+      - 15 minutes
+      - 30 minutes
+      - 40 minutes
+      - workshop
+    tracks:
+      - Eurucamp
+      - JRubyConf EU
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
