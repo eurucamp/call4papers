@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :name, :email, :bio, :website_url, :password, :password_confirmation, :remember_me
-
   validates :name, presence: true
   validates :email, presence: true
 

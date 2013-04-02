@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Call for Papers | wroc_love.rb 2013</title>
+    <title>Call for Papers | eurucamp 2013</title>
     <%= stylesheet_link_tag    "application" %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -38,12 +37,12 @@
     </script>
     <div class="container container-narrow">
       <div class="masthead">
-        <%= render "main/nav" %>
-        <h3 class="muted">wroc_love.rb 2013 Call For Papers</h3>
-        <p>
-          Three day, single track, community run conference in <%= link_to 'Wrocław, Poland', 'http://en.wikipedia.org/wiki/Wroc%C5%82aw' %> happenning on <strong>1-3rd March 2013</strong>. See also <%= link_to 'main conference site', 'http://www.wrocloverb.com' %>.
+        <%= link_to 'http://2013.eurucamp.org', class: 'root' do %>
+          <%= image_tag('logo_small.png') %>
+        <% end %>
+        <p class="claim">
+          european Ruby Camp taking place on <strong>16-18th August 2013</strong> in Berlin, Germany. Go to <%= link_to 'main eurucamp site', 'http://2013.eurucamp.org/' %>.
         </p>
-
       </div>
       <hr>
       <%= render"main/alerts" %>
@@ -52,20 +51,20 @@
         <h1>Show us what you've got</h1>
         <p class="lead">
           Submit your proposal and impress us. Be creative!<br>
-          And hurry up, call for papers <strong>ends on January 31st!</strong>
+          And hurry up, call for papers <strong>ends on 30th April!</strong>
         </p>
 
         <%= yield %>
 
         <div class="socialmedia">
           <div class="wrapper">
-            <div class="fb-like" data-href="http://cfp.wrocloverb.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+            <div class="fb-like" data-href="http://cfp.eurucamp.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
           </div>
           <div class="wrapper">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.wrocloverb.com" data-text="wroclove.rb call for papers ends on Jan 31rd 2013. Submit yours now!" data-via="wrocloverb" data-related="wrocloverb">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.eurucamp.org" data-text="eurucamp call for papers ends on 30th April 2013. Submit yours now!" data-via="eurucamp" data-related="eurucamp">Tweet</a>
           </div>
           <div class="wrapper">
-            <div class="g-plusone" data-size="medium" data-href="http://cfp.wrocloverb.com"></div>
+            <div class="g-plusone" data-size="medium" data-href="http://cfp.eurucamp.org"></div>
           </div>
         </div>
 
