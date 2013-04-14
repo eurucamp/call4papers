@@ -3,6 +3,8 @@ one:
   title: Awesome talk
   public_description: I am a Rockstar
   private_description: Hope you like my suggestion.
+  track: JRubyConf EU
+  time_slot: 40 minutes
   user: rockstar
 
 two:
@@ -10,4 +12,6 @@ two:
   title: Not-so-awesome talk
   public_description: I am a wannabe Rockstar.
   private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
+  track: eurucamp
+  time_slot: 20 minutes
   user: wannabe_rockstar
