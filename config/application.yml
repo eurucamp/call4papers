@@ -19,6 +19,7 @@ development:
 test:
   <<: *defaults
   mailers:
+    from: 'test@eurucamp.org'
     notifications:
       new_paper: "somebody@somewhere.com"
 
