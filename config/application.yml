@@ -26,6 +26,7 @@ test:
 staging:
   <<: *defaults
   mailers:
+    from: "cfp+staging@eurucamp.org"
     notifications:
       new_paper: "pietia@appgrinder.pl"
 
