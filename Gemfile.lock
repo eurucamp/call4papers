@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/pietia/rack-robotz.git
+  revision: b853b669e0c1defd38500451e7e0d838ad7938b9
+  specs:
+    rack-robotz (0.0.1)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -215,6 +222,7 @@ DEPENDENCIES
   omniauth-github
   omniauth-twitter
   pg
+  rack-robotz!
   rails (= 3.2.12)
   redcarpet
   sass-rails (~> 3.2.6)
