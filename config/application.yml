@@ -12,6 +12,7 @@ defaults: &defaults
     tracks:
       - "eurucamp (core)"
       - JRubyConf EU
+      - "either"
 
 development:
   <<: *defaults
