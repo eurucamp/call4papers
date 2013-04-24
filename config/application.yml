@@ -3,6 +3,10 @@ defaults: &defaults
     from: "cfp@eurucamp.org"
     notifications:
       new_paper: "alex.coles@gmail.com"
+  errors:
+    from: "exception@eurucamp.org"
+    to:
+      - "piotr@gega.io"
   conference:
     time_slots:
       - 15 minutes
@@ -29,7 +33,7 @@ staging:
   mailers:
     from: "cfp+staging@eurucamp.org"
     notifications:
-      new_paper: "pietia@appgrinder.pl"
+      new_paper: "piotr@gega.io"
 
 production:
   <<: *defaults

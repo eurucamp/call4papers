@@ -27,7 +27,7 @@ gem 'jquery-rails',     '~> 2.0.3'
 
 gem 'unicorn'
 # my PRs are waiting to be merged into main repo
-gem 'rack-robotz',  :git => 'git://github.com/pietia/rack-robotz.git'
+gem 'rack-robotz',  git: 'git://github.com/pietia/rack-robotz.git'
 
 group :development do
   gem 'debugger',       '~> 1.5'
@@ -38,4 +38,8 @@ end
 group :test do
   gem 'turn',       require: false
   gem 'simplecov',  require: false
+end
+
+group :production, :staging do
+  gem 'exception_notification', require: 'exception_notifier'
 end
