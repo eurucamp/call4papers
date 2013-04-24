@@ -61,3 +61,5 @@ module Cfp
     config.assets.initialize_on_precompile = false
   end
 end
+
+require Rails.root + "app/models/settings"
