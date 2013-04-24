@@ -2,6 +2,10 @@ class AuthenticationsController < ApplicationController
   skip_before_filter :authenticate
   layout 'welcome'
 
+  rescue_from ActionController::RedirectBackError do |exception|
+    redirect_to profile_url
+  end
+
   def index
     @paper_count = Paper.count
     @user_count  = User.count
