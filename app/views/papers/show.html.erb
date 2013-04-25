@@ -19,34 +19,4 @@
   <% if current_user.can_edit_paper?(@paper) %>
     <%= link_to 'Edit', edit_paper_path(@paper), class: 'btn btn-success' %>
   <% end %>
-
-  <% if current_user.staff? %>
-    <hr>
-    <h2><%= @user.name %></h2>
-
-    <table class="table">
-      <tr>
-        <th>Avatar</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>GitHub</th>
-        <th>Twitter</th>
-      </tr>
-      <tr>
-        <td>
-          <%= image_tag(avatar_url(@user, 64)) %>
-        </td>
-        <td><%= @user.name %></td>
-        <td><%= @user.email %></td>
-        <td>
-          <%= github_link(@user.github_handle) if @user.connected_with_github? %>
-        </td>
-        <td>
-          <%= twitter_link(@user.twitter_handle) if @user.connected_with_twitter? %>
-        </td>
-      </tr>
-    </table>
-
-    <%= markdown(@user.bio) if @user.has_bio? %>
-  <% end %>
 <% end %>
