@@ -26,8 +26,7 @@ end
 gem 'jquery-rails',     '~> 2.0.3'
 
 gem 'unicorn'
-# my PRs are waiting to be merged into main repo
-gem 'rack-robotz',  git: 'git://github.com/pietia/rack-robotz.git'
+gem 'rack-robotz',      '~> 0.0.3'
 
 group :development do
   gem 'debugger',       '~> 1.5'
