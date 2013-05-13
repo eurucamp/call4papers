@@ -3,7 +3,7 @@
 ## development
 
 * `cp .env.sample .env`
-* `cp config/database.yml.sample config/database.yml`
+* `cp config/database.yml.example config/database.yml`
 * update config files
 * run migrations
 * `bundle exec foreman start`
