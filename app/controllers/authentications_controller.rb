@@ -7,7 +7,8 @@ class AuthenticationsController < ApplicationController
   end
 
   def index
-    @paper_count = Paper.count
+    @eurucamp_paper_count  = Paper.where(track: ['either', 'eurucamp (core)']).count
+    @jrubyconf_paper_count = Paper.where(track: ['either', 'JRubyConf EU']).count
     @user_count  = User.count
   end
 

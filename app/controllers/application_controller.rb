@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_counters
-    @paper_count = Paper.count
+    @eurucamp_paper_count  = Paper.where(track: ['either', 'eurucamp (core)']).count
+    @jrubyconf_paper_count = Paper.where(track: ['either', 'JRubyConf EU']).count
     @user_count  = User.contributor.count
   end
 end
