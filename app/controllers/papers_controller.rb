@@ -24,7 +24,7 @@ class PapersController < ApplicationController
 
     if @paper.save
       notify_excited_organizers
-      redirect_to @paper, notice: "Great job! You've successfully proposed a paper for eurucamp."
+      redirect_to @paper, notice: "Great job! You've successfully proposed a paper for JRubyConf EU."
     else
       render :new
     end
