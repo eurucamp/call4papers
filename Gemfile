@@ -29,7 +29,7 @@ gem 'unicorn'
 gem 'rack-robotz',      '~> 0.0.3'
 
 group :development do
-  gem 'debugger',       '~> 1.5'
+  gem 'debugger',       '~> 1.6'
   gem 'heroku_san',     '~> 3.0.2'
   gem 'foreman'
 end
