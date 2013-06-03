@@ -10,7 +10,7 @@ Cfp::Application.routes.draw do
   }
 
   resource   :profile
-  resources  :papers
+  resources  :papers, only: [:index, :show]
   resources  :authentications
 
   namespace :admin do
