@@ -1,5 +1,5 @@
 class Paper < ActiveRecord::Base
-  EDITABLE_TRACKS = ['JRubyConf EU']
+  EDITABLE_TRACKS = []
 
   self.primary_key = 'id'
 
