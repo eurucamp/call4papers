@@ -3,5 +3,5 @@ one:
   title:        Berlin Biz Conference
   description:  Back for another year.
   instructions: Respect our anonymous CFP!
-  opens_at:     15/01/15
-  closes_at:    15/02/15
+  opens_at:     <%= 10.days.ago.to_date %>
+  closes_at:    <%= (Time.now + 10.days).to_date %>
