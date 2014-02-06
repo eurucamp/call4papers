@@ -19,7 +19,7 @@
             <%= link_to 'show', paper %>
             <% if paper.editable? %>
               <%= link_to 'edit', edit_paper_path(paper) %>
-              <%= link_to 'destroy', paper, confirm: 'Are you sure?', method: :delete %>
+              <%= link_to 'destroy', paper, data: { confirm: 'Are you sure?' }, method: :delete %>
             <% end %>
           </td>
         </tr>
