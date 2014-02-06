@@ -68,10 +68,11 @@ Cfp::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # Exception notifier
-  config.middleware.use ExceptionNotifier,
-                        :email_prefix => "[Eurucamp-cfp-staging::Exception] ",
-                        :sender_address => %{"Exception Notifier" <#{Settings.errors.from}>},
-                        :exception_recipients => Settings.errors.to
+  config.middleware.use ExceptionNotification::Rack, email: {
+                        email_prefix: "[eurucamp-cfp-staging::Exception] ",
+                        sender_address: %{"Exception Notifier" <#{Settings.errors.from}>},
+                        exception_recipients: Settings.errors.to
+                      }
 end
 
 ActionMailer::Base.smtp_settings = {

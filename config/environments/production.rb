@@ -76,10 +76,11 @@ Cfp::Application.configure do
   # config.autoflush_log = false
 
   # Exception notifier
-  config.middleware.use ExceptionNotifier,
-                        :email_prefix => "[Eurucamp-cfp::Exception] ",
+  config.middleware.use ExceptionNotification::Rack, email: {
+                        :email_prefix => "[eurucamp-cfp::Exception] ",
                         :sender_address => %{"Exception Notifier" <#{Settings.errors.from}>},
                         :exception_recipients => Settings.errors.to
+                      }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

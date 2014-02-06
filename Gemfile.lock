@@ -204,7 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger (~> 1.6.5)
   devise (~> 3.2.2)
-  exception_notification
+  exception_notification (~> 4.0.1)
   foreman
   heroku_san (~> 3.0.2)
   jquery-rails (~> 3.1.0)
