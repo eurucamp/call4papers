@@ -2,7 +2,6 @@
 db/*.sqlite3
 log/
 tmp/
-bin/
 coverage/
 .sass-cache/
 config/database.yml
