@@ -15,13 +15,13 @@ class AuthenticationsController < ApplicationController
   def create
     omniauth = request.env['omniauth.auth']
     provider, uid  = omniauth.values_at('provider', 'uid')
-    authentication = Authentication.find_by_provider_and_uid(provider, uid)
+    authentication = Authentication.find_by(provider: provider, uid: uid)
 
     if authentication
       flash[:notice] = 'Signed in successfully'
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.find_or_create_by_provider_and_uid(provider, uid)
+      current_user.authentications.find_or_create_by(provider: provider, uid: uid)
       current_user.apply_provider_handle(omniauth)
       current_user.save
       flash[:notice] = 'Connected successfully'
