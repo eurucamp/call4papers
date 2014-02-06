@@ -20,7 +20,7 @@ class PapersController < ApplicationController
 
   def create
     @paper = current_user.papers.new(paper_params)
-    @paper.track = 'JRubyConf EU'
+    @paper.track = 'Test'
 
     if @paper.save
       notify_excited_organizers

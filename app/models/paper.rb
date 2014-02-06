@@ -1,5 +1,5 @@
 class Paper < ActiveRecord::Base
-  EDITABLE_TRACKS = []
+  EDITABLE_TRACKS = ['Test']
 
   self.primary_key = 'id'
 
