@@ -1,7 +1,7 @@
 Cfp::Application.routes.draw do
   get "home/show"
 
-  match '/auth/:provider/callback' => 'authentications#create'
+  post '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users, :controllers => {
     :registrations => 'registrations',
