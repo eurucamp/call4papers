@@ -11,7 +11,7 @@ class Paper < ActiveRecord::Base
 
   validates_presence_of :id, :title, :private_description, :time_slot, :track
 
-  scope :editable, where(track: EDITABLE_TRACKS)
+  scope :editable, -> { where(track: EDITABLE_TRACKS) }
 
   def editable?
     EDITABLE_TRACKS.include?(track)
