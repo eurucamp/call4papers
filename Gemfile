@@ -36,5 +36,5 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'exception_notification', '~> 4.0.1', require: 'exception_notifier'
+  gem 'exception_notification', '~> 4.0.1'
 end
