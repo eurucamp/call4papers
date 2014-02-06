@@ -2,7 +2,7 @@ class PapersController < ApplicationController
   skip_before_filter :authenticate, only: :show
 
   def index
-    @papers = current_user.papers.order("created_at DESC").all
+    @papers = current_user.papers.order("created_at DESC")
   end
 
   def show
