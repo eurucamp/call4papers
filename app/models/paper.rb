@@ -8,6 +8,7 @@ class Paper < ActiveRecord::Base
   end
 
   belongs_to :user
+  belongs_to :call
 
   validates_presence_of :id, :title, :private_description, :time_slot, :track
 

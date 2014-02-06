@@ -6,6 +6,7 @@ one:
   track: Test
   time_slot: 40 minutes
   user: rockstar
+  call: one
 
 two:
   id: 2
@@ -15,3 +16,4 @@ two:
   track: Test
   time_slot: 20 minutes
   user: wannabe_rockstar
+  call: one
