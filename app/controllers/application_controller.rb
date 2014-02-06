@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate
   before_filter :load_counters
 
+  rescue_from(ActionController::ParameterMissing) do |exception|
+    render nothing: true, status: 400
+  end
+
   def authenticate
     redirect_to authentications_path unless user_signed_in?
   end
