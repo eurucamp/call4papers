@@ -37,4 +37,5 @@ end
 
 group :production, :staging do
   gem 'exception_notification', '~> 4.0.1'
+  gem 'rails_12factor'
 end
