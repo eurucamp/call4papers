@@ -1,5 +1,5 @@
 class Admin::PapersController < Admin::AdminController
   def index
-    @papers = Paper.order('selected DESC, created_at DESC').all
+    @papers = Paper.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
   end
 end

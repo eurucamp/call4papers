@@ -1,0 +1,7 @@
+one:
+  id:           1
+  title:        Berlin Biz Conference
+  description:  Back for another year.
+  instructions: Respect our anonymous CFP!
+  opens_at:     <%= 10.days.ago.to_date %>
+  closes_at:    <%= (Time.now + 10.days).to_date %>

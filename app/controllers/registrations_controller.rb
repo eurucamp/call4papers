@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_filter :authenticate
+  before_filter :configure_permitted_parameters
   layout 'welcome'
 
   def create
@@ -16,8 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def resource_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
   end
-
 end

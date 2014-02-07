@@ -10,12 +10,14 @@ $light-grey:        #596571;
 $white:             #eeeee7;
 $translucent-black: rgba(0, 0, 0, 0.5);
 
+@import "fonts";
+
 // Bootstrap Customisations
 $textColor:         $white;
 $linkColor:         $blue;
 $linkColorHover:    $blue;
-$sansFontFamily:    'Open Sans', sans-serif;
-$headingsFontFamily:'Lato', sans-serif;
+$sansFontFamily:    'sonarnormal', sans-serif;
+$headingsFontFamily:'sonarnormal', sans-serif;
 
 @import "bootstrap";
 
@@ -23,7 +25,7 @@ $headingsFontFamily:'Lato', sans-serif;
 body {
   padding-top: 0px;
   padding-bottom: 40px;
-  background: transparent url(/assets/background_tile.jpg);
+  background: black image-url("background_tile.jpg");
 }
 
 h1, h2, h3 {
@@ -148,6 +150,14 @@ a.root:hover h3 {
 .papers input[type=text], .papers textarea {
   width: 100%;
   margin-bottom: 30px;
+}
+
+.papers .time-slot {
+  font-size: smaller;
+}
+
+.papers .descriptions {
+  margin-top: 1em;
 }
 
 .papers table td.title {

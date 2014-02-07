@@ -1,0 +1,39 @@
+defaults: &defaults
+  mailers:
+    from: "cfp@eurucamp.org"
+    notifications:
+      new_paper: "alex.coles@gmail.com"
+  errors:
+    from: "exception@eurucamp.org"
+    to:
+      - "piotr@gega.io"
+  conference:
+    time_slots:
+      - 15 minutes
+      - 30 minutes
+      - 40 minutes
+      - workshop
+    tracks:
+      - "eurucamp (core)"
+      - JRubyConf EU
+      - "either"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  mailers:
+    from: 'test@eurucamp.org'
+    notifications:
+      new_paper: "somebody@somewhere.com"
+
+staging:
+  <<: *defaults
+  mailers:
+    from: "cfp+staging@eurucamp.org"
+    notifications:
+      new_paper: "piotr@gega.io"
+
+production:
+  <<: *defaults

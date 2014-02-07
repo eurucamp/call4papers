@@ -5,6 +5,15 @@
     <%= f.input :title, :hint => "If you already know the title that's great! Otherwise, sum up your proposal in few words here." %>
     <%= f.input :private_description, :hint => "Tell us as much as you can about the talk. To keep the CFP process anonymous, please do not include any personal indentifiable information. This description will not appear on the website, it's for you and us. You can use Markdown for better reading experience." %>
     <%= f.input :public_description, :required => false, :hint => "This will be your talk description posted on the conference website. You're encouraged to use Markdown here. Please keep personal information to your profile." %>
+
+    <div class="control-group select required">
+      <div class="select required control-label" for="paper_track"><strong>Track</strong></div>
+      <div class="controls"><p class="help-block">Select the conference track.</p>
+        JRubyConf EU
+      </div>
+    </div>
+
+    <%= f.input :time_slot, :collection => Settings.conference.time_slots, :label => 'Preferred time slot', :hint => "Is it short or long talk? Or maybe you want to run a workshop?" %>
   </div>
 
   <div class="actions">

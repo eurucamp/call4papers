@@ -1,6 +1,8 @@
 Cfp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.middleware.insert_before(::ActionDispatch::Static, ::Rack::Robotz, "User-Agent" => "*", "Disallow" => "/")
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -77,11 +79,10 @@ Cfp::Application.configure do
 
   # Exception notifier
   config.middleware.use ExceptionNotification::Rack, email: {
-                        email_prefix: "[eurucamp-cfp::Exception] ",
+                        email_prefix: "[eurucamp-cfp-staging::Exception] ",
                         sender_address: %{"Exception Notifier" <#{Settings.errors.from}>},
                         exception_recipients: Settings.errors.to
                       }
-
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 end

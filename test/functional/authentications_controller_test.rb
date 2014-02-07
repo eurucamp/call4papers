@@ -26,13 +26,21 @@ class AuthenticationsControllerTest < ActionController::TestCase
     assert_redirected_to '/'
   end
 
-  test 'should create authentication, for user already logged in' do
+  test 'should create authentication, for user already logged in (when HTTP_REFERER set)' do
     request.env['omniauth.auth']  = { provider: 'none',  uuid: 'none' }
     request.env['HTTP_REFERER']   = 'http://backtoreality/'
     sign_in users(:rockstar)
 
     post :create
     assert_redirected_to 'http://backtoreality/'
+  end
+
+  test 'should create authentication and redirect to profile (when HTTP_REFERER not set)' do
+    request.env['omniauth.auth']  = { provider: 'none',  uuid: 'none' }
+    sign_in users(:rockstar)
+
+    post :create
+    assert_redirected_to profile_path
   end
 
   test 'should create authentication when an existing authentication exists' do

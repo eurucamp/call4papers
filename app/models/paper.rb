@@ -1,4 +1,6 @@
 class Paper < ActiveRecord::Base
+  EDITABLE_TRACKS = ['Test']
+
   self.primary_key = 'id'
 
   before_validation on: :create do
@@ -6,8 +8,15 @@ class Paper < ActiveRecord::Base
   end
 
   belongs_to :user
+  belongs_to :call
 
-  validates_presence_of :id, :title, :private_description
+  validates_presence_of :id, :title, :private_description, :time_slot, :track
+
+  scope :editable, -> { where(track: EDITABLE_TRACKS) }
+
+  def editable?
+    EDITABLE_TRACKS.include?(track)
+  end
 
   def updated?
     created_at != updated_at

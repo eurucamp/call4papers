@@ -8,6 +8,7 @@
       <th>Email</th>
       <th>GitHub</th>
       <th>Twitter</th>
+      <th>Staff</th>
       <th>Bio</th>
       <th>Proposal</th>
       <th>Created at</th>
@@ -20,6 +21,7 @@
         <td class="muted"><%= user.email %></td>
         <td><%= github_link(user.github_handle) %></td>
         <td><%= twitter_link(user.twitter_handle) %></td>
+        <td><%= "✔" if user.staff? %></td>
         <td><%= "✔" if user.has_bio? %></td>
         <td><%= "✔" if user.has_proposal? %></td>
         <td><%= user.created_at.strftime("%B %d, %Y") %></td>
