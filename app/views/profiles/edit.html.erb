@@ -1,4 +1,4 @@
-<h1>Edit profile and bio</h1>
+<h1><%= t('.title') %></h1>
 
 <div class="profile">
   <%= simple_form_for @user, :url => profile_path do |f| %>
@@ -7,7 +7,7 @@
     <div class="inputs">
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :bio, :hint => "Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here." %>
+      <%= f.input :bio %>
     </div>
 
     <div class="actions">

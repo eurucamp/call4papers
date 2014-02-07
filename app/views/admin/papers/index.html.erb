@@ -1,4 +1,4 @@
-<h1>All papers</h1>
+<h1><%= t('.title') %></h1>
 
 <div class="papers">
   <% if @papers.empty? %>
@@ -6,12 +6,12 @@
   <% else %>
     <table class="table">
       <tr>
-        <th>Track</th>
-        <th>Time Slot</th>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Created at</th>
-        <th>Updated at</th>
+        <th><%= t('activerecord.models.attributes.paper.track') %></th>
+        <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
+        <th><%= t('activerecord.models.attributes.paper.id') %></th>
+        <th><%= t('activerecord.models.attributes.paper.title') %></th>
+        <th><%= t('activerecord.models.attributes.paper.created_at') %></th>
+        <th><%= t('activerecord.models.attributes.paper.updated_at') %></th>
       </tr>
 
       <% @papers.each do |paper| %>

@@ -1,23 +1,57 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  simple_form:
+    hints:
+      paper:
+        private_description: Tell us as much as you can about the talk. To keep the CFP process anonymous, please do not include any personal indentifiable information. This description will not appear on the website, it's for you and us. You can use Markdown for better reading experience.
+        public_description: This will be your talk description posted on the conference website. You're encouraged to use Markdown here. Please keep personal information to your profile.
+        title: If you already know the title that's great! Otherwise, sum up your proposal in few words here.
+        time_slot: Is it short or long talk? Or maybe you want to run a workshop?
+      user:
+        bio: Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.
+    labels:
+      paper:
+        time_slot: Preferred time slot
+    required:
+      html: <abbr title="required">*</abbr>
+  activerecord:
+    models:
+      attributes:
+        user:
+          bio: Bio
+          github_handle: GitHub
+          twitter_handle: Twitter
+          id: ID
+        paper:
+          id: ID
+  profiles:
+    show:
+      title: My profile
+    edit:
+      title: Edit profile and bio
+  papers:
+    edit:
+      title: Editing proposal
+    index:
+      title: My papers
+    new:
+      title: New paper proposal
+  nav:
+    main:
+      papers: Papers
+      logout: Logout
+      profile: Profile
+  admin:
+    users:
+      index:
+        title: All users
+    papers:
+      index:
+        title: All papers
+  home:
+    show:
+      title: Great to see you here
+  footer:
+    explanatory_html: |-
+      This community event is proudly organized by <a href="http://rubyberlin.org/">Ruby Berlin e.V.</a>
+      <span class="separator">·</span>
+      When in doubt, shoot an email to <a href="mailto:info@eurucamp.org">info@eurucamp.org</a>

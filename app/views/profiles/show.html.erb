@@ -1,13 +1,13 @@
-<h1>My profile</h1>
+<h1><%= t('.title') %></h1>
 
 <div class="profile">
   <table class="table">
     <tr>
-      <th>Avatar</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>GitHub</th>
-      <th>Twitter</th>
+      <th><%= t('activerecord.models.attributes.user.avatar') %></th>
+      <th><%= t('activerecord.models.attributes.user.name') %></th>
+      <th><%= t('activerecord.models.attributes.user.email') %></th>
+      <th><%= t('activerecord.models.attributes.user.github_handle') %></th>
+      <th><%= t('activerecord.models.attributes.user.twitter_handle') %></th>
     </tr>
     <tr>
       <td>
@@ -34,7 +34,7 @@
 
 </div>
 <div class="bio">
-  <h2>Bio</h2>
+  <h2><%= t('activerecord.models.attributes.user.bio') %></h2>
 
   <% if @user.has_bio? %>
     <%= markdown(@user.bio) %>
