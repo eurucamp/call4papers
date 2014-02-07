@@ -6,6 +6,7 @@
   <% else %>
     <table class="table">
       <tr>
+        <th>Call</th>
         <th>Title</th>
         <th>Created at</th>
         <th></th>
@@ -13,6 +14,7 @@
 
       <% @papers.each do |paper| %>
         <tr>
+          <td class="call"><%= paper.call_title %></td>
           <td class="title"><%= paper.title %></td>
           <td><%= paper.created_at.strftime('%B %d, %Y') %></td>
           <td>
@@ -27,5 +29,3 @@
     </table>
   <% end %>
 </div>
-
-<%= link_to 'New proposal', new_paper_path, class: 'btn btn-info' %>

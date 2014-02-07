@@ -10,7 +10,10 @@ Cfp::Application.routes.draw do
   }
 
   resource   :profile
-  resources  :papers
+  resources  :calls do
+    resources :papers, only: [:new, :create]
+  end
+  resources  :papers,  only: [:index, :show, :edit, :update, :destroy]
   resources  :authentications
 
   namespace :admin do

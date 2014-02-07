@@ -1,6 +1,4 @@
 class Paper < ActiveRecord::Base
-  EDITABLE_TRACKS = ['Test']
-
   self.primary_key = 'id'
 
   before_validation on: :create do
@@ -10,12 +8,16 @@ class Paper < ActiveRecord::Base
   belongs_to :user
   belongs_to :call
 
-  validates_presence_of :id, :title, :private_description, :time_slot, :track
+  validates :id, :title, :private_description, :time_slot, presence: true
+  validates :call, :user, presence: true
 
-  scope :editable, -> { where(track: EDITABLE_TRACKS) }
+  scope :for_open_call, -> { joins(:call).merge(Call.open) }
+  scope :editable, -> { for_open_call.readonly(false) }
+
+  delegate :title, :open?, to: :call, prefix: :call
 
   def editable?
-    EDITABLE_TRACKS.include?(track)
+    call_open?
   end
 
   def updated?

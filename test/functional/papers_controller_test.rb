@@ -4,6 +4,7 @@ class PapersControllerTest < ActionController::TestCase
   setup do
     @request.env['devise.mapping'] = Devise.mappings[:user]
     @paper = papers(:one)
+    @call  = calls(:one)
     sign_in users(:rockstar)
   end
 
@@ -14,25 +15,25 @@ class PapersControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, call_id: @call.id
     assert_response :success
   end
 
   test "should create paper" do
     assert_difference('Paper.count') do
-      post :create, paper: @paper.attributes
+      post :create, paper: @paper.attributes, call_id: @call.id
     end
 
     assert_redirected_to paper_path(assigns(:paper))
   end
 
   test 'should not create a paper given an invalid request' do
-    post :create, paper: {}
+    post :create, paper: {}, call_id: @call.id
     assert_response 400
   end
 
   test 'should not create a paper given invalid attributes' do
-    post :create, paper: { title: nil }
+    post :create, paper: { title: nil }, call_id: @call.id
     assert_response :success
     assert_template :new
   end

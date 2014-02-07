@@ -1,15 +1,18 @@
 <h1>Great to see you here</h1>
 
-<div class="rules">
-  <p>Our 2013 Call for Proposals has now ended. We have really enjoyed reading
-    your proposals.</p>
-
-  <p>Our notification process began at the end of May. We strive to write to
-    each proposer personally. If you haven't heard from us yet, you should
-  expect to hear from us by the second week of June.</p>
-
-  <%= link_to 'Full details of our CFP process are here', 'http://2013.eurucamp.org/cfp' %>
-</div>
+<% if @open_calls.empty? %>
+  <p>There are currently no open calls for proposals.</p>
+<% else %>
+  <h2>Open Calls</h2>
+  <% @open_calls.each do |call| %>
+    <div class="rules">
+      <h3><%= call.title %></h3>
+      <p>Open until <%= call.closes_at %></p>
+      <p><%= call.description %></p>
+      <p><%= link_to 'New proposal', new_call_paper_path(call_id: call.id), class: 'btn btn-info' %></p>
+    </div>
+  <% end %>
+<% end %>
 
 <%= link_to 'Go to proposals', papers_path, class: 'btn btn-info' %>
 <%= link_to 'Tell us more about yourself', profile_path, class: 'btn btn-info' %>
