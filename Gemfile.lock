@@ -66,6 +66,7 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    gli (2.5.6)
     hashie (2.0.5)
     heroku (3.3.0)
       heroku-api (~> 0.3.17)
@@ -92,6 +93,12 @@ GEM
     kgio (2.9.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    localeapp (0.6.9)
+      gli
+      i18n
+      json
+      rest-client
+      ya2yaml
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -200,6 +207,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    ya2yaml (0.31)
 
 PLATFORMS
   ruby
@@ -213,6 +221,7 @@ DEPENDENCIES
   foreman
   heroku_san (~> 3.0.2)
   jquery-rails (~> 3.1.0)
+  localeapp
   newrelic_rpm
   omniauth
   omniauth-github

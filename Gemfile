@@ -23,6 +23,7 @@ gem 'jquery-rails',     '~> 3.1.0'
 
 gem 'unicorn'
 gem 'rack-robotz',      '~> 0.0.3'
+gem 'localeapp'
 
 group :development do
   gem 'debugger',       '~> 1.6.5'
