@@ -7,6 +7,7 @@ class CallTest < ActiveSupport::TestCase
   end
 
   setup do
+    Paper.delete_all
     Call.delete_all
   end
 
