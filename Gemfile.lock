@@ -63,6 +63,8 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    foreigner (1.6.1)
+      activerecord (>= 3.0.0)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -84,6 +86,9 @@ GEM
       rake
     hike (1.2.3)
     i18n (0.6.9)
+    immigrant (0.1.5)
+      activerecord (>= 3.0)
+      foreigner (>= 1.2.1)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -218,8 +223,10 @@ DEPENDENCIES
   debugger (~> 1.6.5)
   devise (~> 3.2.2)
   exception_notification (~> 4.0.1)
+  foreigner
   foreman
   heroku_san (~> 3.0.2)
+  immigrant
   jquery-rails (~> 3.1.0)
   localeapp
   newrelic_rpm
