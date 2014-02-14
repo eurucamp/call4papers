@@ -9,13 +9,13 @@ class Admin::AdminController < ApplicationController
 
   protected
 
-  def build_csv(object, columns)
+  def build_csv(records, columns)
     require 'csv'
 
     csv_response = CSV.generate do |csv|
-      csv << columns.map { |col| object.human_attribute_name(col) }
-      object.each do |paper|
-        csv << columns.map { |col| paper.send(col) }
+      csv << columns.map { |col| records.human_attribute_name(col) }
+      records.each do |record|
+        csv << columns.map { |col| record.send(col) }
       end
     end
   end
