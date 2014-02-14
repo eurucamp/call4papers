@@ -30,5 +30,7 @@
   </table>
 </div>
 
+<%= link_to 'Export (CSV)', export_admin_users_path(format: 'csv') %>
+
 <%= link_to "Users", admin_users_path, class: 'btn btn-success' %>
 <%= link_to "Papers", admin_papers_path, class: 'btn btn-success' %>
