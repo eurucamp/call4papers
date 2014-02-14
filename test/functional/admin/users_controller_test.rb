@@ -19,8 +19,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_response :success
 
     csv = CSV.parse(response.body, headers: true)
-    assert_equal 'id',    csv.headers[0]
-    assert_equal 'name',  csv.headers[1]
+    assert_equal 'Id',    csv.headers[0]
+    assert_equal 'Name',  csv.headers[1]
     assert_equal 3,       csv.size
   end
 end

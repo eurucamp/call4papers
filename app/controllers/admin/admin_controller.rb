@@ -13,7 +13,7 @@ class Admin::AdminController < ApplicationController
     require 'csv'
 
     csv_response = CSV.generate do |csv|
-      csv << columns
+      csv << columns.map { |col| object.human_attribute_name(col) }
       object.each do |paper|
         csv << columns.map { |col| paper.send(col) }
       end
