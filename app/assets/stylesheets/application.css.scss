@@ -1,5 +1,7 @@
 /*
  *= require_self
+ //= require foundation_and_overrides
+
  *= require auth-buttons
  */
 
@@ -18,8 +20,6 @@ $linkColor:         $blue;
 $linkColorHover:    $blue;
 $sansFontFamily:    'sonarnormal', sans-serif;
 $headingsFontFamily:'sonarnormal', sans-serif;
-
-@import "bootstrap";
 
 
 body {
