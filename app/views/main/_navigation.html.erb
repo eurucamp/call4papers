@@ -1,0 +1,19 @@
+<%# navigation styled for Zurb Foundation 5 %>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to 'Call for Papers', root_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+  <div class="top-bar-section">
+    <% if current_user %>
+      <ul class="left">
+        <%= render 'main/navigation_links' %>
+      </ul>
+      <ul class="right">
+        <li><%= link_to t('nav.main.logout'), destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

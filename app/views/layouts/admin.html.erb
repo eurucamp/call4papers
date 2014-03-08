@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Call for Papers | eurucamp 2013</title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Call for Papers | eurucamp" %></title>
+
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container container-wide">
-      <div class="masthead">
-        <%= render "main/nav" %>
-        <%= link_to root_path, class: 'root' do %>
-          <h3 class="muted">eurucamp 2013 Call For Papers</h3>
-        <% end %>
-      </div>
-      <hr>
-      <%= render"main/alerts" %>
+    <header>
+      <%= render 'main/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'main/messages' %>
       <%= yield %>
-      <%= render "main/footer" %>
-    </div>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-24474861-2']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    </main>
+    <%= javascript_include_tag "application" %>
+    <%= render 'main/footer' %>
   </body>
 </html>

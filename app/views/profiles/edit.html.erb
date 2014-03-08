@@ -1,4 +1,4 @@
-<h1>Edit profile and bio</h1>
+<h1><%= t('.title') %></h1>
 
 <div class="profile">
   <%= simple_form_for @user, :url => profile_path do |f| %>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="actions">
-      <%= f.button :submit, class: 'btn btn-info' %>
+      <%= f.button :submit, class: 'button' %>
     </div>
   <% end %>
 </div>

@@ -17,6 +17,6 @@
 
 <% if current_user %>
   <% if current_user.can_edit_paper?(@paper) && @paper.editable? %>
-    <%= link_to 'Edit', edit_paper_path(@paper), class: 'btn btn-success' %>
+    <%= link_to 'Edit', edit_paper_path(@paper), class: 'button' %>
   <% end %>
 <% end %>

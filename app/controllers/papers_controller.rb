@@ -11,6 +11,7 @@ class PapersController < ApplicationController
   end
 
   def new
+    @call  = Call.find(params[:call_id])
     @paper = current_user.papers.new
   end
 
@@ -19,7 +20,9 @@ class PapersController < ApplicationController
   end
 
   def create
+    @call  = Call.find(params[:call_id])
     @paper = current_user.papers.new(paper_params)
+    @paper.call  = @call
     @paper.track = 'Test'
 
     if @paper.save
@@ -54,7 +57,7 @@ class PapersController < ApplicationController
   end
 
   def paper_params
-    params.require(:paper).permit(:title, :public_description, :private_description, :time_slot, :call_id)
+    params.require(:paper).permit(:title, :public_description, :private_description, :time_slot)
   end
 
 end

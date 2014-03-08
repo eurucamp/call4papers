@@ -1,10 +1,10 @@
-<%= simple_form_for @paper do |f| %>
+<%= simple_form_for [@call, @paper] do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :title, :hint => "If you already know the title that's great! Otherwise, sum up your proposal in few words here." %>
-    <%= f.input :private_description, :hint => "Tell us as much as you can about the talk. To keep the CFP process anonymous, please do not include any personal indentifiable information. This description will not appear on the website, it's for you and us. You can use Markdown for better reading experience." %>
-    <%= f.input :public_description, :required => false, :hint => "This will be your talk description posted on the conference website. You're encouraged to use Markdown here. Please keep personal information to your profile." %>
+    <%= f.input :title %>
+    <%= f.input :private_description %>
+    <%= f.input :public_description, :required => false %>
 
     <div class="control-group select required">
       <div class="select required control-label" for="paper_track"><strong>Track</strong></div>
@@ -13,10 +13,10 @@
       </div>
     </div>
 
-    <%= f.input :time_slot, :collection => Settings.conference.time_slots, :label => 'Preferred time slot', :hint => "Is it short or long talk? Or maybe you want to run a workshop?" %>
+    <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, class: 'btn btn-info' %>
+    <%= f.button :submit, class: 'button' %>
   </div>
 <% end %>

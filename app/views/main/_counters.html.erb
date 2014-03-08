@@ -1,12 +1,14 @@
 <div class="counters">
   <span>
-    <h1 class="muted"><%= @eurucamp_paper_count %></h1>
-    <small>papers submitted to eurucamp</small>
+    <h1 class="muted"><%= @paper_counts.size %></h1>
+    <small>open calls have received papers</small>
   </span>
+  <% @paper_counts.each do |call, count| %>
   <span>
-    <h1 class="muted"><%= @jrubyconf_paper_count %></h1>
-    <small>papers submitted to JRubyConf EU</small>
+    <h1 class="muted"><%= count %></h1>
+    <small>papers<br/><%= call.title %></small>
   </span>
+  <% end %>
   <span>
     <h1 class="muted"><%= @user_count %></h1>
     <small>users registered</small>
