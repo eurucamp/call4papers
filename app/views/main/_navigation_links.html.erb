@@ -1,0 +1,5 @@
+<% if current_user %>
+  <li><%= link_to t('nav.main.papers'), papers_path %></li>
+  <li><%= link_to t('nav.main.profile'), profile_path %></li>
+  <li><%= link_to t('nav.main.logout'), destroy_user_session_path, method: :delete %></li>
+<% end %>

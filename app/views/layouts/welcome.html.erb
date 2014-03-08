@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Call for Papers | eurucamp 2013</title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Call for Papers | eurucamp" %></title>
+
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div id="fb-root"></div>
-    <script>
+    <header>
+      <%# render 'main/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'main/messages' %>
+      <%= yield %>
+
+      <div class="socialmedia">
+        <div class="wrapper">
+          <div class="fb-like" data-href="http://cfp.eurucamp.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+        </div>
+        <div class="wrapper">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.eurucamp.org" data-text="eurucamp call for papers ends on 15th May 2013. Submit yours now!" data-via="eurucamp" data-related="eurucamp">Tweet</a>
+        </div>
+        <div class="wrapper">
+          <div class="g-plusone" data-size="medium" data-href="http://cfp.eurucamp.org"></div>
+        </div>
+      </div>
+    </main>
+    <%= render 'main/footer' %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">
       (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -35,43 +60,5 @@
       // Twitter
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     </script>
-    <div class="container container-narrow">
-      <div class="masthead">
-        <%= link_to 'http://2013.eurucamp.org', class: 'root' do %>
-          <%= image_tag('logo_small.png') %>
-        <% end %>
-        <p class="claim">
-          european Ruby Camp taking place on <strong>16-18th August 2013</strong> in Berlin, Germany. Go to <%= link_to 'main eurucamp site', 'http://2013.eurucamp.org/' %>.
-        </p>
-      </div>
-      <hr>
-      <%= render"main/alerts" %>
-
-      <div class="jumbotron">
-        <h1>Show us what you've got</h1>
-  <p>Our 2013 Call for Proposals has now ended. We have really enjoyed reading
-    your proposals.</p>
-
-  <p>Our notification process began at the end of May. We strive to write to
-    each proposer personally. If you haven't heard from us yet, you should
-  expect to hear from us by the second week of June.</p>
-
-        <%= yield %>
-
-        <div class="socialmedia">
-          <div class="wrapper">
-            <div class="fb-like" data-href="http://cfp.eurucamp.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-          </div>
-          <div class="wrapper">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.eurucamp.org" data-text="eurucamp call for papers ends on 15th May 2013. Submit yours now!" data-via="eurucamp" data-related="eurucamp">Tweet</a>
-          </div>
-          <div class="wrapper">
-            <div class="g-plusone" data-size="medium" data-href="http://cfp.eurucamp.org"></div>
-          </div>
-        </div>
-
-      </div>
-      <%= render "main/footer" %>
-    </div>
   </body>
 </html>

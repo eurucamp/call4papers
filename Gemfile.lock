@@ -160,6 +160,7 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_layout (1.0.11)
     rails_serve_static_assets (0.0.1)
     rails_stdout_logging (0.0.1)
     railties (4.0.2)
@@ -241,6 +242,7 @@ DEPENDENCIES
   rack-robotz (~> 0.0.3)
   rails (= 4.0.2)
   rails_12factor
+  rails_layout
   redcarpet
   sass-rails (~> 4.0.0)
   settingslogic
