@@ -19,14 +19,14 @@
         <% if @user.connected_with_github? %>
           <%= github_link(@user.github_handle) %>
         <% else %>
-          <a class="btn-auth btn-github" href="/auth/github">connect <b>GitHub</b></a>
+          <a class="button-auth button-github" href="/auth/github">connect <b>GitHub</b></a>
         <% end %>
       </td>
       <td>
         <% if @user.connected_with_twitter? %>
           <%= twitter_link(@user.twitter_handle) %>
         <% else %>
-          <a class="btn-auth btn-twitter" href="/auth/twitter">connect <b>Twitter</b></a>
+          <a class="button-auth button-twitter" href="/auth/twitter">connect <b>Twitter</b></a>
         <% end %>
       </td>
     </tr>
@@ -43,4 +43,4 @@
   <% end %>
 </div>
 
-<%= link_to "Edit profile and bio", edit_profile_path, class: 'btn btn-info' %>
+<%= link_to "Edit profile and bio", edit_profile_path, class: 'button' %>
