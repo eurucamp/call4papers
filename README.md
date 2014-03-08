@@ -4,7 +4,7 @@
 
 * `cp .env.sample .env`
 * `cp config/database.yml.example config/database.yml`
-* update config files
+* update config files. You should register on Localeapp for an API key and add your personal `LOCALE_API_KEY`. 
 * run migrations
 * `bundle exec foreman start`
 
