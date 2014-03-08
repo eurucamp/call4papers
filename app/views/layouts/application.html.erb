@@ -19,9 +19,10 @@
       <%= yield %>
     </main>
     <%= render 'main/footer' %>
+    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "http://api.filepicker.io/v0/filepicker.js" %>
     <%= javascript_include_tag "markdown-editor" %>
-    <%= javascript_include_tag "application" %>
+
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-24474861-2']);
