@@ -1,0 +1,40 @@
+<h1><%= t('.title') %></h1>
+
+<div class="proposed_speakers">
+  <% if @proposed_speakers.empty? %>
+    <%= t('.no_proposed_speaker_yet') %>
+  <% else %>
+    <table class="table">
+      <tr>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.speaker_name') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.speaker_email') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.reason') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.call_title') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.created_at') %></th>
+        <th></th>
+      </tr>
+
+      <% @proposed_speakers.each do |proposed_speaker| %>
+        <tr>
+          <td class="call"><%= proposed_speaker.speaker_name %></td>
+          <td class="title"><%= proposed_speaker.speaker_email %></td>
+          <td class="title"><%= proposed_speaker.reason %></td>
+          <td class="title"><%= proposed_speaker.call_title %></td>
+          <td><%= proposed_speaker.created_at.strftime('%B %d, %Y') %></td>
+          <td>
+            <%= link_to t('.remove_proposal'), proposed_speaker, data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<% @open_calls.each do |call| %>
+  <div class="rules">
+    <h3><%= call.title %></h3>
+    <p>Open until <%= call.closes_at %></p>
+    <p><%= call.description %></p>
+    <p><%= link_to t('.propose_speaker'), new_call_proposed_speaker_path(call_id: call.id), class: 'button' %></p>
+  </div>
+<% end %>

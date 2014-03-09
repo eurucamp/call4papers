@@ -1,0 +1,39 @@
+<h1><%= t('.title') %></h1>
+
+<div class="proposed_speakers">
+  <% if @proposed_speakers.empty? %>
+    No submissions yet.
+  <% else %>
+    <table class="table">
+      <tr>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.inviter_id') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.inviter_name') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.inviter_email') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.speaker_name') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.speaker_email') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.reason') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.call_title') %></th>
+        <th><%= t('activerecord.models.attributes.proposed_speakers.created_at') %></th>
+     </tr>
+
+      <% @proposed_speakers.each do |proposed_speaker| %>
+        <tr>
+          <td class="call"><%= proposed_speaker.inviter_id %></td>
+          <td class="call"><%= proposed_speaker.inviter_name %></td>
+          <td class="title"><%= proposed_speaker.inviter_email %></td>
+          <td class="call"><%= proposed_speaker.speaker_name %></td>
+          <td class="title"><%= proposed_speaker.speaker_email %></td>
+          <td class="title"><%= proposed_speaker.reason %></td>
+          <td class="title"><%= proposed_speaker.call_title %></td>
+          <td><%= proposed_speaker.created_at.strftime('%B %d, %Y') %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<%= link_to 'Export (CSV)', export_admin_proposed_speakers_path(format: 'csv') %>
+
+<%= link_to "Users", admin_users_path, class: 'button' %>
+<%= link_to "Papers", admin_papers_path, class: 'button' %>
+<%= link_to "Proposed Speakers", admin_proposed_speakers_path, class: 'button' %>

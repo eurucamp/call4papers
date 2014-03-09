@@ -34,6 +34,9 @@ en:
           gender: Gender
         paper:
           id: ID
+        proposed_speakers:
+          created_at: Proposed at
+          call_title: Call
   profiles:
     show:
       title: My profile
@@ -51,6 +54,7 @@ en:
       papers: Papers
       logout: Logout
       profile: Profile
+      proposed_speakers: Proposed Speakers
   admin:
     users:
       index:
@@ -61,8 +65,23 @@ en:
   home:
     show:
       title: Great to see you here
+      propose_speaker: Propose a Speaker
   footer:
     explanatory_html: |-
       This community event is proudly organized by <a href="http://rubyberlin.org/">Ruby Berlin e.V.</a>
       <span class="separator">·</span>
       When in doubt, shoot an email to <a href="mailto:info@eurucamp.org">info@eurucamp.org</a>
+  proposed_speakers:
+    create:
+      notice: Great Job! You have successfully proposed a speaker.
+    new:
+      title: Propose a speaker
+      description: When you propose a speaker, you'll be assigned as their mentor.
+    index:
+      no_proposed_speaker_yet: No proposed speaker yet? This is your chance!
+      title: Proposed Speakers
+      remove_proposal: Remove proposal
+  helpers:
+    submit:
+      proposed_speaker:
+        create: Propose speaker

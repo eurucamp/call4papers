@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-
   GENDERS = ["male", "female", "unspecified"]
 
-  has_many :authentications
-  has_many :papers
+  has_many :authentications, dependent: :destroy
+  has_many :papers, dependent: :destroy
+  has_many :proposed_speakers, foreign_key: :inviter_id, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
