@@ -6,6 +6,7 @@ en:
         public_description: This will be your talk description posted on the conference website. You're encouraged to use Markdown here. Please keep personal information to your profile.
         title: If you already know the title that's great! Otherwise, sum up your proposal in few words here.
         time_slot: Is it short or long talk? Or maybe you want to run a workshop?
+        mentor_name: If you already have a mentor, please enter the name, twitter handle or email address
       user:
         bio: Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.
         gender: The gender field is only for outreach and statistical purposes
