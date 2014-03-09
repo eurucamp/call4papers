@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
+
+  GENDERS = ["male", "female", "unspecified"]
+
   has_many :authentications
   has_many :papers
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+        :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
   validates :email, presence: true
@@ -54,5 +57,13 @@ class User < ActiveRecord::Base
 
   def has_proposal?
     ! papers.empty?
+  end
+
+  def gender=(gender)
+    write_attribute(:gender, GENDERS.index(gender))
+  end
+
+  def gender
+    GENDERS[read_attribute(:gender)] if read_attribute(:gender)
   end
 end
