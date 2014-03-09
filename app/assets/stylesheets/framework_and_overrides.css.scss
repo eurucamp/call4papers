@@ -1,4 +1,8 @@
-// import the CSS framework
+@import "fonts";
+
+$body-font-family:   'sonarnormal', sans-serif;
+$header-font-family: 'sonarnormal', sans-serif;
+
 @import "foundation";
 
 // override for the 'Home' navigation link
