@@ -3,6 +3,7 @@ class PapersController < ApplicationController
 
   def index
     @papers = current_user.papers.order("created_at DESC")
+    @open_calls = Call.open
   end
 
   def show
@@ -27,7 +28,7 @@ class PapersController < ApplicationController
 
     if @paper.save
       notify_excited_organizers
-      redirect_to @paper, notice: "Great job! You've successfully proposed a paper for JRubyConf EU."
+      redirect_to @paper, notice: "Great job! You've successfully proposed a paper."
     else
       render :new
     end

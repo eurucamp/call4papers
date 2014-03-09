@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inviter_id: 1
+  speaker_name: MyString
+  speaker_email: MyString
+  reason: MyText
+
+two:
+  inviter_id: 1
+  speaker_name: MyString
+  speaker_email: MyString
+  reason: MyText

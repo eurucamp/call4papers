@@ -3,6 +3,7 @@ class Call < ActiveRecord::Base
   validates :title, uniqueness: true
 
   has_many :papers
+  has_many :proposed_speakers
 
   def self.open(now = Time.zone.now)
     where('closes_at >= ? AND (opens_at IS NULL OR opens_at <= ?)', now, now)

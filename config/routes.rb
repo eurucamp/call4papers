@@ -12,11 +12,18 @@ Cfp::Application.routes.draw do
   resource   :profile
   resources  :calls do
     resources :papers, only: [:new, :create]
+    resources :proposed_speakers, only: [:new, :create]
   end
   resources  :papers,  only: [:index, :show, :edit, :update, :destroy]
+  resources  :proposed_speakers, only: [:destroy, :index]
   resources  :authentications
 
   namespace :admin do
+    resources :proposed_speakers, only: [:index] do
+      collection do
+        get :export
+      end
+    end
     resources :papers do
       collection do
         get :export
