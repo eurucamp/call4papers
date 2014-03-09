@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :bio, :website_url, :password,
-                                 :password_confirmation, :remember_me, :gender)
+                                 :password_confirmation, :remember_me, :gender, :mentor)
   end
 
 end
