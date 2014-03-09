@@ -11,6 +11,8 @@ en:
     labels:
       paper:
         time_slot: Preferred time slot
+      user:
+        mentor: I am willing to mentor
     required:
       html: <abbr title="required">*</abbr>
   activerecord:

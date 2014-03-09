@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :mentor, inclusion: { in: [true, false] }
 
   scope :staff,       -> { where(staff: true) }
   scope :contributor, -> { where(staff: nil)  }
