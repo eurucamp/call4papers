@@ -20,7 +20,7 @@ gem 'newrelic_rpm'
 gem 'settingslogic'
 
 gem 'sass-rails',       '~> 4.0.0'
-gem 'bootstrap-sass',   '~> 2.3.0.1'
+gem 'foundation-rails'
 gem 'coffee-rails',     '~> 4.0.0'
 gem 'uglifier',         '>= 1.0.3'
 
@@ -34,6 +34,7 @@ group :development do
   gem 'debugger',       '~> 1.6.6'
   gem 'heroku_san',     '~> 3.0.2'
   gem 'foreman'
+  gem 'rails_layout'
 end
 
 group :test do

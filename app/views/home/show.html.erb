@@ -9,10 +9,10 @@
       <h3><%= call.title %></h3>
       <p>Open until <%= call.closes_at %></p>
       <p><%= call.description %></p>
-      <p><%= link_to 'New proposal', new_call_paper_path(call_id: call.id), class: 'btn btn-info' %></p>
+      <p><%= link_to 'New proposal', new_call_paper_path(call_id: call.id), class: 'button' %></p>
     </div>
   <% end %>
 <% end %>
 
-<%= link_to 'Go to proposals', papers_path, class: 'btn btn-info' %>
-<%= link_to 'Tell us more about yourself', profile_path, class: 'btn btn-info' %>
+<%= link_to 'Go to proposals', papers_path, class: 'button' %>
+<%= link_to 'Tell us more about yourself', profile_path, class: 'button' %>

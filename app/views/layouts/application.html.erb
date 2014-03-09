@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Call for Papers | eurucamp 2013</title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Call for Papers | eurucamp" %></title>
+
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container container-narrow">
-      <div class="masthead">
-        <%= link_to root_path, class: 'root' do %>
-          <%= image_tag('logo_small.png') %>
-        <% end %>
-        <%= render "main/nav" %>
-      </div>
-      <hr>
-      <%= render"main/alerts" %>
+    <header>
+      <%= render 'main/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'main/messages' %>
       <%= yield %>
-      <%= render "main/footer" %>
-    </div>
+    </main>
+    <%= render 'main/footer' %>
+    <%= javascript_include_tag "application" %>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-24474861-2']);
