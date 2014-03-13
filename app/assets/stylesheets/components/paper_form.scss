@@ -1,0 +1,49 @@
+form.edit_paper, form.new_paper {
+  label {
+    font-size: 1.5em;
+
+    abbr {
+      color: #999;
+    }
+  }
+  .hint {
+    color: #999;
+  }
+  input, textarea, select {
+    margin-bottom: 0;
+    font-size: 1rem;
+    height: auto;
+  }
+
+  div.input.error {
+    small {
+      font-size: 1em;
+      margin: 5px 0;
+      display: block;
+      font-weight: bold;
+    }
+  }
+
+  // note to whoever has to read this code: sorry but i'm tired
+  label.boolean {
+    font-size: 1rem;
+
+    input {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+
+  div.input.paper_terms_and_conditions {
+    margin-bottom: 10px;
+
+    &.error input {
+      margin-bottom: 0 !important;
+    }
+
+    label {
+      display: inline-block;
+      font-size: 1rem;
+    }
+  }
+}

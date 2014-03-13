@@ -28,4 +28,8 @@ module ApplicationHelper
     return twitter_avatar_url(user.twitter_handle) if user.twitter_handle
     gravatar_avatar_url(user, size)
   end
+
+  def human_date_with_timezone(datetime)
+    datetime.strftime("%e %B %Y, %l %P %Z")
+  end
 end

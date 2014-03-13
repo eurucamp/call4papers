@@ -8,7 +8,7 @@
       <%= f.input :name %>
       <%= f.input :email %>
       <%= f.input :bio %>
-      <%= f.input :gender, collection: [:male, :female, :unspecified] %>
+      <%= f.input :gender, collection: [:male, :female, :unspecified], include_blank: '(leave empty)' %>
       <%= f.input :mentor %>
     </div>
 

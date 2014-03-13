@@ -54,7 +54,7 @@ en:
       papers: Papers
       logout: Logout
       profile: Profile
-      proposed_speakers: Proposed Speakers
+      proposed_speakers: Proposed speakers
   admin:
     users:
       index:
@@ -65,7 +65,7 @@ en:
   home:
     show:
       title: Hi, %{name}! Great to see you here
-      propose_speaker: Propose a Speaker
+      propose_speaker: Propose a speaker
   footer:
     explanatory_html: |-
       This community event is proudly organized by <a href="http://rubyberlin.org/">Ruby Berlin e.V.</a>

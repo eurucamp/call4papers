@@ -1,24 +1,27 @@
-<div class="auth">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+<div class="small-6 small-centered columns">
+  <h2>Welcome back!</h2>
+  <div class="auth">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true %>
-      <%= f.input :remember_me, as: :boolean %>
-    </div>
+      <div class="inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true %>
+        <%= f.input :remember_me, as: :boolean %>
+      </div>
 
-    <div class="actions">
-      <%= f.button :submit, "Sign in", class: 'button' %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.button :submit, "Sign in", class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="hint">
+    You can also
+    <%= link_to 'sign up', new_registration_path(:user) %>
+    if you don't have account yet,
+    <%= link_to 'reset lost password', new_password_path(:user) %>
+    or
+    <%= link_to 'sign in with oauth', authentications_path %>.
+  </p>
 </div>
-
-<p class="hint">
-  You can also
-  <%= link_to 'sign up', new_registration_path(:user) %>
-  if you don't have account yet,
-  <%= link_to 'reset lost password', new_password_path(:user) %>
-  or
-  <%= link_to 'sign in with oauth', authentications_path %>.
-</p>

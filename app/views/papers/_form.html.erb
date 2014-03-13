@@ -1,24 +1,33 @@
 <%= simple_form_for [@call, @paper] do |f| %>
   <%= f.error_notification %>
 
-  <div class="inputs">
-    <%= f.input :title %>
-    <%= f.input :private_description %>
-    <%= f.input :public_description, :required => false %>
+  <div class="inputs row">
+    <div class="small-8 columns">
+      <%= f.input :title %>
+      <%= f.input :private_description, input_html: {rows: 5} %>
+      <%= f.input :public_description, required: false, input_html: {rows: 5} %>
 
-    <div class="control-group select required">
-      <div class="select required control-label" for="paper_track"><strong>Track</strong></div>
-      <div class="controls"><p class="help-block">Select the conference track.</p>
-        JRubyConf EU
-      </div>
+      <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
+
+      <%= f.input :mentor_name %>
     </div>
-
-    <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
-
-    <%= f.input :mentor_name %>
+    <div class="small-4 columns">
+      <%= f.fields_for :user do |uf| %>
+        <%= uf.input :gender, collection: [:male, :female, :unspecified], include_blank: '(leave empty)' %>
+        <%= uf.input :mentor %>
+      <% end %>
+    </div>
   </div>
 
   <div class="actions">
+    <% if @paper.new_record? then %>
+      <%= f.input :terms_and_conditions, as: :boolean, required: true, label: false do %>
+        <%= f.input_field :terms_and_conditions, as: :boolean, required: true %>
+        <%= f.label :terms_and_conditions do %>
+          I accept the <a href="http://2014.eurucamp.org" target="_blank">code of conduct</a>
+        <% end %>
+      <% end %>
+    <% end %>
     <%= f.button :submit, class: 'button' %>
   </div>
 <% end %>
