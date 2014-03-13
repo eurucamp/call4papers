@@ -64,7 +64,7 @@ en:
         title: All papers
   home:
     show:
-      title: Great to see you here
+      title: Hi, %{name}! Great to see you here
       propose_speaker: Propose a Speaker
   footer:
     explanatory_html: |-

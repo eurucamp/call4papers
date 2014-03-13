@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1><%= t('.title', name: current_user.name) %></h1>
 
 <% if @open_calls.empty? %>
   <p>There are currently no open calls for proposals.</p>
@@ -7,7 +7,7 @@
   <% @open_calls.each do |call| %>
     <div class="rules">
       <h3><%= call.title %></h3>
-      <p>Open until <%= call.closes_at %></p>
+      <p>Open until <%= call.closes_at.strftime("%e %B %Y, %l %P %Z") %></p>
       <p><%= call.description %></p>
       <p><%= link_to 'New proposal', new_call_paper_path(call_id: call.id), class: 'button' %></p>
       <p><%= link_to t('.propose_speaker'), new_call_proposed_speaker_path(call_id: call.id), class: 'button' %></p>
@@ -15,5 +15,5 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Go to proposals', papers_path, class: 'button' %>
-<%= link_to 'Tell us more about yourself', profile_path, class: 'button' %>
+<%= link_to 'Your proposals', papers_path, class: 'button' %>
+<%= link_to 'Your profile', profile_path, class: 'button' %>
