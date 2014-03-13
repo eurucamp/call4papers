@@ -18,23 +18,7 @@
     <main role="main">
       <%= render 'main/messages' %>
       <div class="row">
-        <div class="small-12 columns" id="homepage-background">
-          <section>
-            <header>
-              <h1>call for papers</h1>
-            </header>
-            <%= yield %>
-          </section>
-
-          <div class="socialmedia">
-            <div class="wrapper">
-              <div class="fb-like" data-href="http://cfp.eurucamp.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-            </div>
-            <div class="wrapper">
-              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfp.eurucamp.org" data-text="eurucamp call for papers ends on 15th May 2013. Submit yours now!" data-via="eurucamp" data-related="eurucamp">Tweet</a>
-            </div>
-          </div>
-        </div>
+        <%= yield %>
       </div>
     </main>
     <%= render 'main/footer' %>
