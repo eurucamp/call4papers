@@ -1,0 +1,32 @@
+#homepage-background {
+  background: asset-url('homepage-dark.jpg') no-repeat;
+  background-size: auto 100%;
+  background-position: center center;
+  display: block;
+
+  section {
+    margin: 18em 0 10em;
+    text-align: center;
+
+    h1 {
+      color: white;
+    }
+
+    .hint {
+      color: white;
+
+      a, a:visited {
+        color: #fafb47; // $eurucampYellow;
+      }
+    }
+  }
+
+  .socialmedia {
+    float: right;
+    padding-bottom: 10px;
+
+    .wrapper {
+      display: inline-block;
+    }
+  }
+}

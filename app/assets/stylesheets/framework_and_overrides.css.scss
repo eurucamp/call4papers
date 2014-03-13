@@ -3,6 +3,12 @@
 $body-font-family:   'sonarnormal', sans-serif;
 $header-font-family: 'sonarnormal', sans-serif;
 
+$eurucampRed: #f6271b;
+$eurucampYellow: #fafb47;
+
+$topbar-bg-color: $eurucampRed;
+$primary-color: $eurucampRed;
+
 @import "foundation";
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -35,7 +41,7 @@ $header-font-family: 'sonarnormal', sans-serif;
 // to make views framework-neutral
 main {
   @include twelve-columns;
-  background-color: #eee;
+//  background-color: #eee; // GUILLE HATES THIS COLOR
   }
 section {
   @extend .row;
@@ -84,4 +90,8 @@ section {
   @extend .button;
   @extend .radius;
   @extend .tiny;
+}
+
+body > footer p{
+  padding-top: 1em;
 }
