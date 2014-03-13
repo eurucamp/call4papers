@@ -206,7 +206,7 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
-    tzinfo (0.3.38)
+    tzinfo (0.3.39)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -246,7 +246,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 4.0.0)
   settingslogic
-  simple_form
+  simple_form (~> 3.0.1)
   simplecov
   turn
   uglifier (>= 1.0.3)
