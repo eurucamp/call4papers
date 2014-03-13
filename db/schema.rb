@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309200821) do
+ActiveRecord::Schema.define(version: 20140313222707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20140309200821) do
     t.string   "track"
     t.integer  "call_id",                             null: false
     t.string   "mentor_name"
+    t.boolean  "mentors_can_read",    default: true
   end
+
+  add_index "papers", ["mentors_can_read"], name: "index_papers_on_mentors_can_read", using: :btree
 
   create_table "proposed_speakers", force: true do |t|
     t.integer  "inviter_id"

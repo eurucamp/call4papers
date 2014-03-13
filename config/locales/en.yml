@@ -13,6 +13,7 @@ en:
     labels:
       paper:
         time_slot: Preferred time slot
+        mentors_can_read: Mentors can read my submission
       user:
         mentor: I am willing to mentor
     required:

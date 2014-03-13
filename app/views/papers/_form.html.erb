@@ -10,6 +10,7 @@
       <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
 
       <%= f.input :mentor_name %>
+      <%= f.input :mentors_can_read %>
     </div>
     <div class="small-4 columns">
       <%= f.fields_for :user do |uf| %>
