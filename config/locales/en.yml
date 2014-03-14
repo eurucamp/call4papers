@@ -7,6 +7,8 @@ en:
         title: If you already know the title that's great! Otherwise, sum up your proposal in few words here.
         time_slot: Is it short or long talk? Or maybe you want to run a workshop?
         mentor_name: If you already have a mentor, please enter the name, twitter handle or email address
+        code_of_conduct_acceptance: I accept the %{code_of_conduct_link}
+        code_of_conduct_text: Code of Conduct
       user:
         bio: Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.
         gender: The gender field is only for outreach and statistical purposes
@@ -56,6 +58,9 @@ en:
       logout: Logout
       profile: Profile
       proposed_speakers: Proposed speakers
+      guide: Submission Guide
+      mentorship: Mentorship Guide
+      coc: Code of Conduct
   admin:
     users:
       index:
@@ -77,7 +82,8 @@ en:
       notice: Great Job! You have successfully proposed a speaker.
     new:
       title: Propose a speaker
-      description: When you propose a speaker, you'll be assigned as their mentor.
+      description: When you propose a speaker, you'll be assigned as their mentor. Read about our %{mentorship_link} for details.
+      link_title: mentorship program
     index:
       no_proposed_speaker_yet: No proposed speaker yet? This is your chance!
       title: Proposed Speakers

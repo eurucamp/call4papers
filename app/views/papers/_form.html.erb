@@ -25,7 +25,7 @@
       <%= f.input :terms_and_conditions, as: :boolean, required: true, label: false do %>
         <%= f.input_field :terms_and_conditions, as: :boolean, required: true %>
         <%= f.label :terms_and_conditions do %>
-          I accept the <a href="http://2014.eurucamp.org" target="_blank">code of conduct</a>
+          <%= raw t('simple_form.hints.paper.code_of_conduct_acceptance') % { :code_of_conduct_link => link_to(t('simple_from.hints.paper.code_of_conduct_text'), :coc, :target => '_blank') } %>
         <% end %>
       <% end %>
     <% end %>

@@ -1,6 +1,6 @@
 <h2><%= @call.title %></h2>
 <h1><%= t('.title') %></h1>
-<p><%= t('.description') %></p>
+<p><%= (t('.description') % { :mentorship_link => link_to(t('.link_title'), :mentorship) }).html_safe %></p>
 
 <div class="proposed_speaker">
   <%= render 'form' %>
