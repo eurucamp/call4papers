@@ -2,7 +2,10 @@ Cfp::Application.routes.draw do
   get "home/show"
   get "guide", :to => "pages#guide"
   get "mentorship", :to => "pages#mentorship"
+<<<<<<< HEAD
   get "coc", :to => "pages#coc"
+=======
+>>>>>>> origin/master
 
   get '/auth/:provider/callback' => 'authentications#create'
 

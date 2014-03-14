@@ -60,7 +60,10 @@ en:
       proposed_speakers: Proposed speakers
       guide: Submission Guide
       mentorship: Mentorship Guide
+<<<<<<< HEAD
       coc: Code of Conduct
+=======
+>>>>>>> origin/master
   admin:
     users:
       index:
