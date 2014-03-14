@@ -1,3 +1,7 @@
-<li><%= link_to t('nav.main.papers'), papers_path %></li>
-<li><%= link_to t('nav.main.proposed_speakers'), proposed_speakers_path %></li>
-<li><%= link_to t('nav.main.profile'), profile_path %></li>
+<% if current_user %>
+  <li><%= link_to t('nav.main.papers'), papers_path %></li>
+  <li><%= link_to t('nav.main.proposed_speakers'), proposed_speakers_path %></li>
+  <li><%= link_to t('nav.main.profile'), profile_path %></li>
+<% end %>
+<li><%= link_to t('nav.main.guide'), guide_path %></li>
+<li><%= link_to t('nav.main.mentorship'), mentorship_path %></li>

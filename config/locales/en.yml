@@ -56,6 +56,8 @@ en:
       logout: Logout
       profile: Profile
       proposed_speakers: Proposed speakers
+      guide: Submission Guide
+      mentorship: Mentorship Guide
   admin:
     users:
       index:
