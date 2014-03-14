@@ -7,10 +7,11 @@
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
   <div class="top-bar-section">
+    <ul class="left">
+      <%= render 'main/navigation_links' %>
+    </ul>
+
     <% if current_user %>
-      <ul class="left">
-        <%= render 'main/navigation_links' %>
-      </ul>
       <ul class="right">
         <li><%= link_to t('nav.main.logout'), destroy_user_session_path, method: :delete %></li>
       </ul>
