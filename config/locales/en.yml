@@ -5,15 +5,15 @@ en:
         private_description: Tell us as much as you can about the talk. To keep the CFP process anonymous, please do not include any personal indentifiable information. This description will not appear on the website, it's for you and us. You can use Markdown for better reading experience.
         public_description: This will be your talk description posted on the conference website. You're encouraged to use Markdown here. Please keep personal information to your profile.
         title: If you already know the title that's great! Otherwise, sum up your proposal in few words here.
-        time_slot: Is it short or long talk? Or maybe you want to run a workshop?
+        time_slot: Is it short or long talk? Or maybe you want to run a workshop? Be aware that we plan no 40 minutes slots, your talk must be mind-blowing.
         mentor_name: If you already have a mentor, please enter the name, twitter handle or email address
       user:
         bio: Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.
-        gender: The gender field is only for outreach and statistical purposes
+        gender: The gender field is only tracked for outreach and statistical purposes
     labels:
       paper:
         time_slot: Preferred time slot
-        mentors_can_read: Mentors can read my paper
+        mentors_can_read: Mentors can read my submission. This allows us to gives feedback during the submission phase.
       user:
         mentor: I am willing to mentor
     required:
@@ -50,6 +50,8 @@ en:
       title: My papers
     new:
       title: New paper proposal
+      proposal: Proposal
+      profile: Personal profile
   nav:
     main:
       papers: Papers

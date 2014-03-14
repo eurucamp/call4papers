@@ -3,9 +3,10 @@
 
   <div class="inputs row">
     <div class="small-8 columns">
+      <h2><%= t('.proposal') %></h2>
       <%= f.input :title %>
-      <%= f.input :private_description, input_html: {rows: 5} %>
-      <%= f.input :public_description, required: false, input_html: {rows: 5} %>
+      <%= f.input :public_description, required: true, input_html: {rows: 5} %>
+      <%= f.input :private_description, required: false, input_html: {rows: 5} %>
 
       <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
 
@@ -13,8 +14,10 @@
       <%= f.input :mentors_can_read %>
     </div>
     <div class="small-4 columns">
+      <h2><%= t('profile') %></h2>
       <%= f.fields_for :user do |uf| %>
         <%= uf.input :gender, collection: [:male, :female, :unspecified], include_blank: '(leave empty)' %>
+        <%= uf.input :bio %>
         <%= uf.input :mentor %>
       <% end %>
     </div>
