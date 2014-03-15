@@ -4,7 +4,7 @@
   <% @open_calls.each do |call| %>
     <div class="rules">
       <h3><%= call.title %></h3>
-      <p>Open until <%= call.closes_at %></p>
+      <p>Open until <%= human_date_with_timezone(call.closes_at) %></p>
       <p><%= call.description %></p>
       <p><%= link_to t('.propose_speaker'), new_call_proposed_speaker_path(call_id: call.id), class: 'button' %></p>
     </div>
