@@ -3,16 +3,17 @@
   background-size: cover;
   background-position: center center;
   display: block;
+  
+  footer .columns {
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+  }
 }
 
-footer .columns {
-  background-color: rgba(255,255,255,0.5);
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  text-align: center;
-}
 
 #homepage-background {
 
