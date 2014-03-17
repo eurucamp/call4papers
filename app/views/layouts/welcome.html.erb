@@ -10,7 +10,7 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= 'frontpage'  if params[:action] ==  'index' %>">
     <div id="fb-root"></div>
     <header>
       <%= render 'main/navigation' %>

@@ -1,11 +1,24 @@
-#homepage-background {
+.frontpage {
   background: asset-url('homepage-dark.jpg') no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center center;
   display: block;
+  
+  footer .columns {
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+#homepage-background {
 
   section {
-    margin: 18em 0 10em;
+    margin: 30% 0 10em;
     text-align: center;
 
     h1 {
