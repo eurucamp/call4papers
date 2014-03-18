@@ -1,15 +1,15 @@
 <h1><%= @paper.title %></h1>
 
 <div class="papers">
-  <h4><%= @paper.track %></h4>
-
   <div class="time-slot"><%= @paper.time_slot %></div>
 
   <div class="descriptions">
+    <h4><%= t('activerecord.models.attributes.paper.private_description') %></h4>
     <%= markdown @paper.private_description %>
 
     <% if @paper.public_description.present? %>
       <hr>
+      <h4><%= t('activerecord.models.attributes.paper.public_description') %></h4>
       <%= markdown @paper.public_description %>
     <% end %>
   </div>
