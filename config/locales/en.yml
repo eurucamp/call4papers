@@ -45,6 +45,9 @@ en:
       title: My profile
     edit:
       title: Edit profile and bio
+    update:
+      success: Updated successfully!
+      failure: Doh!
   papers:
     edit:
       title: Editing proposal
