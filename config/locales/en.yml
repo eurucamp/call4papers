@@ -54,6 +54,10 @@ en:
       title: New paper proposal
       proposal: Proposal
       profile: Personal profile
+    create:
+      success: Great job! You've successfully proposed a paper.
+    update:
+      success: Well done! Your proposal has been updated.
   nav:
     main:
       papers: Papers
