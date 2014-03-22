@@ -46,8 +46,8 @@ en:
     edit:
       title: Edit profile and bio
     update:
-      success: Updated successfully!
-      failure: Doh!
+      success: Your profile was successfully updated!
+      failure: Unfortunately, your profile could not be updated.
   papers:
     edit:
       title: Editing proposal
@@ -59,6 +59,7 @@ en:
       profile: Personal profile
     create:
       success: Great job! You've successfully proposed a paper.
+      failure: Unfortunately, your proposal could not be saved.
     update:
       success: Well done! Your proposal has been updated.
   nav:
