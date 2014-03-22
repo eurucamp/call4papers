@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      flash[:notice] = "Updated successfully!"
+      flash[:notice] = I18n.t('profiles.update.success')
       redirect_to profile_path
     else
-      flash[:alert] = "Doh!"
+      flash[:alert] = I18n.t('profiles.update.failure')
       render :edit
     end
   end

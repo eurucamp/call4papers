@@ -28,7 +28,7 @@ class PapersController < ApplicationController
 
     if @paper.save
       notify_excited_organizers
-      redirect_to @paper, notice: "Great job! You've successfully proposed a paper."
+      redirect_to @paper, notice: I18n.t('papers.create.success')
     else
       render :new
     end
@@ -38,7 +38,7 @@ class PapersController < ApplicationController
     @paper = current_user.papers.editable.find(params[:id])
 
     if @paper.update_attributes(paper_params)
-      redirect_to @paper, notice: "Well done! Your proposal has been updated."
+      redirect_to @paper, notice: I18n.t('papers.update.success')
     else
       render :edit
     end
