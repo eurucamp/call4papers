@@ -37,7 +37,7 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
-    root :to => "papers#index"
+    root :to => "papers#index", as: :root
   end
   root :to => "home#show"
 end

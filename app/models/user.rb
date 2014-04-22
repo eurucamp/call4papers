@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
     ! papers.empty?
   end
 
+  def staff?
+    read_attribute(:staff)
+  end
+
   def gender=(gender)
     write_attribute(:gender, GENDERS.index(gender))
   end
