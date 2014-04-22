@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   scope :staff,       -> { where(staff: true) }
   scope :contributor, -> { where(staff: nil)  }
+  scope :mentor,      -> { where(staff: true) }
 
   def apply_omniauth(omniauth)
     provider, uid, info = omniauth.values_at('provider', 'uid', 'info')
@@ -60,7 +61,11 @@ class User < ActiveRecord::Base
   end
 
   def staff?
-    read_attribute(:staff)
+    read_attribute(:staff) || false
+  end
+
+  def mentor?
+    read_attribute(:mentor) || false
   end
 
   def gender=(gender)
