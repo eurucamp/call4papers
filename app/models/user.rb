@@ -60,6 +60,9 @@ class User < ActiveRecord::Base
     ! papers.empty?
   end
 
+  # NOTE: Apparently, activerecord adds #staff? and #mentor? methods
+  # It's probably best to leave them here for the sake of clarity
+
   def staff?
     read_attribute(:staff) || false
   end

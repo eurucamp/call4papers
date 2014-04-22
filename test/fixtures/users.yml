@@ -22,3 +22,12 @@ admin_user:
   twitter_handle: wannabe_sysadmin
   github_handle:  wannabe_sysadmin
   staff:          true
+
+mentor_user:
+  name:           Max Mentor
+  email:          mentor@99cookies.com
+  bio:            Sysadmin for 10 years.
+  website_url:    http://99cookies.com/
+  twitter_handle: wannabe_sysadmin
+  github_handle:  wannabe_sysadmin
+  mentor:         true

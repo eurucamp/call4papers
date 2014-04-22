@@ -39,5 +39,10 @@ Cfp::Application.routes.draw do
     end
     root :to => "papers#index", as: :root
   end
+
+  namespace :mentor do
+    resources :papers, only: [:index]
+    root :to => "papers#index", as: :root
+  end
   root :to => "home#show"
 end

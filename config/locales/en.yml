@@ -72,6 +72,7 @@ en:
       mentorship: Mentorship Guide
       coc: Code of Conduct
       admin: Admin Section
+      mentor: Mentor section
   admin:
     users:
       index:
@@ -103,3 +104,7 @@ en:
     submit:
       proposed_speaker:
         create: Propose speaker
+  mentor:
+    papers:
+      index:
+        title: Papers
