@@ -14,6 +14,7 @@ class Paper < ActiveRecord::Base
 
   scope :for_open_call, -> { joins(:call).merge(Call.open) }
   scope :editable, -> { for_open_call.readonly(false) }
+  scope :mentors_can_read, -> { where(mentors_can_read: true) }
 
   delegate :title, :open?, to: :call, prefix: :call
 
