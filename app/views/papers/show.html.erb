@@ -18,5 +18,10 @@
 <% if current_user %>
   <% if current_user.can_edit_paper?(@paper) && @paper.editable? %>
     <%= link_to 'Edit', edit_paper_path(@paper), class: 'button' %>
+  <% else %>
+    <%= simple_form_for Contact.new, url: mentor_path(@paper) do |f| %>
+      <%= f.input :feedback, required: true, input_html: {rows: 5} %>
+      <%= f.button :submit, class: 'button' %>
+    <% end %>
   <% end %>
 <% end %>

@@ -42,6 +42,9 @@ Cfp::Application.routes.draw do
 
   namespace :mentor do
     resources :papers, only: [:index]
+
+    post "contacts/:id", :to => "contacts#contact"
+
     root :to => "papers#index", as: :root
   end
   root :to => "home#show"
