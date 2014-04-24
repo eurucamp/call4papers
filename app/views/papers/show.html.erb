@@ -24,5 +24,8 @@
       <%= f.input :feedback, as: :text, required: true, input_html: {rows: 10} %>
       <%= f.submit t('feedback.submit'), class: 'button' %>
     <% end %>
+    <p>
+      <%= t('feedback.explanation') %>
+    </p>
   <% end %>
 <% end %>

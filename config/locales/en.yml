@@ -111,3 +111,8 @@ en:
   feedback:
     title: Feedback
     submit: Give Feedback
+    explanation: |-
+      This will send an email containing your email address
+      and name to the person who wrote this proposal, to ensure
+      that they can contact you back in case of questions.
+      Please make sure that you are okay with that.
