@@ -108,3 +108,6 @@ en:
     papers:
       index:
         title: Papers
+  feedback:
+    title: Feedback
+    submit: Give Feedback
