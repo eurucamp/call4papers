@@ -72,6 +72,7 @@ en:
       mentorship: Mentorship Guide
       coc: Code of Conduct
       admin: Admin Section
+      mentor: Mentor section
   admin:
     users:
       index:
@@ -103,3 +104,14 @@ en:
     submit:
       proposed_speaker:
         create: Propose speaker
+  mentor:
+    papers:
+      index:
+        title: Papers
+  feedback:
+    title: Feedback
+    submit: Give Feedback
+    explanation: |-
+      This will send an email containing your name and email address the person
+      who wrote this proposal allowing them to contact you in case of questions.
+      Please make sure that you are okay with this.

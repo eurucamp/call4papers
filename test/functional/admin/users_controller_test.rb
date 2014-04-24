@@ -21,6 +21,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
     csv = CSV.parse(response.body, headers: true)
     assert_equal 'Id',    csv.headers[0]
     assert_equal 'Name',  csv.headers[1]
-    assert_equal 3,       csv.size
+    assert_equal 4,       csv.size
   end
 end

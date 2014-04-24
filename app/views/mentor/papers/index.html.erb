@@ -1,0 +1,27 @@
+<h1><%= t('.title') %></h1>
+
+<div class="papers">
+  <% if @papers.empty? %>
+    No submissions yet.
+  <% else %>
+    <table class="table">
+      <tr>
+        <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
+        <th><%= t('activerecord.models.attributes.paper.id') %></th>
+        <th><%= t('activerecord.models.attributes.paper.title') %></th>
+        <th><%= t('activerecord.models.attributes.paper.created_at') %></th>
+        <th><%= t('activerecord.models.attributes.paper.updated_at') %></th>
+      </tr>
+
+      <% @papers.each do |paper| %>
+        <tr class="<%= 'selected' if paper.selected? %>">
+          <td class="time-slot"><%= paper.time_slot %></td>
+          <td class="id"><%= paper.id[0..5] %></td>
+          <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
+          <td><%= paper.created_at.strftime('%b %d, %Y') %></td>
+          <td><%= paper.updated_at.strftime('%b %d, %Y') if paper.updated? %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

@@ -18,5 +18,14 @@
 <% if current_user %>
   <% if current_user.can_edit_paper?(@paper) && @paper.editable? %>
     <%= link_to 'Edit', edit_paper_path(@paper), class: 'button' %>
+  <% else %>
+    <h3><%= t('feedback.title') %></h3>
+    <%= simple_form_for Feedback.new, url: mentor_path(@paper) do |f| %>
+      <%= f.input :feedback, as: :text, required: true, input_html: {rows: 10} %>
+      <%= f.submit t('feedback.submit'), class: 'button' %>
+    <% end %>
+    <p>
+      <%= t('feedback.explanation') %>
+    </p>
   <% end %>
 <% end %>
