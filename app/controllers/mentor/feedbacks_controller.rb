@@ -1,7 +1,7 @@
 class Mentor::FeedbacksController < Mentor::MentorController
   def contact
     @paper = Paper.mentors_can_read.find(params[:id])
-    @feedback = Feedback.new(params)
+    @feedback = Feedback.new(params[:feedback])
 
     if @feedback.valid?
       FeedbacksMailer.contact(
@@ -12,6 +12,8 @@ class Mentor::FeedbacksController < Mentor::MentorController
         @feedback
       )
       redirect_to paper_path(@paper), :flash => {:notice => "Feedback sent" }
+   else
+      redirect_to paper_path(@paper), :flash => {:error => "Please give us some text :)." }
    end
   end
 end
