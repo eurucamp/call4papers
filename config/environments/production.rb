@@ -84,6 +84,8 @@ Cfp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.default_url_options = { :host => 'cfp.eurucamp.org' }
 end
 
 ActionMailer::Base.smtp_settings = {
