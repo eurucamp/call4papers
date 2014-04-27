@@ -31,6 +31,10 @@ Cfp::Application.routes.draw do
       collection do
         get :export
       end
+      member do
+        post :note, :to => "notes#create"
+        patch :note, :to => "notes#update"
+      end
     end
     resources :users do
       collection do
