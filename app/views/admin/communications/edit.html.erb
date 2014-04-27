@@ -1,0 +1,13 @@
+<h1><%= t('.title') %></h1>
+
+<div class="communications">
+  <%= render 'form' %>
+</div>
+
+<div class="row">
+  <div class="small-12 columns actions">
+    <%= link_to "Show Message", admin_communication_path(@communication), class: 'button' %>
+    <%= link_to "All Messages", admin_communications_path, class: 'button' %>
+    <%= link_to "New Message", new_admin_communication_path, class: 'button' %>
+  </div>
+</div>

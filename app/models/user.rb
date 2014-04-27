@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :papers, dependent: :destroy
   has_many :proposed_speakers, foreign_key: :inviter_id, dependent: :destroy
+  has_and_belongs_to_many :communications,
+                          foreign_key: :recipient_id,
+                          join_table: :communications_recipients
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
@@ -15,6 +18,7 @@ class User < ActiveRecord::Base
   scope :staff,       -> { where(staff: true) }
   scope :contributor, -> { where(staff: nil)  }
   scope :mentor,      -> { where(mentor: true) }
+  scope :empty_profile, -> { where("users.bio IS NULL OR TRIM(users.bio) = ''") }
 
   def apply_omniauth(omniauth)
     provider, uid, info = omniauth.values_at('provider', 'uid', 'info')
@@ -77,5 +81,16 @@ class User < ActiveRecord::Base
 
   def gender
     GENDERS[read_attribute(:gender)] if read_attribute(:gender)
+  end
+
+  class << self
+    def in_call(call)
+      call_id = call.is_a?(Call) ? call.id : call
+      joins(:papers).where('papers.call_id = ?', call_id)
+    end
+
+    def with_selected_papers_for(call)
+      self.in_call(call).where('papers.selected = ?', true)
+    end
   end
 end

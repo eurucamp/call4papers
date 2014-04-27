@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313222707) do
+ActiveRecord::Schema.define(version: 20140427155920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,26 @@ ActiveRecord::Schema.define(version: 20140313222707) do
   end
 
   add_index "calls", ["title"], name: "index_calls_on_title", unique: true, using: :btree
+
+  create_table "communications", force: true do |t|
+    t.integer  "sender_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "call_id"
+  end
+
+  add_index "communications", ["created_at"], name: "index_communications_on_created_at", using: :btree
+  add_index "communications", ["sender_id"], name: "index_communications_on_sender_id", using: :btree
+
+  create_table "communications_recipients", id: false, force: true do |t|
+    t.integer "communication_id"
+    t.integer "recipient_id"
+  end
+
+  add_index "communications_recipients", ["communication_id", "recipient_id"], name: "c_id_rec_id", unique: true, using: :btree
 
   create_table "papers", id: false, force: true do |t|
     t.string   "id",                                  null: false

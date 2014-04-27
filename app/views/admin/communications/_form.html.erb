@@ -1,0 +1,19 @@
+<%= simple_form_for [:admin, @communication] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs row">
+    <div class="small-8 columns">
+      <%= f.input :subject %>
+      <%= f.input :body, input_html: {rows: 5} %>
+    </div>
+
+    <div class="small-4 columns">
+      <%= f.input :recipients, collection: Communication.possible_recipients %>
+      <%= f.input :call_id, collection: Call.open %>
+    </div>
+
+    <div class="small-12 columns actions">
+      <%= f.button :submit, class: 'button' %>
+    </div>
+  </div>
+<% end %>
