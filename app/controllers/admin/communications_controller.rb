@@ -1,8 +1,8 @@
 class Admin::CommunicationsController < Admin::AdminController
-  before_action :set_communication, only: [:show, :edit, :destroy, :deliver]
+  before_action :set_communication, only: [:show, :edit, :update, :destroy, :deliver]
 
   def index
-    @communications = Communication.all
+    @communications = Communication.all.order('created_at DESC')
   end
 
   def new
@@ -23,7 +23,18 @@ class Admin::CommunicationsController < Admin::AdminController
   end
 
   def edit
-    redirect_to admin_communication_path(@communication) if @communication.sent?
+    if @communication.sent?
+      redirect_to admin_communications_path, notice: 'Message was already sent!'
+    end
+  end
+
+  def update
+    @communication.update_attributes(communication_params)
+    if @communication.save then
+      redirect_to admin_communication_path(@communication), notice: 'Message updated successfully'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -32,6 +43,11 @@ class Admin::CommunicationsController < Admin::AdminController
   end
 
   def deliver
+    if @communication.recipients.empty? then
+      redirect_to admin_communication_path(@communication), notice: 'Message has no recipients assigned!'
+      return
+    end
+
     CommunicationsMailer.communication_mail(@communication).deliver
     @communication.update(sent_at: Time.zone.now)
     redirect_to admin_communication_path(@communication), notice: 'Mail sent successfully! You should also receive a copy.'
