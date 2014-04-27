@@ -9,6 +9,7 @@
       <th><%= t('activerecord.models.attributes.user.github_handle') %></th>
       <th><%= t('activerecord.models.attributes.user.twitter_handle') %></th>
       <th><%= t('activerecord.models.attributes.user.staff') %></th>
+      <th><%= t('activerecord.models.attributes.user.mentor') %></th>
       <th><%= t('activerecord.models.attributes.user.bio') %></th>
       <th><%= t('activerecord.models.attributes.user.proposal') %></th>
       <th><%= t('activerecord.models.attributes.user.created_at') %></th>
@@ -22,6 +23,7 @@
         <td><%= github_link(user.github_handle) %></td>
         <td><%= twitter_link(user.twitter_handle) %></td>
         <td><%= "✔" if user.staff? %></td>
+        <td><%= "✔" if user.mentor? %></td>
         <td><%= "✔" if user.has_bio? %></td>
         <td><%= "✔" if user.has_proposal? %></td>
         <td><%= user.created_at.strftime("%B %d, %Y") %></td>
@@ -30,8 +32,7 @@
   </table>
 </div>
 
-<%= link_to 'Export (CSV)', export_admin_users_path(format: 'csv') %>
-
+<%= link_to 'Export (CSV)', export_admin_users_path(format: 'csv'), class: 'button' %>
 <%= link_to "Users", admin_users_path, class: 'button' %>
 <%= link_to "Papers", admin_papers_path, class: 'button' %>
 <%= link_to "Proposed Speakers", admin_proposed_speakers_path, class: 'button' %>
