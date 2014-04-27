@@ -11,9 +11,10 @@ class Mentor::FeedbacksControllerTest < ActionController::TestCase
 
     sign_in users(:mentor_user)
 
+    ActionMailer::Base.deliveries.clear
     post :contact, id: paper.id, feedback: { feedback: feedback.feedback }
+    assert_not ActionMailer::Base.deliveries.empty?, "mail not sent"
 
-    assert_not ActionMailer::Base.deliveries.empty?
     mail = ActionMailer::Base.deliveries.last
     assert mail.body.include?(feedback.feedback)
   end
@@ -24,8 +25,8 @@ class Mentor::FeedbacksControllerTest < ActionController::TestCase
 
     sign_in users(:mentor_user)
 
+    ActionMailer::Base.deliveries.clear
     post :contact, id: paper.id, feedback: { feedback: feedback.feedback }
-
-    assert ActionMailer::Base.deliveries.empty?
+    assert ActionMailer::Base.deliveries.empty?, "mail sent!"
   end
 end
