@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :papers, dependent: :destroy
   has_many :proposed_speakers, foreign_key: :inviter_id, dependent: :destroy
+  has_and_belongs_to_many :communications,
+                          foreign_key: :recipient_id,
+                          join_table: :communications_recipients
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
