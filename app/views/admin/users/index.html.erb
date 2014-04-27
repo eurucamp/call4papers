@@ -33,6 +33,4 @@
 </div>
 
 <%= link_to 'Export (CSV)', export_admin_users_path(format: 'csv'), class: 'button' %>
-<%= link_to "Users", admin_users_path, class: 'button' %>
-<%= link_to "Papers", admin_papers_path, class: 'button' %>
-<%= link_to "Proposed Speakers", admin_proposed_speakers_path, class: 'button' %>
+<%= render "admin/main/nav_bar" %>
