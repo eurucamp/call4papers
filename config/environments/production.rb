@@ -88,6 +88,7 @@ Cfp::Application.configure do
   config.action_mailer.default_url_options = { :host => 'cfp.eurucamp.org' }
 end
 
+ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
     address:        'smtp.sendgrid.net',
     port:           '587',
