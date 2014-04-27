@@ -88,5 +88,9 @@ class User < ActiveRecord::Base
       call_id = call.is_a?(Call) ? call.id : call
       joins(:papers).where('papers.call_id = ?', call_id)
     end
+
+    def with_selected_papers_for(call)
+      self.in_call(call).where('papers.selected = ?', true)
+    end
   end
 end

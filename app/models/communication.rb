@@ -30,7 +30,10 @@ class Communication < ActiveRecord::Base
 
   class << self
     def possible_recipients
-      [:all_users, :call_all_users, :call_empty_profiles]
+      [
+        :all_users,
+        :call_all_users, :call_empty_profiles, :call_selected_users, :call_mentors
+      ]
     end
   end
 
@@ -55,6 +58,20 @@ private
     validate_presence_of_call
     if call then
       self.recipients = User.empty_profile.in_call(call)
+    end
+  end
+
+  def set_recipients_to_call_selected_users
+    validate_presence_of_call
+    if call then
+      self.recipients = User.with_selected_papers_for(call)
+    end
+  end
+
+  def set_recipients_to_call_mentors
+    validate_presence_of_call
+    if call then
+      self.recipients = User.mentor.in_call(call)
     end
   end
 end

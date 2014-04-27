@@ -33,6 +33,8 @@ en:
           all_users: All Users
           call_all_users: All Users for selected Call
           call_empty_profiles: Users with empty profiles for selected Call
+          call_selected_users: Users for selected Call with Papers selected
+          call_mentors: Mentors for the selected Call
   activerecord:
     models:
       attributes:
