@@ -3,6 +3,15 @@ class Admin::PapersController < Admin::AdminController
     @papers = Paper.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
   end
 
+  def update
+    paper_parameters = params[:paper]
+    paper_parameters.permit(:selected)
+    @paper = Paper.editable.find(params[:id])
+    @paper.selected = paper_parameters[:selected]
+    @paper.save!
+    redirect_to paper_path(@paper)
+  end
+
   def export
     @papers = Paper.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
 

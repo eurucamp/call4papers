@@ -16,6 +16,7 @@ class Paper < ActiveRecord::Base
   scope :editable, -> { for_open_call.readonly(false) }
   scope :mentors_can_read, -> { where(mentors_can_read: true) }
   scope :not_from, -> user { where.not(user_id: user.id) }
+  scope :selected, -> { where(selected: true) }
 
   delegate :title, :open?, to: :call, prefix: :call
 
