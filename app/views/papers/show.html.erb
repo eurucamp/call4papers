@@ -28,4 +28,11 @@
       <%= t('feedback.explanation') %>
     </p>
   <% end %>
+  <% if current_user.staff? %>
+    <h3><%= t('admin.admin_section') %></h3>
+    <%= simple_form_for @paper, :url => admin_paper_path(@paper) do |f| %>
+      <%= f.input :selected %>
+      <%= f.submit class: 'button' %>
+    <% end %>
+  <% end %>
 <% end %>

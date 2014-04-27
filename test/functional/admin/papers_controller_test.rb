@@ -21,6 +21,29 @@ class Admin::PapersControllerTest < ActionController::TestCase
     csv = CSV.parse(response.body, headers: true)
     assert_equal 'Id',    csv.headers[0]
     assert_equal 'Title', csv.headers[1]
-    assert_equal 2,       csv.size
+    assert_equal Paper.count,       csv.size
+  end
+
+  test 'should accept talk selection from admin user' do
+    sign_in users(:admin_user)
+
+    post :update, id: 2, paper: { selected: true }
+    assert_response :redirect
+
+    assert Paper.find(2).selected
+  end
+
+  test 'should not accept changes for closed calls' do
+    sign_in users(:admin_user)
+
+    assert_raises(ActiveRecord::RecordNotFound) { post :update, id: 3, paper: { selected: true } }
+  end
+
+  test 'should not accept any further parameters' do
+    sign_in users(:admin_user)
+    
+    post :update, id: 2, paper: { selected: true, user_id: 200 }
+
+    assert_not_equal 200, Paper.find(2).user_id
   end
 end

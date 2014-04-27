@@ -80,6 +80,8 @@ en:
     papers:
       index:
         title: All papers
+    communications:
+      new: Create new Message
   home:
     show:
       title: Hi, %{name}! Great to see you here

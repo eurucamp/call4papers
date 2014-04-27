@@ -4,3 +4,10 @@ one:
   instructions: Respect our anonymous CFP!
   opens_at:     <%= 10.days.ago.to_date %>
   closes_at:    <%= (Time.now + 10.days).to_date %>
+
+two:
+  title:        Closed Circle Conference
+  description:  You're late
+  instructions: anonymous and all
+  opens_at:     <%= 10.days.ago.to_date %>
+  closes_at:    <%= 5.days.ago.to_date %>
