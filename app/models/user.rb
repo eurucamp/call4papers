@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :communications,
                           foreign_key: :recipient_id,
                           join_table: :communications_recipients
+  has_many :notes
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
@@ -92,5 +93,9 @@ class User < ActiveRecord::Base
     def with_selected_papers_for(call)
       self.in_call(call).where('papers.selected = ?', true)
     end
+  end
+
+  def note_for_paper(paper)
+    notes.where(paper_id: paper.id).first || Note.new
   end
 end
