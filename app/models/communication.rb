@@ -9,6 +9,7 @@ class Communication < ActiveRecord::Base
   validates_presence_of :sender, :subject, :body, :recipients
 
   delegate :name, :email, to: :sender, prefix: :sender
+  delegate :name, to: :call, prefix: :call, allow_nil: true
 
   def recipients=(text_or_list)
     if text_or_list.is_a?(String) or text_or_list.is_a?(Symbol) then

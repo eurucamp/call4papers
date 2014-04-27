@@ -7,6 +7,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th><%= t('activerecord.models.attributes.communication.call') %></th>
           <th><%= t('activerecord.models.attributes.communication.subject') %></th>
           <th><%= t('activerecord.models.attributes.communication.sender_name') %></th>
           <th><%= t('activerecord.models.attributes.communication.created_at') %></th>
@@ -17,6 +18,7 @@
       <tbody>
         <% @communications.each do |communication| %>
           <tr>
+            <td><%= communication.call_name %></td>
             <td><%= link_to communication.subject, admin_communication_path(communication) %></td>
             <td><%= communication.sender_name %></td>
             <td><%= communication.created_at.strftime('%b %d, %Y') %></td>
@@ -32,4 +34,5 @@
   <% end %>
 </div>
 
+<%= link_to "New Message", new_admin_communication_path, class: 'button' %><br />
 <%= render "admin/main/nav_bar" %>

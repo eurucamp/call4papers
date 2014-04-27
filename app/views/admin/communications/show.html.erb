@@ -25,7 +25,10 @@
     <% end %>
   </div>
   <div class="small-12 columns">
-    <%= link_to t('.edit'), edit_admin_communication_path(@communication), class: 'button' unless @communication.sent? %>
     <%= button_to t('.deliver'), { action: :deliver }, { class: 'button', confirm: "Are you sure you want to send the mail to #{@communication.recipients.count} users?" } unless @communication.sent? %>
+
+    <%= link_to t('.edit'), edit_admin_communication_path(@communication), class: 'button' unless @communication.sent? %>
+    <%= link_to "All Messages", admin_communications_path, class: 'button' %>
+    <%= link_to "New Message", new_admin_communication_path, class: 'button' %>
   </div>
 </div>
