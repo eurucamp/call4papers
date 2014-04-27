@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   scope :staff,       -> { where(staff: true) }
   scope :contributor, -> { where(staff: nil)  }
   scope :mentor,      -> { where(mentor: true) }
+  scope :empty_profile, -> { where("users.bio IS NULL OR TRIM(users.bio) = ''") }
 
   def apply_omniauth(omniauth)
     provider, uid, info = omniauth.values_at('provider', 'uid', 'info')
@@ -80,5 +81,12 @@ class User < ActiveRecord::Base
 
   def gender
     GENDERS[read_attribute(:gender)] if read_attribute(:gender)
+  end
+
+  class << self
+    def in_call(call)
+      call_id = call.is_a?(Call) ? call.id : call
+      joins(:papers).where('papers.call_id = ?', call_id)
+    end
   end
 end

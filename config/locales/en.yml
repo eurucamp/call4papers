@@ -12,6 +12,8 @@ en:
       user:
         bio: Tell us everything we need to know about you to accept your proposal. Nothing more, nothing less. You're encouraged to use Markdown here.
         gender: The gender field is only tracked for outreach and statistical purposes
+      communication:
+        body: You can use Markdown for the body
     labels:
       paper:
         time_slot: Preferred time slot
@@ -26,6 +28,11 @@ en:
           male: Male
           female: Female
           unspecified: I don't identify with any of the other options
+      communication:
+        recipients:
+          all_users: All Users
+          call_all_users: All Users for selected Call
+          call_empty_profiles: Users with empty profiles for selected Call
   activerecord:
     models:
       attributes:
