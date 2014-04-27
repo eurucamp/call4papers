@@ -1,0 +1,35 @@
+<h1><%= t('.title') %></h1>
+
+<div class="communications">
+  <% if @communications.empty? %>
+    No message created yet.
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.models.attributes.communication.subject') %></th>
+          <th><%= t('activerecord.models.attributes.communication.sender_name') %></th>
+          <th><%= t('activerecord.models.attributes.communication.created_at') %></th>
+          <th><%= t('activerecord.models.attributes.communication.sent_at') %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @communications.each do |communication| %>
+          <tr>
+            <td><%= link_to communication.subject, admin_communication_path(communication) %></td>
+            <td><%= communication.sender_name %></td>
+            <td><%= communication.created_at.strftime('%b %d, %Y') %></td>
+            <td><%= communication.sent_at.strftime('%b %d, %Y') if communication.sent? %></td>
+            <td>
+              <%= link_to t('.show'), admin_communication_path(communication) %>
+              <%= link_to t('.edit'), edit_admin_communication_path(communication) unless communication.sent? %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<%= render "admin/main/nav_bar" %>

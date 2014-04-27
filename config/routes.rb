@@ -37,6 +37,11 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
+    resources :communications do
+      member do
+        post :deliver
+      end
+    end
     root :to => "papers#index", as: :root
   end
 

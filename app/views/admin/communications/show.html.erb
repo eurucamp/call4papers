@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h1><%= t('.title') %></h1>
+  </div>
+  <div class="small-8 columns">
+    <div class="communication">
+      <h3>Subject: <span><%= @communication.subject %></span></h3>
+      <h3>Body:</h2>
+      <div class="body">
+        <%= markdown @communication.body %>
+      </div>
+    </div>
+  </div>
+  <div class="small-4 columns">
+    <h2>Recipients:</h2>
+    <% if @communication.recipients.count > 0 then %>
+      <ul>
+        <% @communication.recipients.each do |recipient| %>
+        <li><%= recipient.name %></li>
+        <% end %>
+      </ul>
+      <p>Users are assigned at the moment of creating/updating the message.</p>
+    <% else %>
+      <h4>There is no user assigned to this message.</h4>
+    <% end %>
+  </div>
+  <div class="small-12 columns">
+    <%= link_to t('.edit'), edit_admin_communication_path(@communication), class: 'button' unless @communication.sent? %>
+    <%= button_to t('.deliver'), { action: :deliver }, { class: 'button', confirm: "Are you sure you want to send the mail to #{@communication.recipients.count} users?" } unless @communication.sent? %>
+  </div>
+</div>

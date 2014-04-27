@@ -88,7 +88,20 @@ en:
       index:
         title: All papers
     communications:
-      new: Create new Message
+      index:
+        title: All Messages
+        edit: Edit
+        show: Show
+      new:
+        title: Create new Message
+      edit:
+        title: Edit message
+      create:
+        success: Message created successfully
+      show:
+        title: Message
+        deliver: Send Mail to selected users
+        edit: Edit Message
   home:
     show:
       title: Hi, %{name}! Great to see you here

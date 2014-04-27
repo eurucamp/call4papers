@@ -8,6 +8,8 @@ class Communication < ActiveRecord::Base
 
   validates_presence_of :sender, :subject, :body, :recipients
 
+  delegate :name, :email, to: :sender, prefix: :sender
+
   def recipients=(text_or_list)
     if text_or_list.is_a?(String) or text_or_list.is_a?(Symbol) then
       if respond_to?("set_recipients_to_#{text_or_list}", true) then
@@ -16,6 +18,14 @@ class Communication < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def sent?
+    sent_at.present?
+  end
+
+  def recipients_emails
+    recipients.pluck(:email)
   end
 
   class << self
