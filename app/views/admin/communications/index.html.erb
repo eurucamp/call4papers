@@ -18,7 +18,7 @@
       <tbody>
         <% @communications.each do |communication| %>
           <tr>
-            <td><%= communication.call_name %></td>
+            <td><%= communication.call_title %></td>
             <td><%= link_to communication.subject, admin_communication_path(communication) %></td>
             <td><%= communication.sender_name %></td>
             <td><%= communication.created_at.strftime('%b %d, %Y') %></td>
