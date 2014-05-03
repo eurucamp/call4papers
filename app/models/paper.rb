@@ -1,4 +1,6 @@
 class Paper < ActiveRecord::Base
+  has_many :notes
+
   self.primary_key = 'id'
 
   before_validation on: :create do
@@ -31,5 +33,14 @@ class Paper < ActiveRecord::Base
 
   def updated?
     created_at != updated_at
+  end
+
+  def rated_by?(user)
+    true
+    #user_paper_ratings.where(user_id: user.id).one?
+  end
+
+  def note_attached_by?(user)
+    notes.where(user_id: user.id).one?
   end
 end
