@@ -32,4 +32,8 @@ class Paper < ActiveRecord::Base
   def updated?
     created_at != updated_at
   end
+
+  def score
+    user_paper_ratings.to_a.sum(&:sum)
+  end
 end
