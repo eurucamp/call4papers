@@ -4,6 +4,7 @@ one:
   instructions: Respect our anonymous CFP!
   opens_at:     <%= 10.days.ago.to_date %>
   closes_at:    <%= (Time.now + 10.days).to_date %>
+  archived:     false
 
 two:
   title:        Closed Circle Conference
@@ -11,3 +12,4 @@ two:
   instructions: anonymous and all
   opens_at:     <%= 10.days.ago.to_date %>
   closes_at:    <%= 5.days.ago.to_date %>
+  archived:     false
