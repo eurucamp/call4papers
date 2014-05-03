@@ -1,6 +1,9 @@
 class Admin::PapersController < Admin::AdminController
   def index
     @papers = Paper.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    if params[:sort]
+      @papers.sort_by! { |p| p.score }.reverse!
+    end
   end
 
   def update
@@ -33,6 +36,7 @@ class Admin::PapersController < Admin::AdminController
       public_description
       private_description
       selected
+      score
       time_slot
       track
       created_at
