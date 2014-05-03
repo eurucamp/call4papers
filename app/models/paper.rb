@@ -9,6 +9,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :call
+  has_many :user_paper_ratings, inverse_of: :paper, dependent: :destroy
 
   validates :id, :title, :public_description, :time_slot, presence: true
   validates :call, :user, presence: true

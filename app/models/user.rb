@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                           foreign_key: :recipient_id,
                           join_table: :communications_recipients
   has_many :notes
+  has_many :user_paper_ratings, inverse_of: :user, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable

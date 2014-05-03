@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   end
 
   create_table "calls", force: true do |t|
-    t.string   "title",        null: false
+    t.string   "title",                        null: false
     t.text     "description"
     t.text     "instructions"
     t.string   "website_url"
     t.datetime "opens_at"
-    t.datetime "closes_at",    null: false
+    t.datetime "closes_at",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phase"
-    t.boolean  "archived"
+    t.boolean  "archived",     default: false
   end
 
   add_index "calls", ["title"], name: "index_calls_on_title", unique: true, using: :btree
