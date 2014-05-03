@@ -29,29 +29,6 @@
     </p>
   <% end %>
   <% if current_user.staff? %>
-    <% unless @paper.call.anonymous? %>
-      <h4><%= t('activerecord.models.attributes.bio') %></h4>
-      <p><strong><%= t('activerecord.models.attributes.user.name') %>:</strong>
-      <%= @paper.user.name %></p>
-      <p><strong><%= t('activerecord.models.attributes.user.github_handle') %>:</strong>
-      <%= @paper.user.github_handle %></p>
-      <p><strong><%= t('activerecord.models.attributes.user.twitter_handle') %>:</strong>
-      <%= @paper.user.twitter_handle %></p>
-      <p><strong><%= t('activerecord.models.attributes.user.bio') %>:</strong>
-      <%= @paper.user.bio %></p>
-    <% end %>
-    <h3><%= t('admin.admin_section') %></h3>
-    <% unless @paper.call.open? %>
-      <h4><%= t('admin.attach_personal_note') %></h4>
-      <%= simple_form_for current_user.note_for_paper(@paper), :url => note_admin_paper_path(@paper) do |f| %>
-        <%= f.input :content, required: true, input_html: {rows: 10} %>
-        <%= f.submit class: 'button' %>
-      <% end %>
-      <h4><%= t('admin.select_paper') %></h4>
-      <%= simple_form_for @paper, :url => admin_paper_path(@paper) do |f| %>
-        <%= f.input :selected %>
-        <%= f.submit class: 'button' %>
-      <% end %>
-    <% end %>
+    <%= render "paper_admin_section" %>
   <% end %>
 <% end %>
