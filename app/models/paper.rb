@@ -44,4 +44,8 @@ class Paper < ActiveRecord::Base
   def note_attached_by?(user)
     notes.where(user_id: user.id).one?
   end
+
+  def score
+    user_paper_ratings.to_a.sum(&:sum)
+  end
 end
