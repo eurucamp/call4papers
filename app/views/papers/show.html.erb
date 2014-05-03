@@ -18,7 +18,7 @@
 <% if current_user %>
   <% if current_user.can_edit_paper?(@paper) && @paper.editable? %>
     <%= link_to 'Edit', edit_paper_path(@paper), class: 'button' %>
-  <% else %>
+  <% elsif @paper.editable? %>
     <h3><%= t('feedback.title') %></h3>
     <%= simple_form_for Feedback.new, url: mentor_feedback_path(@paper) do |f| %>
       <%= f.input :feedback, as: :text, required: true, input_html: {rows: 10} %>
@@ -29,6 +29,17 @@
     </p>
   <% end %>
   <% if current_user.staff? %>
+    <% unless @paper.call.anonymous? %>
+      <h4><%= t('activerecord.models.attributes.bio') %></h4>
+      <p><strong><%= t('activerecord.models.attributes.user.name') %>:</strong>
+      <%= @paper.user.name %></p>
+      <p><strong><%= t('activerecord.models.attributes.user.github_handle') %>:</strong>
+      <%= @paper.user.github_handle %></p>
+      <p><strong><%= t('activerecord.models.attributes.user.twitter_handle') %>:</strong>
+      <%= @paper.user.twitter_handle %></p>
+      <p><strong><%= t('activerecord.models.attributes.user.bio') %>:</strong>
+      <%= @paper.user.bio %></p>
+    <% end %>
     <h3><%= t('admin.admin_section') %></h3>
     <% unless @paper.call.open? %>
       <h4><%= t('admin.attach_personal_note') %></h4>

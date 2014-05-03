@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427194116) do
+ActiveRecord::Schema.define(version: 20140503164632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140427194116) do
     t.datetime "closes_at",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phase"
   end
 
   add_index "calls", ["title"], name: "index_calls_on_title", unique: true, using: :btree

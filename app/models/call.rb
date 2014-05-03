@@ -13,4 +13,17 @@ class Call < ActiveRecord::Base
   def open?(now = Time.zone.now)
     closes_at >= now && (opens_at.nil? || opens_at <= now)
   end
+
+  def anonymous?
+    !deanonymized?
+  end
+
+  def deanonymized?
+    self.phase == "deanonymized"
+  end
+
+  def deanonymize!
+    self.phase = "deanonymized"
+    self.save
+  end
 end
