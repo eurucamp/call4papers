@@ -13,10 +13,6 @@ defaults: &defaults
       - 30 minutes
       - 40 minutes
       - workshop
-    tracks:
-      - "eurucamp (core)"
-      - JRubyConf EU
-      - "either"
 
 development:
   <<: *defaults
