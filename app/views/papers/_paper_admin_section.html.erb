@@ -1,0 +1,39 @@
+<% unless @paper.call.anonymous? %>
+  <h4><%= t('activerecord.models.attributes.bio') %></h4>
+  <p><strong><%= t('activerecord.models.attributes.user.name') %>:</strong>
+  <%= @paper.user.name %></p>
+  <p><strong><%= t('activerecord.models.attributes.user.github_handle') %>:</strong>
+  <%= @paper.user.github_handle %></p>
+  <p><strong><%= t('activerecord.models.attributes.user.twitter_handle') %>:</strong>
+  <%= @paper.user.twitter_handle %></p>
+  <p><strong><%= t('activerecord.models.attributes.user.bio') %>:</strong>
+  <%= @paper.user.bio %></p>
+<% end %>
+
+<h3><%= t('admin.admin_section') %></h3>
+<% unless @paper.call.open? %>
+  <h4><%= t('admin.votes') %></h4>
+  <%= simple_form_for @user_paper_rating, url: admin_user_paper_rating_path(@paper) do |f| %>
+    <% RatingDimension.all.each do |rating_dimension| %>
+      <h6><%= rating_dimension.name %></h6>
+      <%= f.fields_for :ratings, f.object.rating_for_rating_dimension(rating_dimension) do |rating_form| %>
+        <%= rating_form.hidden_field :id %>
+        <%= rating_form.hidden_field :rating_dimension_id %>
+        <%= rating_form.input :vote, as: :votes %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Vote', class: 'button' %>
+  <% end %>
+
+  <h4><%= t('admin.attach_personal_note') %></h4>
+  <%= simple_form_for current_user.note_for_paper(@paper), :url => note_admin_paper_path(@paper) do |f| %>
+    <%= f.input :content, required: true, input_html: {rows: 10} %>
+    <%= f.submit class: 'button' %>
+  <% end %>
+
+  <h4><%= t('admin.select_paper') %></h4>
+  <%= simple_form_for @paper, :url => admin_paper_path(@paper) do |f| %>
+    <%= f.input :selected %>
+    <%= f.submit class: 'button' %>
+  <% end %>
+<% end %>

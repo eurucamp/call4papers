@@ -15,8 +15,10 @@
       <%= render 'main/navigation' %>
     </header>
     <main role="main">
-      <%= render 'main/messages' %>
-      <%= yield %>
+      <div class="row">
+        <%= render 'main/messages' %>
+        <%= yield %>
+      </div>
     </main>
     <%= javascript_include_tag "application" %>
     <%= render 'main/footer' %>

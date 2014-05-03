@@ -1,5 +1,11 @@
 <h1><%= t('.title') %></h1>
 
+<% if params[:sort] %>
+  <%= link_to('unsort', {}, { :class => 'button' }) %>
+<% else %>
+  <%= link_to('sort by score', { :sort => true }, { :class => 'button' }) %>
+<% end %>
+
 <div class="papers">
   <% if @papers.empty? %>
     No submissions yet.
@@ -15,6 +21,8 @@
         <th><%= t('activerecord.models.attributes.paper.user') %></th>
         <th><%= t('activerecord.models.attributes.paper.rated_by_you') %></th>
         <th><%= t('activerecord.models.attributes.paper.notice_by_you') %></th>
+        <th><%= t('activerecord.models.attributes.paper.number_of_ratings') %></th>
+        <th><%= t('activerecord.models.attributes.paper.score') %></th>
       </tr>
 
       <% @papers.each do |paper| %>
@@ -28,6 +36,8 @@
           <td><%= link_to(paper.user.name, profile_path(paper.user)) if paper.call.deanonymized? %></td>
           <td><%= "✔" if paper.rated_by?(current_user) %></td>
           <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
+          <td><%= paper.user_paper_ratings.count %></td>
+          <td><%= paper.score %></td>
         </tr>
       <% end %>
     </table>

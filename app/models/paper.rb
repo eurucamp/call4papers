@@ -9,6 +9,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :call
+  has_many :user_paper_ratings, inverse_of: :paper, dependent: :destroy
 
   validates :id, :title, :public_description, :time_slot, presence: true
   validates :call, :user, presence: true
@@ -42,5 +43,9 @@ class Paper < ActiveRecord::Base
 
   def note_attached_by?(user)
     notes.where(user_id: user.id).one?
+  end
+
+  def score
+    user_paper_ratings.to_a.sum(&:sum) / user_paper_ratings.count.to_f
   end
 end

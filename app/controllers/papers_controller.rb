@@ -8,7 +8,7 @@ class PapersController < ApplicationController
 
   def show
     @paper = Paper.find(params[:id])
-    @user  = @paper.user
+    @user_paper_rating = current_user.user_paper_rating_for_paper(@paper)
   end
 
   def new
