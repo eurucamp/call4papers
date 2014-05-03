@@ -9,8 +9,8 @@
 call = Call.first_or_create(:title => "very cool call", :closes_at => 3.days.ago)
 
 admins = []
-admins << User.create!(:email => "some@other.com", :name => "Foo Bar", :staff => true, :password => "12345678")
-admins << User.create!(:email => "else@other.com", :name => "Foo Batz", :staff => true, :password => "12345678")
+admins << User.create!(:email => "bob@example.com", :name => "Bob Example", :staff => true, :password => "12345678")
+admins << User.create!(:email => "alice@example.com", :name => "Alice Example", :staff => true, :password => "12345678")
 
 papers = []
 
