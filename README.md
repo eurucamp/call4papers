@@ -4,7 +4,9 @@ The eurucamp Call for Papers application allows users to submit conference propo
 
 ## Donationware
 
-The app was created by members on the Ruby Berlin e.V. on their free time as a community effort for the eurucamp conference. Ruby Berlin is the body behind RailsGirls Berlin and Hamburg, eurucamp and JRubyConf.eu.
+This app was originally created by the team from [wroc_love.rb](http://wrocloverb.com/).
+
+This app is currently maintained by members of the Ruby Berlin e.V. on their free time as a community effort for the eurucamp conference. Ruby Berlin is the body behind RailsGirls Berlin and Hamburg, eurucamp and JRubyConf.eu.
 
 If you end up using the app, please get in [contact](mailto:info@eurucamp.org) so that we know. Also, spread the word about our [projects](http://rubyberlin.org). Also, consider [donating](https://www.betterplace.org/en/organisations/ruby-berlin/), especially, if you run a commercial conference. We are a registered non-profit, donations are tax deducible. Betterplace handles all paperwork - if in doubt, send us a mail.
 
