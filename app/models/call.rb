@@ -6,6 +6,8 @@ class Call < ActiveRecord::Base
   has_many :proposed_speakers
   has_many :communications, inverse_of: :call
 
+  scope :not_archived, -> { where.not(archived: true) }
+
   def self.open(now = Time.zone.now)
     where('closes_at >= ? AND (opens_at IS NULL OR opens_at <= ?)', now, now)
   end
