@@ -1,0 +1,11 @@
+form.new_user_paper_rating, form.edit_user_paper_rating {
+  .user_paper_rating_ratings_vote {
+    label.radio {
+      display: inline-block;
+      margin-right: 10px;
+      input {
+        margin-right: 5px;
+      }
+    }
+  }
+}

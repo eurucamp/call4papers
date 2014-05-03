@@ -34,6 +34,8 @@ Cfp::Application.routes.draw do
       member do
         post :note, :to => "notes#create"
         patch :note, :to => "notes#update"
+
+        resource :user_paper_rating, only: [:create, :update]
       end
     end
     resources :users do

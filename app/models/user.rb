@@ -99,4 +99,9 @@ class User < ActiveRecord::Base
   def note_for_paper(paper)
     notes.where(paper_id: paper.id).first || Note.new
   end
+
+  def user_paper_rating_for_paper(paper)
+    paper_id = paper.is_a?(Paper) ? paper.id : paper
+    self.user_paper_ratings.where(paper_id: paper).first_or_initialize
+  end
 end
