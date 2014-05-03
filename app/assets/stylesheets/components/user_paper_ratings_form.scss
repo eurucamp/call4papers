@@ -1,10 +1,13 @@
 form.new_user_paper_rating, form.edit_user_paper_rating {
   .user_paper_rating_ratings_vote {
-    label.radio {
+    label {
       display: inline-block;
       margin-right: 10px;
+      font-size: 2em;
+      vertical-align: bottom;
       input {
         margin-right: 5px;
+        vertical-align: bottom;
       }
     }
   }

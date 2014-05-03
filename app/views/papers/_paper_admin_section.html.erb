@@ -19,7 +19,7 @@
       <%= f.fields_for :ratings, f.object.rating_for_rating_dimension(rating_dimension) do |rating_form| %>
         <%= rating_form.hidden_field :id %>
         <%= rating_form.hidden_field :rating_dimension_id %>
-        <%= rating_form.input :vote, collection: [0, 1, 2], as: :radio_buttons, label: false %>
+        <%= rating_form.input :vote, as: :votes %>
       <% end %>
     <% end %>
     <%= f.submit 'Vote', class: 'button' %>
