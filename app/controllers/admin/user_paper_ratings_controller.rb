@@ -5,7 +5,16 @@ class Admin::UserPaperRatingsController < Admin::AdminController
   def create
     @user_paper_rating.assign_attributes(user_paper_rating_params)
     if @user_paper_rating.save then
-      redirect_to admin_papers_path, notice: "voting successful!"
+      case params[:commit]
+      when /papers list/i
+        target = admin_papers_path
+      when /next paper/i
+        target = Paper.visible.not_rated_by_user(current_user).first
+        target ||= admin_papers_path
+      else
+        target = @paper
+      end
+      redirect_to target, notice: "voting successful!"
     else
       render "papers/show"
     end

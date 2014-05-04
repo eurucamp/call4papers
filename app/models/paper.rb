@@ -47,4 +47,10 @@ class Paper < ActiveRecord::Base
   def score
     user_paper_ratings.to_a.sum(&:sum) / user_paper_ratings.count.to_f
   end
+
+  class << self
+    def not_rated_by_user(user)
+      where.not(id: user.user_paper_ratings.select(:paper_id))
+    end
+  end
 end
