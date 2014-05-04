@@ -15,7 +15,7 @@ class Paper < ActiveRecord::Base
   validates :call, :user, presence: true
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
 
-  default_scope -> { joins(:call).merge(Call.not_archived) }
+  scope :visible, -> { joins(:call).merge(Call.not_archived) }
   scope :for_open_call, -> { joins(:call).merge(Call.open) }
   scope :editable, -> { for_open_call.readonly(false) }
   scope :mentors_can_read, -> { where(mentors_can_read: true) }

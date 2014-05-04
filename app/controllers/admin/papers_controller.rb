@@ -1,6 +1,6 @@
 class Admin::PapersController < Admin::AdminController
   def index
-    @papers = Paper.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @papers = Paper.visible.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
     if params[:sort]
       @papers.sort_by! { |p| p.score }.reverse!
     end
