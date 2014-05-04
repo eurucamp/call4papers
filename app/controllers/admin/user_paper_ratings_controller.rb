@@ -10,7 +10,7 @@ class Admin::UserPaperRatingsController < Admin::AdminController
         target = admin_papers_path
       when /next paper/i
         target = Paper.visible.not_rated_by_user(current_user).first
-        target ||= admin_papers_path
+        target ||= 'https://www.youtube.com/watch?v=xvX_5ym_ajI'
       else
         target = @paper
       end
