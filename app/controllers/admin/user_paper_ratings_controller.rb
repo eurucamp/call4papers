@@ -9,7 +9,8 @@ class Admin::UserPaperRatingsController < Admin::AdminController
       when /papers list/i
         target = admin_papers_path
       when /next paper/i
-        target = Paper.visible.not_rated_by_user(current_user)
+        target = Paper.visible.not_rated_by_user(current_user).first
+        target ||= admin_papers_path
       else
         target = @paper
       end
