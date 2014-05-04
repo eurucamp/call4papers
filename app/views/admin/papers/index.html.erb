@@ -12,7 +12,6 @@
   <% else %>
     <table class="table">
       <tr>
-        <th><%= t('activerecord.models.attributes.paper.track') %></th>
         <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
         <th><%= t('activerecord.models.attributes.paper.id') %></th>
         <th><%= t('activerecord.models.attributes.paper.title') %></th>
@@ -27,7 +26,6 @@
 
       <% @papers.each do |paper| %>
         <tr class="<%= 'selected' if paper.selected? %>">
-          <td class="track"><%= paper.track %></td>
           <td class="time-slot"><%= paper.time_slot %></td>
           <td class="id"><%= paper.id[0..5] %></td>
           <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
