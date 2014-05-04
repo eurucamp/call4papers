@@ -1,6 +1,6 @@
 <h1>
   <%= t('.title') %>
-  <small><%= t('.subtitle', count: current_user.user_paper_ratings.count) %></small>
+  <small><%= t('.subtitle', count: current_user.user_paper_ratings.count, total: @papers.count) %></small>
 </h1>
 
 <dl class="sub-nav">
