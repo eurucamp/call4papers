@@ -5,7 +5,7 @@ class Admin::UserPaperRatingsController < Admin::AdminController
   def create
     @user_paper_rating.assign_attributes(user_paper_rating_params)
     if @user_paper_rating.save then
-      redirect_to @paper, notice: "voting successful!"
+      redirect_to admin_papers_path, notice: "voting successful!"
     else
       render "papers/show"
     end
