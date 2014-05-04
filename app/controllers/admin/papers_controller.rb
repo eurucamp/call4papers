@@ -2,7 +2,15 @@ class Admin::PapersController < Admin::AdminController
   def index
     @papers = Paper.visible.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
     if params[:sort]
-      @papers.sort_by! { |p| p.score }.reverse!
+      @papers.sort_by! do |p|
+        score = paper.score
+        if score == Float::NAN
+          -1
+        else
+          score
+        end
+      end
+      @papers.reverse!
     end
     @papers = Admin::PaperDecorator.wrap(@papers)
   end
