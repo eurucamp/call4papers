@@ -1,3 +1,4 @@
+@import "bourbon";
 @import "foundation/components/labels";
 
 .time-slot span {
@@ -19,5 +20,18 @@
     &.sc-#{$i} {
       background-color: darken(adjust-hue($bad-color, percentage($i * 0.08)), 10%);
     }
+  }
+}
+
+th.rotate {
+  white-space: nowrap;
+
+  @include transform(rotate(270deg));
+  @include transform-origin(65px 60px);
+
+  span {
+    display: inline-block;
+    width:   30px;
+    height:  120px;
   }
 }
