@@ -24,6 +24,7 @@ gem 'foundation-rails'
 gem 'coffee-rails',     '~> 4.0.0'
 gem 'uglifier',         '>= 1.0.3'
 gem 'font-awesome-sass'
+gem 'bourbon'
 
 gem 'jquery-rails',     '~> 3.1.0'
 
