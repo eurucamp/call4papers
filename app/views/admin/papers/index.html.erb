@@ -21,6 +21,7 @@
     <table class="table table-header-rotated">
       <thead>
         <tr>
+          <th><%= t('activerecord.models.attributes.paper.position') %></th>
           <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
           <th><%= t('activerecord.models.attributes.paper.id') %></th>
           <th><%= t('activerecord.models.attributes.paper.title') %></th>
@@ -34,8 +35,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @papers.each do |paper| %>
+        <% @papers.each_with_index do |paper,index| %>
           <tr class="<%= 'selected' if paper.selected? %>">
+            <td class="rank"><%= index + 1 %></td>
             <td class="time-slot"><%= paper.formatted_time_slot %></td>
             <td class="id"><%= paper.id[0..5] %></td>
             <th class="title"><%= link_to truncate(paper.title, length: 60), paper %></th>
