@@ -35,7 +35,7 @@ class PapersController < ApplicationController
   end
 
   def update
-    @paper = current_user.papers.find(params[:id])
+    @paper = Paper.find(params[:id])
 
     if @paper.update_attributes(paper_params)
       redirect_to @paper, notice: I18n.t('papers.update.success')
