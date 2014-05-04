@@ -39,9 +39,9 @@
       </thead>
       <tbody>
         <% @papers.each_with_index do |paper,index| %>
-          <%= cache(paper) do %>
-            <tr class="<%= 'selected' if paper.selected? %>">
-              <td class="rank"><%= index + 1 %></td>
+          <tr class="<%= 'selected' if paper.selected? %>">
+            <td class="rank"><%= index + 1 %></td>
+            <%= cache(paper) do %>
               <td class="time-slot"><%= paper.formatted_time_slot %></td>
               <td class="id"><%= paper.id[0..5] %></td>
               <th class="title"><%= link_to truncate(paper.title, length: 60), paper %></th>
@@ -55,8 +55,8 @@
               <% @dimensions.each do |d| %>
                 <td class="score"><%= paper.formatted_score_by_dimension(d) %></td>
               <% end %>
-            </tr>
-          <% end %>
+            <% end %>
+          </tr>
         <% end %>
       </tbody>
     </table>
