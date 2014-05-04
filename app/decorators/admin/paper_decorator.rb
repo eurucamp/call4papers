@@ -32,6 +32,14 @@ module Admin
       content_tag(:span, score_value, class: score_class)
     end
 
+    def formatted_score_by_dimension(dimension)
+      score = score_by_dimension(dimension)
+      empty_score = score.nil? || score.nan?
+      score_value = empty_score ? 'n/a' : score.round(2)
+      score_class = empty_score ? 'na'  : "sc-#{score.round} single"
+      content_tag(:span, score_value, class: score_class)
+    end
+    
     private
 
     def formatted_time(time)

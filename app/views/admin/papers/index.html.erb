@@ -32,6 +32,9 @@
           <th class="rotate"><span><%= t('activerecord.models.attributes.paper.notice_by_you') %></span></th>
           <th class="rotate"><span><%= t('activerecord.models.attributes.paper.number_of_ratings') %></span></th>
           <th class="rotate"><span><%= t('activerecord.models.attributes.paper.score') %></span></th>
+          <% @dimensions.each do |d| %>
+            <th class="rotate"><span><%= d.name %></span></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +51,9 @@
             <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
             <td score="ratings"><%= paper.user_paper_ratings.count %></td>
             <td class="score"><%= paper.formatted_score %></td>
+            <% @dimensions.each do |d| %>
+              <td class="score"><%= paper.formatted_score_by_dimension(d) %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

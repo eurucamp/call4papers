@@ -23,6 +23,23 @@
   }
 }
 
+.score span.single {
+  @include label($radius: 10px);
+  $bad-color: red;
+
+  &.na { background-color: $secondary-color; color: black; }
+
+  &.sc-0 {
+    background-color: darken(red, 10%);
+  }
+  &.sc-1 {
+    background-color: darken(yellow, 10%);
+  }
+  &.sc-2 {
+    background-color: darken(green, 10%);
+  }
+}
+
 th.rotate {
   white-space: nowrap;
 
