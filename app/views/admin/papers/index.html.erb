@@ -1,10 +1,15 @@
 <h1><%= t('.title') %></h1>
 
-<% if params[:sort] %>
-  <%= link_to('unsort', {}, { :class => 'button' }) %>
-<% else %>
-  <%= link_to('sort by score', { :sort => true }, { :class => 'button' }) %>
-<% end %>
+<dl class="sub-nav">
+  <dt>Sort:</dt>
+  <% if params[:sort] %>
+    <dd><%= link_to('Unsorted', {}) %></dd>
+    <dd class="active"><a href="#">By score</a></dd>
+  <% else %>
+    <dd class="active"><a href="#">Unsorted</a></dd>
+    <dd><%= link_to('By score', { :sort => true }) %></dd>
+  <% end %>
+</dl>
 
 <div class="papers">
   <% if @papers.empty? %>
