@@ -18,7 +18,7 @@ class Admin::PapersController < Admin::AdminController
   def update
     paper_parameters = params[:paper]
     paper_parameters.permit(:selected)
-    @paper = Paper.editable.find(params[:id])
+    @paper = Paper.find(params[:id])
     @paper.selected = paper_parameters[:selected]
     @paper.save!
     redirect_to paper_path(@paper)

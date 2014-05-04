@@ -35,7 +35,7 @@ class PapersController < ApplicationController
   end
 
   def update
-    @paper = Paper.find(params[:id])
+    @paper = current_user.papers.editable.find(params[:id])
 
     if @paper.update_attributes(paper_params)
       redirect_to @paper, notice: I18n.t('papers.update.success')
@@ -60,7 +60,7 @@ class PapersController < ApplicationController
   def paper_params
     params.require(:paper).permit(
       :title, :public_description, :private_description, :time_slot,
-      :mentor_name, :mentors_can_read, :terms_and_conditions, :selected,
+      :mentor_name, :mentors_can_read, :terms_and_conditions,
       user_attributes: [:gender, :mentor, :bio]
     )
   end
