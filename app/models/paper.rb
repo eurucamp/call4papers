@@ -37,8 +37,7 @@ class Paper < ActiveRecord::Base
   end
 
   def rated_by?(user)
-    true
-    #user_paper_ratings.where(user_id: user.id).one?
+    user_paper_ratings.where(user_id: user.id).one?
   end
 
   def note_attached_by?(user)
