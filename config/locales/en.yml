@@ -89,6 +89,9 @@ en:
     papers:
       index:
         title: All papers
+        subtitle: 
+          one: You have rated 1 paper
+          other: You have rated %{count} papers
     communications:
       index:
         title: All Messages

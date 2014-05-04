@@ -1,4 +1,7 @@
-<h1><%= t('.title') %></h1>
+<h1>
+  <%= t('.title') %>
+  <small><%= t('.subtitle', count: current_user.user_paper_ratings.count) %></small>
+</h1>
 
 <dl class="sub-nav">
   <dt>Sort:</dt>
