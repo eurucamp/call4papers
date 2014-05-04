@@ -1,5 +1,5 @@
 class Rating < ActiveRecord::Base
-  belongs_to :user_paper_rating, inverse_of: :ratings
+  belongs_to :user_paper_rating, inverse_of: :ratings, touch: true
   belongs_to :rating_dimension, inverse_of: :ratings
 
   validates_presence_of :user_paper_rating, :rating_dimension, :vote

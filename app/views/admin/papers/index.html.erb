@@ -39,22 +39,24 @@
       </thead>
       <tbody>
         <% @papers.each_with_index do |paper,index| %>
-          <tr class="<%= 'selected' if paper.selected? %>">
-            <td class="rank"><%= index + 1 %></td>
-            <td class="time-slot"><%= paper.formatted_time_slot %></td>
-            <td class="id"><%= paper.id[0..5] %></td>
-            <th class="title"><%= link_to truncate(paper.title, length: 60), paper %></th>
-            <td><%= paper.formatted_created_at %></td>
-            <td><%= paper.formatted_updated_at %></td>
-            <td><%= link_to(paper.user.name, profile_path(paper.user)) if paper.call.deanonymized? %></td>
-            <td><%= "✔" if paper.rated_by?(current_user) %></td>
-            <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
-            <td score="ratings"><%= paper.user_paper_ratings.count %></td>
-            <td class="score"><%= paper.formatted_score %></td>
-            <% @dimensions.each do |d| %>
-              <td class="score"><%= paper.formatted_score_by_dimension(d) %></td>
-            <% end %>
-          </tr>
+          <%= cache(paper) do %>
+            <tr class="<%= 'selected' if paper.selected? %>">
+              <td class="rank"><%= index + 1 %></td>
+              <td class="time-slot"><%= paper.formatted_time_slot %></td>
+              <td class="id"><%= paper.id[0..5] %></td>
+              <th class="title"><%= link_to truncate(paper.title, length: 60), paper %></th>
+              <td><%= paper.formatted_created_at %></td>
+              <td><%= paper.formatted_updated_at %></td>
+              <td><%= link_to(paper.user.name, profile_path(paper.user)) if paper.call.deanonymized? %></td>
+              <td><%= "✔" if paper.rated_by?(current_user) %></td>
+              <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
+              <td score="ratings"><%= paper.user_paper_ratings.count %></td>
+              <td class="score"><%= paper.formatted_score %></td>
+              <% @dimensions.each do |d| %>
+                <td class="score"><%= paper.formatted_score_by_dimension(d) %></td>
+              <% end %>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
