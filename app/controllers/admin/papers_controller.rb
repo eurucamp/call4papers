@@ -3,8 +3,8 @@ class Admin::PapersController < Admin::AdminController
     @papers = Paper.visible.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
     if params[:sort]
       @papers.sort_by! do |p|
-        score = paper.score
-        if score == Float::NAN
+        score = p.score
+        if score.nan?
           -1
         else
           score
