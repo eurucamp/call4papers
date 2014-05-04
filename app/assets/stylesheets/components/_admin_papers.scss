@@ -1,0 +1,37 @@
+@import "bourbon";
+@import "foundation/components/labels";
+
+.time-slot span {
+  @include label($radius: 10px);
+
+  &.ts-15m      { background-color: lighten($primary-color, 20%); }
+  &.ts-30m      { background-color: $primary-color;               }
+  &.ts-40m      { background-color: darken($primary-color, 20%);  }
+  &.ts-workshop { background-color: darken($secondary-color, 20%);}
+}
+
+.score span {
+  @include label($radius: 10px);
+  $bad-color: red;
+
+  &.na { background-color: $secondary-color; color: black; }
+
+  @for $i from 0 to 13 {
+    &.sc-#{$i} {
+      background-color: darken(adjust-hue($bad-color, percentage($i * 0.08)), 10%);
+    }
+  }
+}
+
+th.rotate {
+  white-space: nowrap;
+
+  @include transform(rotate(270deg));
+  @include transform-origin(65px 60px);
+
+  span {
+    display: inline-block;
+    width:   30px;
+    height:  120px;
+  }
+}
