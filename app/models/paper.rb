@@ -48,6 +48,12 @@ class Paper < ActiveRecord::Base
     user_paper_ratings.to_a.sum(&:sum) / user_paper_ratings.count.to_f
   end
 
+  def score_by_dimension(dimension)
+    user_paper_ratings.to_a.sum do |ur|
+      ur.rating_for_rating_dimension(dimension).vote
+    end / user_paper_ratings.count.to_f
+  end
+
   class << self
     def not_rated_by_user(user)
       where.not(id: user.user_paper_ratings.select(:paper_id))
