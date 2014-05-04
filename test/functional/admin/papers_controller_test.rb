@@ -33,12 +33,6 @@ class Admin::PapersControllerTest < ActionController::TestCase
     assert Paper.find(2).selected
   end
 
-  test 'should not accept changes for closed calls' do
-    sign_in users(:admin_user)
-
-    assert_raises(ActiveRecord::RecordNotFound) { post :update, id: 3, paper: { selected: true } }
-  end
-
   test 'should not accept any further parameters' do
     sign_in users(:admin_user)
     
