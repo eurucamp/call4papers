@@ -26,16 +26,16 @@
 
       <% @papers.each do |paper| %>
         <tr class="<%= 'selected' if paper.selected? %>">
-          <td class="time-slot"><%= paper.time_slot %></td>
+          <td class="time-slot"><%= paper.formatted_time_slot %></td>
           <td class="id"><%= paper.id[0..5] %></td>
           <td class="title"><%= link_to truncate(paper.title, length: 60), paper %></td>
-          <td><%= paper.created_at.strftime('%b %d, %Y') %></td>
-          <td><%= paper.updated_at.strftime('%b %d, %Y') if paper.updated? %></td>
+          <td><%= paper.formatted_created_at %></td>
+          <td><%= paper.formatted_updated_at %></td>
           <td><%= link_to(paper.user.name, profile_path(paper.user)) if paper.call.deanonymized? %></td>
           <td><%= "✔" if paper.rated_by?(current_user) %></td>
           <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
-          <td><%= paper.user_paper_ratings.count %></td>
-          <td><%= paper.score %></td>
+          <td score="ratings"><%= paper.user_paper_ratings.count %></td>
+          <td class="score"><%= paper.formatted_score %></td>
         </tr>
       <% end %>
     </table>

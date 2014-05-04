@@ -4,6 +4,7 @@ class Admin::PapersController < Admin::AdminController
     if params[:sort]
       @papers.sort_by! { |p| p.score }.reverse!
     end
+    @papers = Admin::PaperDecorator.wrap(@papers)
   end
 
   def update
