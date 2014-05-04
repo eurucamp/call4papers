@@ -12,19 +12,21 @@
 
 <h3><%= t('admin.admin_section') %></h3>
 <% unless @paper.call.open? %>
-  <h4><%= t('admin.votes') %></h4>
-  <%= simple_form_for @user_paper_rating, url: admin_user_paper_rating_path(@paper) do |f| %>
-    <% RatingDimension.all.each do |rating_dimension| %>
-      <h6><%= rating_dimension.name %></h6>
-      <%= f.fields_for :ratings, f.object.rating_for_rating_dimension(rating_dimension) do |rating_form| %>
-        <%= rating_form.hidden_field :id %>
-        <%= rating_form.hidden_field :rating_dimension_id %>
-        <%= rating_form.input :vote, as: :votes %>
+  <% if @paper.call.anonymous? then %>
+    <h4><%= t('admin.votes') %></h4>
+    <%= simple_form_for @user_paper_rating, url: admin_user_paper_rating_path(@paper) do |f| %>
+      <% RatingDimension.all.each do |rating_dimension| %>
+        <h6><%= rating_dimension.name %></h6>
+        <%= f.fields_for :ratings, f.object.rating_for_rating_dimension(rating_dimension) do |rating_form| %>
+          <%= rating_form.hidden_field :id %>
+          <%= rating_form.hidden_field :rating_dimension_id %>
+          <%= rating_form.input :vote, as: :votes %>
+        <% end %>
       <% end %>
+      <%= f.submit 'Vote', class: 'button' %>
+      <%= f.submit 'Vote and go to papers list', class: 'button' %>
+      <%= f.submit 'Vote and go to next paper', class: 'button' %>
     <% end %>
-    <%= f.submit 'Vote', class: 'button' %>
-    <%= f.submit 'Vote and go to papers list', class: 'button' %>
-    <%= f.submit 'Vote and go to next paper', class: 'button' %>
   <% end %>
 
   <h4><%= t('admin.attach_personal_note') %></h4>

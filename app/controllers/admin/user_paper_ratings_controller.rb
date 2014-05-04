@@ -28,6 +28,9 @@ private
     if @paper.call_open?
       redirect_to @paper, notice: "Paper's call is still open!"
     end
+    if @paper.call.deanonymized? then
+      redirect_to @paper, notice: "Paper's call is deanonymized!"
+    end
   end
 
   def find_or_initialize_user_paper_rating
