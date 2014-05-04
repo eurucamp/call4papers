@@ -27,7 +27,7 @@ module Admin
 
     def formatted_score
       empty_score = score.nil? || score.nan?
-      score_value = empty_score ? 'n/a' : score
+      score_value = empty_score ? 'n/a' : score.round(2)
       score_class = empty_score ? 'na'  : "sc-#{score.round}"
       content_tag(:span, score_value, class: score_class)
     end
