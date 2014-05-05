@@ -20,7 +20,7 @@ class Admin::PapersControllerTest < ActionController::TestCase
 
     csv = CSV.parse(response.body, headers: true)
     assert_equal 'Id',    csv.headers[0]
-    assert_equal 'Title', csv.headers[1]
+    assert_equal 'User name', csv.headers[1]
     assert_equal Paper.count,       csv.size
   end
 
