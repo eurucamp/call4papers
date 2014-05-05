@@ -59,4 +59,12 @@ class Paper < ActiveRecord::Base
       where.not(id: user.user_paper_ratings.select(:paper_id))
     end
   end
+
+  def user_email
+    user.email
+  end
+
+  def user_name
+    user.name
+  end
 end

@@ -42,6 +42,8 @@ class Admin::PapersController < Admin::AdminController
     # Handle call_id, user_id (when deanonymized)
     %w(
       id
+      user_name
+      user_email
       title
       public_description
       private_description
