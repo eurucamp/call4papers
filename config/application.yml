@@ -6,7 +6,9 @@ defaults: &defaults
   errors:
     from: "exception@eurucamp.org"
     to:
-      - "piotr@gega.io"
+      - "jose+cfp-errors@eurucamp.org"
+      - "florian+cfp-errors@eurucamp.org"
+      - "alex+cfp-errors@eurucamp.org"
   conference:
     time_slots:
       - 15 minutes
