@@ -1,7 +1,7 @@
 class Admin::PapersController < Admin::AdminController
   def index
     @dimensions = RatingDimension.all
-    @papers = Paper.visible.where.not(time_slot: 'workshop').order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @papers = Paper.visible.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
     if params[:sort]
       @papers.sort_by! do |p|
         score = p.score
