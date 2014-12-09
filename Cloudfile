@@ -1,0 +1,24 @@
+eurucamp-cfp-staging:
+  ruby_version: 2.1.5
+  environment: staging
+  domains:
+    - cfp-staging.eurucamp.org
+    - eurucamp-cfp-staging.shellyapp.com
+  servers:
+    app1:
+      size: small
+      thin: 2
+      databases:
+        - postgresql
+eurucamp-cfp-production:
+  ruby_version: 2.1.5
+  environment: production
+  domains:
+    - cfp.eurucamp.org
+    - eurucamp-cfp-production.shellyapp.com
+  servers:
+    app1:
+      size: small
+      thin: 2
+      databases:
+        - postgresql

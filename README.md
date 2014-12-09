@@ -1,4 +1,6 @@
-# eurucamp Call for Papers [![License](http://img.shields.io/:license-AGPL-0030c8.svg)](COPYRIGHT) [![Build Status](https://travis-ci.org/eurucamp/call4papers.png?branch=master)](https://travis-ci.org/eurucamp/call4papers)
+# eurucamp Call for Papers
+  [![License](http://img.shields.io/:license-AGPL-0030c8.svg)](COPYRIGHT)
+  [![Codeship Status](https://codeship.com/projects/2f6136b0-643a-0132-16ea-6e8486426495/status?branch=bump)]
 
 The eurucamp Call for Papers application allows users to submit conference proposals or suggest speakers. Signup works through Github or Twitter.
 
