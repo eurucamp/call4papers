@@ -41,6 +41,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    daemons (1.1.9)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -52,6 +53,7 @@ GEM
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
@@ -96,7 +98,6 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
-    kgio (2.9.1)
     launchy (2.4.2)
       addressable (~> 2.3)
     localeapp (0.6.9)
@@ -166,7 +167,6 @@ GEM
       activesupport (= 4.0.3)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.12.0)
     rake (10.1.1)
     redcarpet (3.0.0)
     rest-client (1.6.7)
@@ -178,6 +178,9 @@ GEM
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     settingslogic (2.0.9)
+    shelly-dependencies (0.2.4)
+      rake
+      thin
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
@@ -195,6 +198,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     thor (0.18.1)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
@@ -208,10 +215,6 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unicorn (4.8.2)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
     ya2yaml (0.31)
@@ -245,8 +248,9 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 4.0.0)
   settingslogic
+  shelly-dependencies
   simple_form (~> 3.0.1)
   simplecov
+  thin
   turn
   uglifier (>= 1.0.3)
-  unicorn
