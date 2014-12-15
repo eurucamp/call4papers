@@ -18,6 +18,7 @@ gem 'immigrant'
 gem 'redcarpet'
 gem 'newrelic_rpm'
 gem 'settingslogic'
+gem 'thin'
 
 gem 'sass-rails',       '~> 4.0.0'
 gem 'foundation-rails'
@@ -28,7 +29,6 @@ gem 'bourbon'
 
 gem 'jquery-rails',     '~> 3.1.0'
 
-gem 'unicorn'
 gem 'rack-robotz',      '~> 0.0.3'
 gem 'localeapp'
 
@@ -46,4 +46,5 @@ end
 group :production, :staging do
   gem 'exception_notification', '~> 4.0.1'
   gem 'rails_12factor'
+  gem 'shelly-dependencies'
 end
