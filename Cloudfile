@@ -15,7 +15,7 @@ eurucamp-cfp-production:
   environment: production
   domains:
     - cfp.eurucamp.org
-    - eurucamp-cfp.shellyapp.com
+    - eurucamp-cfp-production.shellyapp.com
   servers:
     app1:
       size: small
