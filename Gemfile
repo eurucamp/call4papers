@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'dotenv-deployment'
 
 gem 'rails', '4.0.3'
 
