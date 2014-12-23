@@ -40,8 +40,8 @@ An installed postgresql instance and a compiler is needed.
 
 ## Deployment
 
-* `bundle exec rake staging deploy`
-* `bundle exec rake production deploy`
+Every commit on the branch `master` is tested by Codeship and a will will be deployed to [cfp-staging.eurucamp.org](http://cfp-staging.eurucamp.org/) if all tests pass.
+If `master` is ready for prime time, send a [pull request](https://github.com/eurucamp/call4papers/compare/release...master) and merge into the `release` branch. Codeship will take care of running the tests again and deploy to [production](https://cfp.eurucamp.org).
 
 ## Contributing to translations
 
