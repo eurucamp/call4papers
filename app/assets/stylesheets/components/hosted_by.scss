@@ -1,0 +1,13 @@
+.hosted_by {
+  float: right;
+  background-image: image_url('shellycloud.png');
+  width: 132px;
+  height: 50px;
+}
+
+.frontpage .hosted_by {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-image: image_url('shellycloud-trans.png');
+}
