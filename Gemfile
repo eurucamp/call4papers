@@ -4,7 +4,7 @@ ruby '2.1.5'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.2.0'
 
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
@@ -34,10 +34,13 @@ gem 'localeapp'
 group :development do
   gem 'foreman'
   gem 'rails_layout'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
   gem 'simplecov',  require: false
+  gem 'rails-perftest'
+  gem 'ruby-prof'
 end
 
 group :production, :staging do
