@@ -213,7 +213,7 @@ DEPENDENCIES
   font-awesome-sass
   foreigner
   foreman
-  foundation-rails
+  foundation-rails (~> 5.2.0)
   immigrant
   jquery-rails (~> 3.1.0)
   localeapp
