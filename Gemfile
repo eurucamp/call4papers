@@ -4,7 +4,7 @@ ruby '2.1.5'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
@@ -19,9 +19,9 @@ gem 'redcarpet'
 gem 'settingslogic'
 gem 'thin'
 
-gem 'sass-rails',       '~> 4.0.0'
-gem 'foundation-rails', '~> 5.2.0'
-gem 'coffee-rails',     '~> 4.0.0'
+gem 'sass-rails',       '~> 5.0.0'
+gem 'foundation-rails', '~> 5.4.0'
+gem 'coffee-rails',     '~> 4.1.0'
 gem 'uglifier',         '>= 1.0.3'
 gem 'font-awesome-sass'
 gem 'bourbon'
@@ -37,7 +37,6 @@ group :development do
 end
 
 group :test do
-  gem 'turn',       require: false
   gem 'simplecov',  require: false
 end
 
