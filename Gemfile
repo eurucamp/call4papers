@@ -6,7 +6,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rails', '4.0.3'
 
-gem 'devise', '~> 3.2.2'
+gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.0.1'
 gem 'omniauth'
 gem 'omniauth-github'
