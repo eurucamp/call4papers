@@ -166,7 +166,7 @@ GEM
     shelly-dependencies (0.2.4)
       rake
       thin
-    simple_form (3.0.3)
+    simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simplecov (0.9.1)
@@ -233,7 +233,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   settingslogic
   shelly-dependencies
-  simple_form (~> 3.0.1)
+  simple_form (~> 3.1.0)
   simplecov
   thin
   turn
