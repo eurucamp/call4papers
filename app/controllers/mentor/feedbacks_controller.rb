@@ -10,7 +10,7 @@ class Mentor::FeedbacksController < Mentor::MentorController
         @paper.user,
         current_user,
         @feedback
-      ).deliver
+      ).deliver_now
       redirect_to paper_path(@paper), :flash => {:notice => "Feedback sent" }
    else
       redirect_to paper_path(@paper), :flash => {:error => "Please give us some text :)." }

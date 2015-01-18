@@ -48,7 +48,7 @@ class Admin::CommunicationsController < Admin::AdminController
       return
     end
 
-    CommunicationsMailer.communication_mail(@communication).deliver
+    CommunicationsMailer.communication_mail(@communication).deliver_now
     @communication.update(sent_at: Time.zone.now)
     redirect_to admin_communication_path(@communication), notice: 'Mail sent successfully! You should also receive a copy.'
   end
