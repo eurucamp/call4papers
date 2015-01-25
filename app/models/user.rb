@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   end
 
   def can_edit_paper?(paper)
-    papers.exists?(paper)
+    papers.exists?(paper.id)
   end
 
   def has_bio?

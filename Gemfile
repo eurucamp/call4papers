@@ -1,27 +1,30 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+# We want to use 2.2 only on staging for now and the `ruby' command
+# only supports specific versions down to the patch level.
+if %w(2.1.5 2.2.0).include? RUBY_VERSION
+  ruby RUBY_VERSION
+end
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.0'
 
-gem 'devise', '~> 3.2.2'
-gem 'simple_form', '~> 3.0.1'
+gem 'devise', '~> 3.4.1'
+gem 'simple_form', '~> 3.1.0'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'pg'
-gem 'foreigner'
 gem 'immigrant'
 
 gem 'redcarpet'
 gem 'settingslogic'
 gem 'thin'
 
-gem 'sass-rails',       '~> 4.0.0'
-gem 'foundation-rails'
-gem 'coffee-rails',     '~> 4.0.0'
+gem 'sass-rails',       '~> 5.0.0'
+gem 'foundation-rails', '~> 5.4.0'
+gem 'coffee-rails',     '~> 4.1.0'
 gem 'uglifier',         '>= 1.0.3'
 gem 'font-awesome-sass'
 gem 'bourbon'
@@ -34,11 +37,13 @@ gem 'localeapp'
 group :development do
   gem 'foreman'
   gem 'rails_layout'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
-  gem 'turn',       require: false
   gem 'simplecov',  require: false
+  gem 'rails-perftest'
+  gem 'ruby-prof'
 end
 
 group :production, :staging do

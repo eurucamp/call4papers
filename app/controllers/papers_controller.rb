@@ -56,7 +56,7 @@ class PapersController < ApplicationController
   private
 
   def notify_excited_organizers
-    PapersMailer.created(@paper.title, paper_url(@paper)).deliver
+    PapersMailer.created(@paper.title, paper_url(@paper)).deliver_now
   end
 
   def paper_params
