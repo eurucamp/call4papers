@@ -42,8 +42,6 @@ end
 
 group :test do
   gem 'simplecov',  require: false
-  gem 'rails-perftest'
-  gem 'ruby-prof'
 end
 
 group :production, :staging do
