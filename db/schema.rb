@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authentications", force: true do |t|
+  create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calls", force: true do |t|
+  create_table "calls", force: :cascade do |t|
     t.string   "title",                        null: false
     t.text     "description"
     t.text     "instructions"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
 
   add_index "calls", ["title"], name: "index_calls_on_title", unique: true, using: :btree
 
-  create_table "communications", force: true do |t|
+  create_table "communications", force: :cascade do |t|
     t.integer  "sender_id"
     t.string   "subject"
     t.text     "body"
@@ -52,14 +52,14 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   add_index "communications", ["created_at"], name: "index_communications_on_created_at", using: :btree
   add_index "communications", ["sender_id"], name: "index_communications_on_sender_id", using: :btree
 
-  create_table "communications_recipients", id: false, force: true do |t|
+  create_table "communications_recipients", id: false, force: :cascade do |t|
     t.integer "communication_id"
     t.integer "recipient_id"
   end
 
   add_index "communications_recipients", ["communication_id", "recipient_id"], name: "c_id_rec_id", unique: true, using: :btree
 
-  create_table "notes", force: true do |t|
+  create_table "notes", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
     t.string   "paper_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
-  create_table "papers", id: false, force: true do |t|
+  create_table "papers", id: false, force: :cascade do |t|
     t.string   "id",                                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
 
   add_index "papers", ["mentors_can_read"], name: "index_papers_on_mentors_can_read", using: :btree
 
-  create_table "proposed_speakers", force: true do |t|
+  create_table "proposed_speakers", force: :cascade do |t|
     t.integer  "inviter_id"
     t.integer  "call_id"
     t.string   "speaker_name"
@@ -100,13 +100,13 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   add_index "proposed_speakers", ["call_id"], name: "index_proposed_speakers_on_call_id", using: :btree
   add_index "proposed_speakers", ["inviter_id"], name: "index_proposed_speakers_on_inviter_id", using: :btree
 
-  create_table "rating_dimensions", force: true do |t|
+  create_table "rating_dimensions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ratings", force: true do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer  "user_paper_rating_id", null: false
     t.integer  "rating_dimension_id",  null: false
     t.integer  "vote"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
 
   add_index "ratings", ["user_paper_rating_id", "rating_dimension_id"], name: "index_ratings_on_user_paper_rating_id_and_rating_dimension_id", unique: true, using: :btree
 
-  create_table "user_paper_ratings", force: true do |t|
+  create_table "user_paper_ratings", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.string   "paper_id",   null: false
     t.datetime "created_at"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
 
   add_index "user_paper_ratings", ["user_id", "paper_id"], name: "index_user_paper_ratings_on_user_id_and_paper_id", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name",                                   null: false
     t.string   "email",                                  null: false
     t.text     "bio"
@@ -152,9 +152,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "authentications", "users", name: "authentications_user_id_fk", dependent: :delete
-
-  add_foreign_key "papers", "calls", name: "papers_call_id_fk", dependent: :restrict
-  add_foreign_key "papers", "users", name: "papers_user_id_fk", dependent: :delete
-
+  add_foreign_key "authentications", "users", on_delete: :cascade
+  add_foreign_key "papers", "calls", on_delete: :restrict
+  add_foreign_key "papers", "users", on_delete: :cascade
 end
