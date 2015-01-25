@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+# We want to use 2.2 only on staging for now and the `ruby' command
+# only supports specific versions down to the patch level.
+if %w(2.1.5 2.2.0).include? RUBY_VERSION
+  ruby RUBY_VERSION
+end
 
 gem 'dotenv-rails', groups: [:development, :test]
 
