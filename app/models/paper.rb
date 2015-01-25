@@ -10,6 +10,7 @@ class Paper < ActiveRecord::Base
   belongs_to :user
   belongs_to :call
   has_many :user_paper_ratings, inverse_of: :paper, dependent: :destroy
+  has_many :ratings, through: :user_paper_ratings
 
   validates :id, :title, :public_description, :time_slot, presence: true
   validates :call, :user, presence: true
@@ -45,13 +46,13 @@ class Paper < ActiveRecord::Base
   end
 
   def score
-    user_paper_ratings.to_a.sum(&:sum) / user_paper_ratings.count.to_f
+    sum_of_votes = ratings.sum(:vote)
+    sum_of_votes / user_paper_ratings.size.to_f
   end
 
   def score_by_dimension(dimension)
-    user_paper_ratings.to_a.sum do |ur|
-      ur.rating_for_rating_dimension(dimension).vote
-    end / user_paper_ratings.count.to_f
+    sum_of_votes = ratings.in_dimension(dimension).sum(:vote)
+    sum_of_votes / user_paper_ratings.size.to_f
   end
 
   class << self
