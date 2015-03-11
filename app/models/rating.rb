@@ -5,4 +5,6 @@ class Rating < ActiveRecord::Base
   validates_presence_of :user_paper_rating, :rating_dimension, :vote
   validates_uniqueness_of :rating_dimension_id, scope: :user_paper_rating_id
   validates_numericality_of :vote, greater_than_or_equal_to: 0, less_than_or_equal_to: 2
+
+  scope :in_dimension, -> dimension { where(rating_dimension_id: dimension) }
 end
