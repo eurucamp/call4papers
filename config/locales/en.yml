@@ -17,7 +17,7 @@ en:
     labels:
       paper:
         time_slot: Preferred time slot
-        mentors_can_read: Mentors can read my submission. This allows us to gives feedback during the submission phase.
+        mentors_can_read: Mentors can read my submission. This allows us to give feedback during the submission phase.
       user:
         mentor: I am willing to mentor
     required:
