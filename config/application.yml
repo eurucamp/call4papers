@@ -14,7 +14,6 @@ defaults: &defaults
       - 15 minutes
       - 30 minutes
       - 40 minutes
-      - workshop
   conferences:
     - eurucamp
     - jrubyconf
