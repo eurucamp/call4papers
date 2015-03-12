@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def select_conference
-    session[:conference] = params[:conference] if params.has_key? :conference
+    session[:conference] = params[:conference] if params.has_key? :conference and Settings.conferences.include? params[:conference]
     @conference = session[:conference] || 'eurucamp'
   end
 end

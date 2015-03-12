@@ -20,4 +20,9 @@ class HomeControllerTest < ActionController::TestCase
     get :show, conference: 'jrubyconf'
     assert_equal 'jrubyconf', assigns(:conference)
   end
+
+  test "should not set the variable to an unknown conference" do
+    get :show, conference: 'unknownconf'
+    assert_equal 'eurucamp', assigns(:conference)
+  end
 end
