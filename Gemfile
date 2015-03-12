@@ -33,6 +33,7 @@ gem 'jquery-rails',     '~> 3.1.0'
 
 gem 'rack-robotz',      '~> 0.0.3'
 gem 'localeapp'
+gem 'unicorn'
 
 group :development do
   gem 'foreman'
