@@ -15,6 +15,10 @@ defaults: &defaults
       - 30 minutes
       - 40 minutes
       - workshop
+  conferences:
+    - eurucamp
+    - jrubyconf
+    - euruko
 
 development:
   <<: *defaults
