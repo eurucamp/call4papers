@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_counters
-    @paper_counts = Paper.for_open_call.group(:call).count
+    @proposal_counts = Proposal.for_open_call.group(:call).count
     @user_count   = User.contributor.count
   end
 

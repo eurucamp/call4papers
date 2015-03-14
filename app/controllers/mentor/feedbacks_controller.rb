@@ -1,19 +1,19 @@
 class Mentor::FeedbacksController < Mentor::MentorController
   def contact
-    @paper = Paper.mentors_can_read.find(params[:id])
+    @proposal = Proposal.mentors_can_read.find(params[:id])
     @feedback = Feedback.new(params[:feedback])
 
     if @feedback.valid?
       FeedbacksMailer.contact(
-        @paper.title,
-        paper_url(@paper),
-        @paper.user,
+        @proposal.title,
+        proposal_url(@proposal),
+        @proposal.user,
         current_user,
         @feedback
       ).deliver_now
-      redirect_to paper_path(@paper), :flash => {:notice => "Feedback sent" }
+      redirect_to proposal_path(@proposal), :flash => {:notice => "Feedback sent" }
    else
-      redirect_to paper_path(@paper), :flash => {:error => "Please give us some text :)." }
+      redirect_to proposal_path(@proposal), :flash => {:error => "Please give us some text :)." }
    end
   end
 end

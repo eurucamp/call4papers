@@ -2,13 +2,13 @@ class User < ActiveRecord::Base
   GENDERS = ["male", "female", "unspecified"]
 
   has_many :authentications, dependent: :destroy
-  has_many :papers, dependent: :destroy
+  has_many :proposals, dependent: :destroy
   has_many :proposed_speakers, foreign_key: :inviter_id, dependent: :destroy
   has_and_belongs_to_many :communications,
                           foreign_key: :recipient_id,
                           join_table: :communications_recipients
   has_many :notes
-  has_many :user_paper_ratings, inverse_of: :user, dependent: :destroy
+  has_many :user_proposal_ratings, inverse_of: :user, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
@@ -54,8 +54,8 @@ class User < ActiveRecord::Base
     authentications.where(provider: 'github').first
   end
 
-  def can_edit_paper?(paper)
-    papers.exists?(paper.id)
+  def can_edit_proposal?(proposal)
+    proposals.exists?(proposal.id)
   end
 
   def has_bio?
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def has_proposal?
-    ! papers.empty?
+    ! proposals.empty?
   end
 
   # NOTE: Apparently, activerecord adds #staff? and #mentor? methods
@@ -88,20 +88,20 @@ class User < ActiveRecord::Base
   class << self
     def in_call(call)
       call_id = call.is_a?(Call) ? call.id : call
-      where(id: Paper.where(call_id: call_id).select(:user_id))
+      where(id: Proposal.where(call_id: call_id).select(:user_id))
     end
 
-    def with_selected_papers_for(call)
-      self.in_call(call).where('papers.selected = ?', true)
+    def with_selected_proposals_for(call)
+      self.in_call(call).where('proposals.selected = ?', true)
     end
   end
 
-  def note_for_paper(paper)
-    notes.where(paper_id: paper.id).first || Note.new
+  def note_for_proposal(proposal)
+    notes.where(proposal_id: proposal.id).first || Note.new
   end
 
-  def user_paper_rating_for_paper(paper)
-    paper_id = paper.is_a?(Paper) ? paper.id : paper
-    self.user_paper_ratings.where(paper_id: paper).first_or_initialize
+  def user_proposal_rating_for_proposal(proposal)
+    proposal_id = proposal.is_a?(Proposal) ? proposal.id : proposal
+    self.user_proposal_ratings.where(proposal_id: proposal).first_or_initialize
   end
 end

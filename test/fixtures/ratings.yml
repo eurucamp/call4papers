@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_paper_rating: one
+  user_proposal_rating: one
   rating_dimension_id: 1
   vote: 1
   notes: MyText
 
 two:
-  user_paper_rating: two
+  user_proposal_rating: two
   rating_dimension_id: 1
   vote: 1
   notes: MyText

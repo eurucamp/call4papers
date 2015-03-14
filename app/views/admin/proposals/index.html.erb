@@ -1,6 +1,6 @@
 <h1>
   <%= t('.title') %>
-  <small><%= t('.subtitle', count: current_user.user_paper_ratings.count) %></small>
+  <small><%= t('.subtitle', count: current_user.user_proposal_ratings.count) %></small>
 </h1>
 
 <dl class="sub-nav">
@@ -15,7 +15,7 @@
 </dl>
 
 <div class="papers">
-  <% if @papers.empty? %>
+  <% if @proposals.empty? %>
     No submissions yet.
   <% else %>
     <table class="table table-header-rotated">
@@ -38,21 +38,21 @@
         </tr>
       </thead>
       <tbody>
-        <% @papers.each_with_index do |paper,index| %>
-          <tr class="<%= 'selected' if paper.selected? %>">
+        <% @proposals.each_with_index do |proposal,index| %>
+          <tr class="<%= 'selected' if proposal.selected? %>">
             <td class="rank"><%= index + 1 %></td>
-            <td class="time-slot"><%= paper.formatted_time_slot %></td>
-            <td class="id"><%= paper.id[0..5] %></td>
-            <th class="title"><%= link_to truncate(paper.title, length: 60), paper %></th>
-            <td><%= paper.formatted_created_at %></td>
-            <td><%= paper.formatted_updated_at %></td>
-            <td><%= link_to(paper.user.name, profile_path(paper.user)) if paper.call.deanonymized? %></td>
-            <td><%= "✔" if paper.rated_by?(current_user) %></td>
-            <td><%= "✔" if paper.note_attached_by?(current_user) %></td>
-            <td score="ratings"><%= paper.user_paper_ratings.count %></td>
-            <td class="score"><%= paper.formatted_score %></td>
+            <td class="time-slot"><%= proposal.formatted_time_slot %></td>
+            <td class="id"><%= proposal.id[0..5] %></td>
+            <th class="title"><%= link_to truncate(proposal.title, length: 60), proposal %></th>
+            <td><%= proposal.formatted_created_at %></td>
+            <td><%= proposal.formatted_updated_at %></td>
+            <td><%= link_to(proposal.user.name, profile_path(proposal.user)) if proposal.call.deanonymized? %></td>
+            <td><%= "✔" if proposal.rated_by?(current_user) %></td>
+            <td><%= "✔" if proposal.note_attached_by?(current_user) %></td>
+            <td score="ratings"><%= proposal.user_proposal_ratings.count %></td>
+            <td class="score"><%= proposal.formatted_score %></td>
             <% @dimensions.each do |d| %>
-              <td class="score"><%= paper.formatted_score_by_dimension(d) %></td>
+              <td class="score"><%= proposal.formatted_score_by_dimension(d) %></td>
             <% end %>
           </tr>
         <% end %>
@@ -61,5 +61,5 @@
   <% end %>
 </div>
 
-<%= link_to 'Export (CSV)', export_admin_papers_path(format: 'csv'), class: 'button' %>
+<%= link_to 'Export (CSV)', export_admin_proposals_path(format: 'csv'), class: 'button' %>
 <%= render "admin/main/nav_bar" %>

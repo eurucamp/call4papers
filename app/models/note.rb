@@ -1,6 +1,6 @@
 class Note < ActiveRecord::Base
   belongs_to :user
-  belongs_to :paper
+  belongs_to :proposal
 
-  validates_presence_of :user, :paper, :content
+  validates_presence_of :user, :proposal, :content
 end

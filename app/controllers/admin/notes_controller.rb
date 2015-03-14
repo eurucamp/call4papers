@@ -1,15 +1,15 @@
 class Admin::NotesController < Admin::AdminController
   def create
-    paper = Paper.find(params[:id])
-    note = current_user.notes.new(paper_id: paper.id, :content => params[:note][:content])
+    proposal = Proposal.find(params[:id])
+    note = current_user.notes.new(proposal_id: proposal.id, :content => params[:note][:content])
     note.save!
-    redirect_to paper_path(paper)
+    redirect_to proposal_path(proposal)
   end
 
   def update
-    note = current_user.notes.where(paper_id: params[:id]).first
+    note = current_user.notes.where(proposal_id: params[:id]).first
     note.content = params[:note][:content]
     note.save!
-    redirect_to paper_path(params[:id])
+    redirect_to proposal_path(params[:id])
   end
 end

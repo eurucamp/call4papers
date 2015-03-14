@@ -2,7 +2,7 @@ class Call < ActiveRecord::Base
   validates :title, :closes_at, presence: true
   validates :title, uniqueness: true
 
-  has_many :papers
+  has_many :proposals
   has_many :proposed_speakers
   has_many :communications, inverse_of: :call
 
