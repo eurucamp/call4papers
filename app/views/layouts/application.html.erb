@@ -7,7 +7,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Call for Papers | eurucamp" %></title>
 
     <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= @conference %>">
@@ -21,6 +20,5 @@
       </div>
     </main>
     <%= render 'main/footer' %>
-    <%= javascript_include_tag "application" %>
   </body>
 </html>
