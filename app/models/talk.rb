@@ -5,5 +5,8 @@ class Talk < ActiveRecord::Base
     self.id = SecureRandom.hex(16)
   end
 
+  belongs_to :user
+
   validates :id, :title, :public_description, :time_slot, presence: true
+  validates :user, presence: true
 end
