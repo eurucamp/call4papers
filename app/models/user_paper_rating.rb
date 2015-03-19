@@ -8,6 +8,12 @@ class UserPaperRating < ActiveRecord::Base
 
   accepts_nested_attributes_for :ratings
 
+  def rating_for_rating_dimension(dimension)
+    dimension_id = dimension.is_a?(RatingDimension) ? dimension.id : dimension
+    rating = self.ratings.find{|rating| rating.rating_dimension_id == dimension_id }
+    rating ||= self.ratings.new(rating_dimension_id: dimension_id)
+  end
+
 private
   def call_must_be_closed
     errors.add(:paper, 'Paper call must be closed!') if paper.try(:call_open?)
