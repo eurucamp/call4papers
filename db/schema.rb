@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319123745) do
+ActiveRecord::Schema.define(version: 20150320203117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,22 +70,14 @@ ActiveRecord::Schema.define(version: 20150319123745) do
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "proposals", id: false, force: :cascade do |t|
-    t.string   "id",                                  null: false
+    t.string   "id",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",                               null: false
-    t.text     "public_description"
-    t.text     "private_description",                 null: false
-    t.integer  "user_id",                             null: false
-    t.boolean  "selected",            default: false, null: false
-    t.string   "time_slot"
+    t.boolean  "selected",   default: false, null: false
     t.string   "track"
-    t.integer  "call_id",                             null: false
-    t.string   "mentor_name"
-    t.boolean  "mentors_can_read",    default: true
+    t.integer  "call_id",                    null: false
+    t.string   "talk_id"
   end
-
-  add_index "proposals", ["mentors_can_read"], name: "index_proposals_on_mentors_can_read", using: :btree
 
   create_table "proposed_speakers", force: :cascade do |t|
     t.integer  "inviter_id"
@@ -169,5 +161,4 @@ ActiveRecord::Schema.define(version: 20150319123745) do
 
   add_foreign_key "authentications", "users", on_delete: :cascade
   add_foreign_key "proposals", "calls", on_delete: :restrict
-  add_foreign_key "proposals", "users", on_delete: :cascade
 end
