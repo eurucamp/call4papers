@@ -1,4 +1,6 @@
 class Talk < ActiveRecord::Base
+  has_many :proposals, dependent: :destroy
+
   self.primary_key = 'id'
 
   before_validation on: :create do
