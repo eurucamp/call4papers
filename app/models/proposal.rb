@@ -1,5 +1,6 @@
 class Proposal < ActiveRecord::Base
   has_many :notes
+  belongs_to :talk
 
   self.primary_key = 'id'
 
@@ -12,7 +13,6 @@ class Proposal < ActiveRecord::Base
   has_many :user_proposal_ratings, inverse_of: :proposal, dependent: :destroy
   has_many :ratings, through: :user_proposal_ratings
 
-  validates :id, :title, :public_description, :time_slot, presence: true
   validates :call, :user, presence: true
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
 

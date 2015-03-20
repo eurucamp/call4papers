@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   GENDERS = ["male", "female", "unspecified"]
 
   has_many :authentications, dependent: :destroy
-  has_many :proposals, dependent: :destroy
+  has_many :talks, dependent: :destroy
+  has_many :proposals, through: :talks
   has_many :proposed_speakers, foreign_key: :inviter_id, dependent: :destroy
   has_and_belongs_to_many :communications,
                           foreign_key: :recipient_id,
