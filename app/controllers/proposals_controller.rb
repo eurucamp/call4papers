@@ -7,7 +7,7 @@ class ProposalsController < ApplicationController
   end
 
   def show
-    @proposal = Proposal.find(params[:id])
+    @proposal = Talk.find(params[:id]).proposals.first
     if current_user
       @user_proposal_rating = current_user.user_proposal_rating_for_proposal(@proposal)
     end
@@ -20,17 +20,18 @@ class ProposalsController < ApplicationController
   end
 
   def edit
-    @proposal = current_user.proposals.editable.find(params[:id])
+    talk = current_user.talks.find(params[:id])
+    @proposal = talk.proposals.first
   end
 
   def create
     @call  = Call.find(params[:call_id])
-    @proposal = current_user.proposals.new(proposal_params)
-    @proposal.build_talk unless @proposal.talk
-    @proposal.call  = @call
-    @proposal.track = 'Test'
+    @talk = current_user.talks.new(talk_params)
+    @proposal = @talk.proposals.new
+    @proposal.call_id = @call.id
+    @talk.track = 'Test'
 
-    if @proposal.save
+    if @talk.save
       notify_excited_organizers
       redirect_to @proposal, notice: I18n.t('papers.create.success')
     else
@@ -39,9 +40,10 @@ class ProposalsController < ApplicationController
   end
 
   def update
-    @proposal = current_user.proposals.editable.find(params[:id])
+    talk = current_user.talks.find(params[:id])
+    @proposal = talk.proposals.first
 
-    if @proposal.update_attributes(proposal_params)
+    if talk.update_attributes(talk_params)
       redirect_to @proposal, notice: I18n.t('papers.update.success')
     else
       render :edit
@@ -49,8 +51,8 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    @proposal = current_user.proposals.editable.find(params[:id])
-    @proposal.destroy
+    proposal = current_user.talks.find(params[:id])
+    proposal.destroy
 
     redirect_to proposals_url
   end
@@ -58,15 +60,14 @@ class ProposalsController < ApplicationController
   private
 
   def notify_excited_organizers
-    ProposalsMailer.created(@proposal.title, proposal_url(@proposal)).deliver_now
+    #ProposalsMailer.created(@talk.title, proposal_url(@talk.proposal)).deliver_now
   end
 
-  def proposal_params
-    params.require(:proposal).permit(
+  def talk_params
+    params.require(:talk).permit(
       :title, :public_description, :private_description, :time_slot,
       :mentor_name, :mentors_can_read, :terms_and_conditions,
       user_attributes: [:gender, :mentor, :bio]
     )
   end
-
 end
