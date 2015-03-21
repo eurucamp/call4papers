@@ -5,9 +5,9 @@ class Mentor::FeedbacksController < Mentor::MentorController
 
     if @feedback.valid?
       FeedbacksMailer.contact(
-        @proposal.title,
+        @proposal.talk_title,
         proposal_url(@proposal),
-        @proposal.user,
+        @proposal.talk.user,
         current_user,
         @feedback
       ).deliver_now

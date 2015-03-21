@@ -1,16 +1,16 @@
-<h1><%= @proposal.title %></h1>
+<h1><%= @proposal.talk_title %></h1>
 
 <div class="papers">
-  <div class="time-slot"><%= @proposal.time_slot %></div>
+  <div class="time-slot"><%= @proposal.talk_time_slot %></div>
 
   <div class="descriptions">
     <h4><%= t('activerecord.models.attributes.paper.private_description') %></h4>
-    <%= markdown @proposal.private_description %>
+    <%= markdown @proposal.talk_private_description %>
 
-    <% if @proposal.public_description.present? %>
+    <% if @proposal.talk_public_description.present? %>
       <hr>
       <h4><%= t('activerecord.models.attributes.paper.public_description') %></h4>
-      <%= markdown @proposal.public_description %>
+      <%= markdown @proposal.talk_public_description %>
     <% end %>
   </div>
 </div>

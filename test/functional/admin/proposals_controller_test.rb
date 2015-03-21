@@ -38,6 +38,6 @@ class Admin::ProposalsControllerTest < ActionController::TestCase
     
     post :update, id: 2, proposal: { selected: true, user_id: 200 }
 
-    assert_not_equal 200, Proposal.find(2).user_id
+    assert_not_equal 200, Proposal.find(2).talk.user_id
   end
 end
