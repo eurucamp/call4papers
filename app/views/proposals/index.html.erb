@@ -15,7 +15,7 @@
       <% @proposals.each do |proposal| %>
         <tr>
           <td class="call"><%= proposal.call_title %></td>
-          <td class="title"><%= proposal.title %></td>
+          <td class="title"><%= proposal.talk_title %></td>
           <td><%= proposal.created_at.strftime('%B %d, %Y') %></td>
           <td>
             <%= link_to 'show', proposal %>

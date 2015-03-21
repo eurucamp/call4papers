@@ -24,7 +24,7 @@ class Proposal < ActiveRecord::Base
   scope :selected, -> { where(selected: true) }
 
   delegate :title, :open?, to: :call, prefix: :call
-  delegate :title, :public_description, :private_description, :time_slot, :mentor_name, :mentors_can_read, to: :talk
+  delegate :title, :public_description, :private_description, :time_slot, :mentor_name, :mentors_can_read, to: :talk, prefix: :talk
 
   accepts_nested_attributes_for :user, update_only: true
 
