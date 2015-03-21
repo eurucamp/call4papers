@@ -16,6 +16,7 @@ class ProposalsController < ApplicationController
   def new
     @call  = Call.find(params[:call_id])
     @proposal = current_user.proposals.new
+    @proposal.build_talk
   end
 
   def edit
@@ -25,6 +26,7 @@ class ProposalsController < ApplicationController
   def create
     @call  = Call.find(params[:call_id])
     @proposal = current_user.proposals.new(proposal_params)
+    @proposal.build_talk unless @proposal.talk
     @proposal.call  = @call
     @proposal.track = 'Test'
 
