@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314151744) do
+ActiveRecord::Schema.define(version: 20150319123745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,21 @@ ActiveRecord::Schema.define(version: 20150314151744) do
   end
 
   add_index "ratings", ["user_proposal_rating_id", "rating_dimension_id"], name: "i_ratings_on_user_paper_rating_id_and_rating_dimension_id", unique: true, using: :btree
+
+  create_table "talks", id: false, force: :cascade do |t|
+    t.string   "id",                  null: false
+    t.string   "title"
+    t.string   "public_description"
+    t.string   "private_description"
+    t.boolean  "selected"
+    t.string   "time_slot"
+    t.string   "track"
+    t.string   "mentor_name"
+    t.boolean  "mentors_can_read"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+  end
 
   create_table "user_proposal_ratings", force: :cascade do |t|
     t.integer  "user_id",     null: false
