@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-call = Call.first_or_create(:title => "very cool call", :closes_at => 3.days.ago)
+call = Call.first_or_create(:title => "very cool open call", :opens_at => DateTime.now, :closes_at => 3.days.from_now)
+call = Call.first_or_create(:title => "very cool closed call", :closes_at => 3.days.ago)
 
 admins = []
 admins << User.create!(:email => "bob@example.com", :name => "Bob Example", :staff => true, :password => "12345678")
