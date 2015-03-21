@@ -7,7 +7,6 @@ one:
   track: Test
   time_slot: 40 minutes
   user: rockstar
-  selected: false
 
 two:
   title: Not-so-awesome talk
@@ -16,7 +15,6 @@ two:
   track: Test
   time_slot: 20 minutes
   user: wannabe_rockstar
-  selected: false
 
 three:
   title: Not-so-awesome talk again
@@ -25,4 +23,3 @@ three:
   track: Test
   time_slot: 20 minutes
   user: wannabe_rockstar
-  selected: false
