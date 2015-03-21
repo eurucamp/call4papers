@@ -1,7 +1,7 @@
 class Admin::ProposalsController < Admin::AdminController
   def index
     @dimensions = RatingDimension.all
-    @proposals = Proposal.visible.joins(:talk).order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @proposals = Proposal.visible.joins(:talk).order('selected DESC, track ASC, time_slot ASC, created_at DESC').to_a
     if params[:sort]
       @proposals.sort_by! do |p|
         score = p.score
