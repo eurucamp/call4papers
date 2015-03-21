@@ -18,7 +18,7 @@
           <td class="title"><%= proposal.title %></td>
           <td><%= proposal.created_at.strftime('%B %d, %Y') %></td>
           <td>
-            <%= link_to 'show', proposal %>
+            <%= link_to 'show', proposal_path(proposal.talk_id) %>
             <% if proposal.editable? %>
               <%= link_to 'edit', edit_proposal_path(proposal) %>
               <%= link_to 'destroy', proposal, data: { confirm: 'Are you sure?' }, method: :delete %>
