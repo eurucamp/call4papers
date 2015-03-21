@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProposalsControllerTest < ActionController::TestCase
+class TalksControllerTest < ActionController::TestCase
   setup do
     @request.env['devise.mapping'] = Devise.mappings[:user]
     @talk = talks(:one)
@@ -11,7 +11,7 @@ class ProposalsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:proposals)
+    assert_not_nil assigns(:talks)
   end
 
   test "should get new" do
@@ -20,18 +20,18 @@ class ProposalsControllerTest < ActionController::TestCase
   end
 
   test "should create talk" do
-    assert_difference('Proposal.count') do
+    assert_difference('Talk.count') do
       post :create, talk: @talk.attributes, call_id: @call.id
     end
   end
 
-  test "should redirect to proposal_path after creating talk" do
+  test "should redirect to talk_path after creating talk" do
     post :create, talk: @talk.attributes, call_id: @call.id
-    assert_redirected_to proposal_path(assigns(:proposal))
+    assert_redirected_to talk_path(assigns(:talk))
   end
 
-  test 'should not create a proposal given an invalid request' do
-    post :create, proposal: {}, call_id: @call.id
+  test 'should not create a talk given an invalid request' do
+    post :create, talk: {}, call_id: @call.id
     assert_response 400
   end
 
@@ -41,7 +41,7 @@ class ProposalsControllerTest < ActionController::TestCase
     assert_template :new
   end
 
-  test "should show proposal" do
+  test "should show talk" do
     get :show, id: @talk.to_param
     assert_response :success
   end
@@ -51,21 +51,21 @@ class ProposalsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update proposal" do
+  test "should update talk" do
     put :update, id: @talk.to_param, talk: @talk.attributes
-    assert_redirected_to proposal_path(assigns(:proposal))
+    assert_redirected_to talk_path(assigns(:talk))
   end
 
-  test 'should not update a proposal given invalid attributes' do
+  test 'should not update a talk given invalid attributes' do
     put :update, id: @talk.to_param, talk: { title: nil }
     assert_template :edit
   end
 
-  test "should destroy proposal" do
-    assert_difference('Proposal.count', -1) do
+  test "should destroy talk" do
+    assert_difference('Talk.count', -1) do
       delete :destroy, id: @talk.to_param
     end
 
-    assert_redirected_to proposals_path
+    assert_redirected_to talks_path
   end
 end
