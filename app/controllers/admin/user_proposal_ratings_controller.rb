@@ -7,15 +7,17 @@ class Admin::UserProposalRatingsController < Admin::AdminController
     if @user_proposal_rating.save then
       case params[:commit]
       when /papers list/i
-        target = admin_proposals_path
+        target = admin_talks_path
       when /next paper/i
-        target = Proposal.visible.not_rated_by_user(current_user).order('random()').first
+        next_proposal =  Proposal.visible.not_rated_by_user(current_user).order('random()').first
+        target = next_proposal.talk if next_proposal
         target ||= 'https://www.youtube.com/watch?v=xvX_5ym_ajI'
       else
-        target = @proposal
+        target = @proposal.talk
       end
       redirect_to target, notice: "voting successful!"
     else
+      @talk = @proposal.talk
       render "talks/show"
     end
   end
