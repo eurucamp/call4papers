@@ -1,21 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  public_description: MyString
-  private_description: MyString
+  title: Awesome talk
+  public_description: I am a Rockstar
+  private_description: Hope you like my suggestion.
+  track: Test
+  time_slot: 40 minutes
+  user: rockstar
   selected: false
-  time_slot: MyString
-  track: MyString
-  mentor_name: MyString
-  mentors_can_read: false
 
 two:
-  title: MyString
-  public_description: MyString
-  private_description: MyString
+  title: Not-so-awesome talk
+  public_description: I am a wannabe Rockstar.
+  private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
+  track: Test
+  time_slot: 20 minutes
+  user: wannabe_rockstar
   selected: false
-  time_slot: MyString
-  track: MyString
-  mentor_name: MyString
-  mentors_can_read: false
+
+three:
+  title: Not-so-awesome talk again
+  public_description: I am a wannabe Rockstar.
+  private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
+  track: Test
+  time_slot: 20 minutes
+  user: wannabe_rockstar
+  selected: false
