@@ -3,14 +3,21 @@ require 'test_helper'
 class Admin::ProposalsControllerTest < ActionController::TestCase
   setup do
     @request.env['devise.mapping'] = Devise.mappings[:user]
-    @call = calls(:one)
   end
 
   test 'should get index' do
     sign_in users(:admin_user)
 
-    get :index, call_id: @call.id
+    get :index, call_id: calls(:one).id
     assert_response :success
+    assert_not_nil assigns(:proposals)
+  end
+
+  test 'should get only proposals for one call in index' do
+    sign_in users(:admin_user)
+
+    get :index, call_id: calls(:one).id
+    assert_equal assigns(:proposals).size, 2
   end
 
   test 'should get export (CSV)' do
