@@ -1,4 +1,4 @@
-class PapersMailer < ActionMailer::Base
+class ProposalsMailer < ActionMailer::Base
   default from: Settings.mailers.from
 
   def created(title, url)

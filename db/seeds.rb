@@ -12,18 +12,18 @@ admins = []
 admins << User.create!(:email => "bob@example.com", :name => "Bob Example", :staff => true, :password => "12345678")
 admins << User.create!(:email => "alice@example.com", :name => "Alice Example", :staff => true, :password => "12345678")
 
-papers = []
+proposals = []
 
 admins.each do |a|
-  papers << a.papers.create!(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :call => call, :time_slot => "15 Minutes")
+  proposals << a.proposals.create!(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :call => call, :time_slot => "15 Minutes")
 end
 
-papers.each do |p|
+proposals.each do |p|
   admins.each do |a|
-    user_paper_rating = p.user_paper_ratings.create!(:user => a)
+    user_proposal_rating = p.user_proposal_ratings.create!(:user => a)
     RatingDimension.all.each do |d|
-      user_paper_rating.ratings << Rating.new(:rating_dimension => d, :vote => rand(3))
+      user_proposal_rating.ratings << Rating.new(:rating_dimension => d, :vote => rand(3))
     end
-    user_paper_rating.save!
+    user_proposal_rating.save!
   end
 end

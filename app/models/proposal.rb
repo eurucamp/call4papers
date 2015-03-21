@@ -1,4 +1,4 @@
-class Paper < ActiveRecord::Base
+class Proposal < ActiveRecord::Base
   has_many :notes
 
   self.primary_key = 'id'
@@ -9,8 +9,8 @@ class Paper < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :call
-  has_many :user_paper_ratings, inverse_of: :paper, dependent: :destroy
-  has_many :ratings, through: :user_paper_ratings
+  has_many :user_proposal_ratings, inverse_of: :proposal, dependent: :destroy
+  has_many :ratings, through: :user_proposal_ratings
 
   validates :id, :title, :public_description, :time_slot, presence: true
   validates :call, :user, presence: true
@@ -38,7 +38,7 @@ class Paper < ActiveRecord::Base
   end
 
   def rated_by?(user)
-    user_paper_ratings.where(user_id: user.id).one?
+    user_proposal_ratings.where(user_id: user.id).one?
   end
 
   def note_attached_by?(user)
@@ -47,17 +47,17 @@ class Paper < ActiveRecord::Base
 
   def score
     sum_of_votes = ratings.sum(:vote)
-    sum_of_votes / user_paper_ratings.size.to_f
+    sum_of_votes / user_proposal_ratings.size.to_f
   end
 
   def score_by_dimension(dimension)
     sum_of_votes = ratings.in_dimension(dimension).sum(:vote)
-    sum_of_votes / user_paper_ratings.size.to_f
+    sum_of_votes / user_proposal_ratings.size.to_f
   end
 
   class << self
     def not_rated_by_user(user)
-      where.not(id: user.user_paper_ratings.select(:paper_id))
+      where.not(id: user.user_proposal_ratings.select(:proposal_id))
     end
   end
 

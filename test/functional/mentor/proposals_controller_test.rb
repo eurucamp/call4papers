@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Mentor::PapersControllerTest < ActionController::TestCase
+class Mentor::ProposalsControllerTest < ActionController::TestCase
   setup do
     @request.env['devise.mapping'] = Devise.mappings[:user]
   end

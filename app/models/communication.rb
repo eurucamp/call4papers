@@ -65,7 +65,7 @@ private
   def set_recipients_to_call_selected_users
     validate_presence_of_call
     if call then
-      self.recipients = User.with_selected_papers_for(call)
+      self.recipients = User.with_selected_proposals_for(call)
     end
   end
 

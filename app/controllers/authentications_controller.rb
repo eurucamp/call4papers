@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
   end
 
   def index
-    @paper_counts = Paper.for_open_call.group(:call).count
+    @proposal_counts = Proposal.for_open_call.group(:call).count
     @user_count   = User.count
   end
 

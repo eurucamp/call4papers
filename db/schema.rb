@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503195622) do
+ActiveRecord::Schema.define(version: 20150314151744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   create_table "notes", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.string   "paper_id"
+    t.string   "proposal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
-  create_table "papers", id: false, force: :cascade do |t|
+  create_table "proposals", id: false, force: :cascade do |t|
     t.string   "id",                                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20140503195622) do
     t.boolean  "mentors_can_read",    default: true
   end
 
-  add_index "papers", ["mentors_can_read"], name: "index_papers_on_mentors_can_read", using: :btree
+  add_index "proposals", ["mentors_can_read"], name: "index_proposals_on_mentors_can_read", using: :btree
 
   create_table "proposed_speakers", force: :cascade do |t|
     t.integer  "inviter_id"
@@ -107,24 +107,24 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "user_paper_rating_id", null: false
-    t.integer  "rating_dimension_id",  null: false
+    t.integer  "user_proposal_rating_id", null: false
+    t.integer  "rating_dimension_id",     null: false
     t.integer  "vote"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ratings", ["user_paper_rating_id", "rating_dimension_id"], name: "index_ratings_on_user_paper_rating_id_and_rating_dimension_id", unique: true, using: :btree
+  add_index "ratings", ["user_proposal_rating_id", "rating_dimension_id"], name: "i_ratings_on_user_paper_rating_id_and_rating_dimension_id", unique: true, using: :btree
 
-  create_table "user_paper_ratings", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.string   "paper_id",   null: false
+  create_table "user_proposal_ratings", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.string   "proposal_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_paper_ratings", ["user_id", "paper_id"], name: "index_user_paper_ratings_on_user_id_and_paper_id", unique: true, using: :btree
+  add_index "user_proposal_ratings", ["user_id", "proposal_id"], name: "index_user_proposal_ratings_on_user_id_and_proposal_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                                   null: false
@@ -153,6 +153,6 @@ ActiveRecord::Schema.define(version: 20140503195622) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "authentications", "users", on_delete: :cascade
-  add_foreign_key "papers", "calls", on_delete: :restrict
-  add_foreign_key "papers", "users", on_delete: :cascade
+  add_foreign_key "proposals", "calls", on_delete: :restrict
+  add_foreign_key "proposals", "users", on_delete: :cascade
 end

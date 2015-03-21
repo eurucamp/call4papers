@@ -1,5 +1,5 @@
 module Admin
-  class PaperDecorator < SimpleDelegator
+  class ProposalDecorator < SimpleDelegator
     include ActionView::Helpers::TagHelper
 
     def self.wrap(collection)
