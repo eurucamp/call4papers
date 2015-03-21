@@ -60,7 +60,7 @@ class ProposalsController < ApplicationController
   private
 
   def notify_excited_organizers
-    #ProposalsMailer.created(@talk.title, proposal_url(@talk.proposal)).deliver_now
+    ProposalsMailer.created(@proposal.talk_title, proposal_url(@proposal)).deliver_now
   end
 
   def talk_params

@@ -44,12 +44,12 @@ class Admin::ProposalsController < Admin::AdminController
       id
       user_name
       user_email
-      title
-      public_description
-      private_description
+      talk_title
+      talk_public_description
+      talk_private_description
       selected
       score
-      time_slot
+      talk_time_slot
       track
       created_at
       updated_at
