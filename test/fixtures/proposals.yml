@@ -1,29 +1,14 @@
 one:
   id: 1
-  title: Awesome talk
-  public_description: I am a Rockstar
-  private_description: Hope you like my suggestion.
-  track: Test
-  time_slot: 40 minutes
-  user: rockstar
+  talk: one
   call: one
 
 two:
   id: 2
-  title: Not-so-awesome talk
-  public_description: I am a wannabe Rockstar.
-  private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
-  track: Test
-  time_slot: 20 minutes
-  user: wannabe_rockstar
+  talk: two
   call: one
 
 three:
   id: 3
-  title: Not-so-awesome talk again
-  public_description: I am a wannabe Rockstar.
-  private_description: This talk deserves to be accepted because of my unfailing aptitude in node.js development.
-  track: Test
-  time_slot: 20 minutes
-  user: wannabe_rockstar
+  talk: three
   call: two

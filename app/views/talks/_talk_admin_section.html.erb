@@ -32,13 +32,13 @@
   <% end %>
 
   <h4><%= t('admin.attach_personal_note') %></h4>
-  <%= simple_form_for current_user.note_for_proposal(@proposal), :url => note_admin_proposal_path(@proposal) do |f| %>
+  <%= simple_form_for current_user.note_for_proposal(@proposal), :url => note_admin_talk_path(@proposal) do |f| %>
     <%= f.input :content, required: true, input_html: {rows: 10} %>
     <%= f.submit class: 'button' %>
   <% end %>
 
   <h4><%= t('admin.select_paper') %></h4>
-  <%= simple_form_for @proposal, :url => admin_proposal_path(@proposal) do |f| %>
+  <%= simple_form_for @proposal, :url => admin_talk_path(@proposal) do |f| %>
     <%= f.input :selected %>
     <%= f.submit class: 'button' %>
   <% end %>

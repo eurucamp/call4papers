@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::ProposalsControllerTest < ActionController::TestCase
+class Admin::TalksControllerTest < ActionController::TestCase
   setup do
     @request.env['devise.mapping'] = Devise.mappings[:user]
   end
@@ -35,9 +35,9 @@ class Admin::ProposalsControllerTest < ActionController::TestCase
 
   test 'should not accept any further parameters' do
     sign_in users(:admin_user)
-    
+
     post :update, id: 2, proposal: { selected: true, user_id: 200 }
 
-    assert_not_equal 200, Proposal.find(2).user_id
+    assert_not_equal 200, Proposal.find(2).talk.user_id
   end
 end

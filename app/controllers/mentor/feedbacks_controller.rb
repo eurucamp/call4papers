@@ -5,15 +5,15 @@ class Mentor::FeedbacksController < Mentor::MentorController
 
     if @feedback.valid?
       FeedbacksMailer.contact(
-        @proposal.title,
-        proposal_url(@proposal),
-        @proposal.user,
+        @proposal.talk_title,
+        talk_url(@proposal),
+        @proposal.talk.user,
         current_user,
         @feedback
       ).deliver_now
-      redirect_to proposal_path(@proposal), :flash => {:notice => "Feedback sent" }
+      redirect_to talk_path(@proposal.talk), :flash => {:notice => "Feedback sent" }
    else
-      redirect_to proposal_path(@proposal), :flash => {:error => "Please give us some text :)." }
+      redirect_to talk_path(@proposal.talk), :flash => {:error => "Please give us some text :)." }
    end
   end
 end

@@ -14,10 +14,10 @@ Cfp::Application.routes.draw do
 
   resource   :profile
   resources  :calls do
-    resources :proposals, only: [:new, :create]
+    resources :talks, only: [:new, :create]
     resources :proposed_speakers, only: [:new, :create]
   end
-  resources  :proposals,  only: [:index, :show, :edit, :update, :destroy]
+  resources  :talks,  only: [:index, :show, :edit, :update, :destroy]
   resources  :proposed_speakers, only: [:destroy, :index]
   resources  :authentications
 
@@ -27,7 +27,7 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
-    resources :proposals do
+    resources :talks do
       collection do
         get :export
       end
@@ -48,7 +48,7 @@ Cfp::Application.routes.draw do
         post :deliver
       end
     end
-    root :to => "proposals#index", as: :root
+    root :to => "talks#index", as: :root
   end
 
   namespace :mentor do
