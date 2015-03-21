@@ -15,7 +15,7 @@
     <tbody>
       <% @calls.each do |call| %>
         <tr>
-          <td><%= call.title %></td>
+          <td><%= link_to call.title, admin_call_proposals_path(call) %></td>
           <td><%= call.proposals.size %></td>
           <td><%= call.opens_at.try(:strftime, '%d.%m.') %></td>
           <td><%= call.closes_at.strftime('%d.%m.') %></td>
