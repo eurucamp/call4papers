@@ -7,7 +7,7 @@ class Mentor::FeedbacksController < Mentor::MentorController
       FeedbacksMailer.contact(
         @proposal.title,
         proposal_url(@proposal),
-        @proposal.user,
+        @proposal.talk.user,
         current_user,
         @feedback
       ).deliver_now

@@ -27,7 +27,7 @@ class Admin::ProposalsController < Admin::AdminController
   end
 
   def export
-    @proposals = Proposal.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @proposals = Proposal.joins(:talk).order('selected DESC, track ASC, talks.time_slot ASC, created_at DESC')
 
     respond_to do |format|
       format.csv do
