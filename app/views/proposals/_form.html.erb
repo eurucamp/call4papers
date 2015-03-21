@@ -4,14 +4,14 @@
   <div class="inputs row">
     <div class="small-8 columns">
       <h2><%= t('.proposal') %></h2>
-      <%= f.input :title %>
-      <%= f.input :public_description, required: true, input_html: {rows: 5} %>
-      <%= f.input :private_description, required: false, input_html: {rows: 5} %>
+      <%= f.input :talk_title %>
+      <%= f.input :talk_public_description, required: true, input_html: {rows: 5} %>
+      <%= f.input :talk_private_description, required: false, input_html: {rows: 5} %>
 
-      <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
+      <%= f.input :talk_time_slot, :collection => Settings.conference.time_slots %>
 
-      <%= f.input :mentor_name %>
-      <%= f.input :mentors_can_read %>
+      <%= f.input :talk_mentor_name %>
+      <%= f.input :talk_mentors_can_read %>
     </div>
     <div class="small-4 columns">
       <h2><%= t('profile') %></h2>
