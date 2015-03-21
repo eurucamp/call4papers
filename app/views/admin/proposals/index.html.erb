@@ -22,6 +22,7 @@
       <thead>
         <tr>
           <th><%= t('activerecord.models.attributes.paper.position') %></th>
+          <th><%= t('activerecord.models.attributes.paper.call') %></th>
           <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
           <th><%= t('activerecord.models.attributes.paper.id') %></th>
           <th><%= t('activerecord.models.attributes.paper.title') %></th>
@@ -41,6 +42,7 @@
         <% @proposals.each_with_index do |proposal,index| %>
           <tr class="<%= 'selected' if proposal.selected? %>">
             <td class="rank"><%= index + 1 %></td>
+            <td><%= proposal.call_title %></td>
             <td class="time-slot"><%= proposal.formatted_time_slot %></td>
             <td class="id"><%= proposal.id[0..5] %></td>
             <th class="title"><%= link_to truncate(proposal.title, length: 60), proposal %></th>
