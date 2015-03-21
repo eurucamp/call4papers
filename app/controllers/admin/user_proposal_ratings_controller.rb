@@ -16,7 +16,7 @@ class Admin::UserProposalRatingsController < Admin::AdminController
       end
       redirect_to target, notice: "voting successful!"
     else
-      render "proposals/show"
+      render "talks/show"
     end
   end
 

@@ -1,4 +1,4 @@
-class Admin::ProposalsController < Admin::AdminController
+class Admin::TalksController < Admin::AdminController
   def index
     @dimensions = RatingDimension.all
     @proposals = Proposal.visible.joins(:talk).order('selected DESC, track ASC, time_slot ASC, created_at DESC').to_a
