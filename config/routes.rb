@@ -27,7 +27,7 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
-    resources :proposals do
+    resources :proposals, only: [:update] do
       collection do
         get :export
       end
@@ -37,6 +37,9 @@ Cfp::Application.routes.draw do
 
         resource :user_proposal_rating, only: [:create, :update]
       end
+    end
+    resources :calls, only: :index do
+      resources :proposals
     end
     resources :users do
       collection do
@@ -48,7 +51,7 @@ Cfp::Application.routes.draw do
         post :deliver
       end
     end
-    root :to => "proposals#index", as: :root
+    root :to => "calls#index", as: :root
   end
 
   namespace :mentor do

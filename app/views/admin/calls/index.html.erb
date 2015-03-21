@@ -1,0 +1,29 @@
+<h1>
+  <%= t('.title') %>
+</h1>
+
+<div class="calls">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t('activerecord.models.attributes.calls.title') %></th>
+        <th><%= t('activerecord.models.attributes.calls.number_of_proposals') %></th>
+        <th><%= t('activerecord.models.attributes.calls.opens_at') %></th>
+        <th><%= t('activerecord.models.attributes.calls.closes_at') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @calls.each do |call| %>
+        <tr>
+          <td><%= call.title %></td>
+          <td><%= call.proposals.size %></td>
+          <td><%= call.opens_at.try(:strftime, '%d.%m.') %></td>
+          <td><%= call.closes_at.strftime('%d.%m.') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render "admin/main/nav_bar" %>
+
