@@ -45,7 +45,7 @@
             <td><%= proposal.call_title %></td>
             <td class="time-slot"><%= proposal.formatted_time_slot %></td>
             <td class="id"><%= proposal.id[0..5] %></td>
-            <th class="title"><%= link_to truncate(proposal.talk_title, length: 60), proposal %></th>
+            <th class="title"><%= link_to truncate(proposal.talk_title, length: 60), proposal.talk %></th>
             <td><%= proposal.formatted_created_at %></td>
             <td><%= proposal.formatted_updated_at %></td>
             <td><%= link_to(proposal.user.name, profile_path(proposal.user)) if proposal.call.deanonymized? %></td>

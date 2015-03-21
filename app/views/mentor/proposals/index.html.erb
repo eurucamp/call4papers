@@ -17,7 +17,7 @@
         <tr class="<%= 'selected' if proposal.selected? %>">
           <td class="time-slot"><%= proposal.talk_time_slot %></td>
           <td class="id"><%= proposal.id[0..5] %></td>
-          <td class="title"><%= link_to truncate(proposal.talk_title, length: 60), proposal %></td>
+          <td class="title"><%= link_to truncate(proposal.talk_title, length: 60), proposal.talk %></td>
           <td><%= proposal.created_at.strftime('%b %d, %Y') %></td>
           <td><%= proposal.updated_at.strftime('%b %d, %Y') if proposal.updated? %></td>
         </tr>

@@ -22,7 +22,7 @@ class Admin::ProposalsController < Admin::AdminController
     @proposal = Proposal.find(params[:id])
     @proposal.selected = proposal_parameters[:selected]
     @proposal.save!
-    redirect_to proposal_path(@proposal)
+    redirect_to talk_path(@proposal.talk)
   end
 
   def export

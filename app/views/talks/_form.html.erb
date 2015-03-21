@@ -1,17 +1,17 @@
-<%= simple_form_for [@call, @proposal] do |f| %>
+<%= simple_form_for [@call, @talk] do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs row">
     <div class="small-8 columns">
       <h2><%= t('.proposal') %></h2>
-      <%= f.input :talk_title %>
-      <%= f.input :talk_public_description, required: true, input_html: {rows: 5} %>
-      <%= f.input :talk_private_description, required: false, input_html: {rows: 5} %>
+      <%= f.input :title %>
+      <%= f.input :public_description, required: true, input_html: {rows: 5} %>
+      <%= f.input :private_description, required: false, input_html: {rows: 5} %>
 
-      <%= f.input :talk_time_slot, :collection => Settings.conference.time_slots %>
+      <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
 
-      <%= f.input :talk_mentor_name %>
-      <%= f.input :talk_mentors_can_read %>
+      <%= f.input :mentor_name %>
+      <%= f.input :mentors_can_read %>
     </div>
     <div class="small-4 columns">
       <h2><%= t('profile') %></h2>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="actions">
-    <% if @proposal.new_record? then %>
+    <% if @talk.new_record? then %>
       <%= f.input :terms_and_conditions, as: :boolean, required: true, label: false do %>
         <%= f.input_field :terms_and_conditions, as: :boolean, required: true %>
         <%= f.label :terms_and_conditions do %>
