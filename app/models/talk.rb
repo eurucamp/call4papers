@@ -14,8 +14,7 @@ class Talk < ActiveRecord::Base
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
   attr_accessor :terms_and_conditions
 
-  #TODO: Need to get related proposal and decide
   def editable?
-    false
+    proposals.all?(&:call_open?)
   end
 end

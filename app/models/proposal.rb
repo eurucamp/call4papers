@@ -27,10 +27,6 @@ class Proposal < ActiveRecord::Base
 
   accepts_nested_attributes_for :user, update_only: true
 
-  def editable?
-    call_open?
-  end
-
   def updated?
     created_at != updated_at
   end
