@@ -15,7 +15,15 @@ class Talk < ActiveRecord::Base
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
   attr_accessor :terms_and_conditions
 
+  scope :not_from, -> user { where.not('user_id': user.id) }
+  scope :for_open_call, -> { joins(:calls).merge(Call.open) }
+  scope :mentors_can_read, -> { where('mentors_can_read': true) }
+
   accepts_nested_attributes_for :user, update_only: true
+
+  def updated?
+    created_at != updated_at
+  end
 
   def editable?
     proposals.all?(&:call_open?)

@@ -53,7 +53,7 @@ Cfp::Application.routes.draw do
   end
 
   namespace :mentor do
-    resources :proposals, only: [:index]
+    resources :talks, only: [:index]
 
     post "feedbacks/:id", :to => "feedbacks#contact", as: :feedback
 
