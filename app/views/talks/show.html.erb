@@ -1,22 +1,7 @@
-<h1><%= @talk.title %></h1>
-
-<div class="papers">
-  <div class="time-slot"><%= @talk.time_slot %></div>
-
-  <div class="descriptions">
-    <h4><%= t('activerecord.models.attributes.paper.private_description') %></h4>
-    <%= markdown @talk.private_description %>
-
-    <% if @talk.public_description.present? %>
-      <hr>
-      <h4><%= t('activerecord.models.attributes.paper.public_description') %></h4>
-      <%= markdown @talk.public_description %>
-    <% end %>
-  </div>
-</div>
+<%= render 'talk_details', talk: @talk %>
 
 <% if current_user %>
-  <% if current_user.can_edit_proposal?(@talk) && @talk.editable? %>
+  <% if current_user.can_edit_talk?(@talk) && @talk.editable? %>
     <%= link_to 'Edit', edit_talk_path(@talk), class: 'button' %>
   <% elsif @talk.editable? %>
     <h3><%= t('feedback.title') %></h3>
