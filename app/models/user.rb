@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
     authentications.where(provider: 'github').first
   end
 
-  def can_edit_proposal?(proposal)
-    proposals.exists?(proposal.id)
+  def can_edit_proposal?(talk)
+    talks.exists?(talk.id)
   end
 
   def has_bio?
