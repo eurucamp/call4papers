@@ -20,6 +20,8 @@
       <%= f.submit 'Vote and go to papers list', class: 'button' %>
       <%= f.submit 'Vote and go to next paper', class: 'button' %>
     <% end %>
+  <% else %>
+    <%= render 'talks/talk_user_details', talk: @proposal.talk %>
   <% end %>
 
   <h4><%= t('admin.attach_personal_note') %></h4>

@@ -13,7 +13,7 @@
       <%= t('feedback.explanation') %>
     </p>
   <% end %>
-  <% if current_user.staff? %>
-    <%= render "talks/talk_admin_section" %>
+  <% if current_user.staff? && @talk.calls.none?(&:anonymous?) %>
+    <%= render "talks/talk_user_details", talk: @talk %>
   <% end %>
 <% end %>
