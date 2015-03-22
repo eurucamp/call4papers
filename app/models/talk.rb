@@ -14,6 +14,8 @@ class Talk < ActiveRecord::Base
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
   attr_accessor :terms_and_conditions
 
+  accepts_nested_attributes_for :user, update_only: true
+
   def editable?
     proposals.all?(&:call_open?)
   end
