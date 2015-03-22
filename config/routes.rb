@@ -13,10 +13,9 @@ Cfp::Application.routes.draw do
 
   resource   :profile
   resources  :calls do
-    resources :talks, only: [:new, :create]
     resources :proposed_speakers, only: [:new, :create]
   end
-  resources  :talks,  only: [:index, :show, :edit, :update, :destroy]
+  resources  :talks
   resources  :proposed_speakers, only: [:destroy, :index]
   resources  :authentications
 

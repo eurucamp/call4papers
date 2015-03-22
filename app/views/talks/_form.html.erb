@@ -1,4 +1,4 @@
-<%= simple_form_for [@call, @talk] do |f| %>
+<%= simple_form_for @talk do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs row">
@@ -12,6 +12,9 @@
 
       <%= f.input :mentor_name %>
       <%= f.input :mentors_can_read %>
+      <% if @talk.new_record? %>
+        <%= f.association :calls, collection: @open_calls, as: :check_boxes %>
+      <% end %>
     </div>
     <div class="small-4 columns">
       <h2><%= t('profile') %></h2>

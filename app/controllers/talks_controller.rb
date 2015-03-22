@@ -8,29 +8,27 @@ class TalksController < ApplicationController
 
   def show
     @talk = Talk.find(params[:id])
-    @proposal = @talk.proposals.first
   end
 
   def new
-    @call = Call.find(params[:call_id])
     @talk = current_user.talks.new
+    @open_calls = Call.open
   end
 
   def edit
     @talk = current_user.talks.find(params[:id])
+    @open_calls = Call.open
   end
 
   def create
-    @call  = Call.find(params[:call_id])
     @talk = current_user.talks.new(talk_params)
-    proposal = @talk.proposals.new
-    proposal.call_id = @call.id
     @talk.track = 'Test'
 
     if @talk.save
       notify_excited_organizers
       redirect_to @talk, notice: I18n.t('papers.create.success')
     else
+      @open_calls = Call.open
       render :new
     end
   end
@@ -46,8 +44,8 @@ class TalksController < ApplicationController
   end
 
   def destroy
-    proposal = current_user.talks.find(params[:id])
-    proposal.destroy
+    talk = current_user.talks.find(params[:id])
+    talk.destroy
 
     redirect_to talks_url
   end
@@ -62,7 +60,8 @@ class TalksController < ApplicationController
     params.require(:talk).permit(
       :title, :public_description, :private_description, :time_slot,
       :mentor_name, :mentors_can_read, :terms_and_conditions,
-      user_attributes: [:gender, :mentor, :bio]
+      user_attributes: [:gender, :mentor, :bio],
+      call_ids: []
     )
   end
 end

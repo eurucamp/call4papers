@@ -1,5 +1,6 @@
 class Talk < ActiveRecord::Base
   has_many :proposals, dependent: :destroy
+  has_many :calls, through: :proposals
 
   self.primary_key = 'id'
 
