@@ -26,6 +26,11 @@ class Admin::ProposalsController < Admin::AdminController
     redirect_to talk_path(@proposal.talk)
   end
 
+  def show
+    @proposal = Proposal.find(params[:id])
+    @user_proposal_rating = current_user.user_proposal_rating_for_proposal(@proposal)
+  end
+
   def export
     @proposals = Proposal.joins(:talk).order('selected DESC, track ASC, talks.time_slot ASC, created_at DESC')
 

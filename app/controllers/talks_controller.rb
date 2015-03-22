@@ -9,9 +9,6 @@ class TalksController < ApplicationController
   def show
     @talk = Talk.find(params[:id])
     @proposal = @talk.proposals.first
-    if current_user
-      @user_proposal_rating = current_user.user_proposal_rating_for_proposal(@talk)
-    end
   end
 
   def new
