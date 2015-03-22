@@ -13,13 +13,16 @@ admins = []
 admins << User.create!(:email => "bob@example.com", :name => "Bob Example", :staff => true, :password => "12345678")
 admins << User.create!(:email => "alice@example.com", :name => "Alice Example", :staff => true, :password => "12345678")
 
-proposals = []
+talks = []
 
 admins.each do |a|
-  proposals << a.proposals.create!(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :call => call, :time_slot => "15 Minutes")
+  talk = a.talks.create!(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :time_slot => "15 Minutes")
+  talk.proposals.create!(call: call)
+  talks << talk
 end
 
-proposals.each do |p|
+talks.each do |t|
+  p = t.proposals.first
   admins.each do |a|
     user_proposal_rating = p.user_proposal_ratings.create!(:user => a)
     RatingDimension.all.each do |d|
