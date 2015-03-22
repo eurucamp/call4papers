@@ -25,10 +25,6 @@ class Proposal < ActiveRecord::Base
   delegate :title, :open?, to: :call, prefix: :call
   delegate :title, :public_description, :private_description, :time_slot, :mentor_name, :mentors_can_read, to: :talk, prefix: :talk
 
-  def updated?
-    created_at != updated_at
-  end
-
   def rated_by?(user)
     user_proposal_ratings.where(user_id: user.id).one?
   end
