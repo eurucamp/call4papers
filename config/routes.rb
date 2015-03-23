@@ -13,10 +13,9 @@ Cfp::Application.routes.draw do
 
   resource   :profile
   resources  :calls do
-    resources :proposals, only: [:new, :create]
     resources :proposed_speakers, only: [:new, :create]
   end
-  resources  :proposals,  only: [:index, :show, :edit, :update, :destroy]
+  resources  :talks
   resources  :proposed_speakers, only: [:destroy, :index]
   resources  :authentications
 
@@ -54,7 +53,7 @@ Cfp::Application.routes.draw do
   end
 
   namespace :mentor do
-    resources :proposals, only: [:index]
+    resources :talks, only: [:index]
 
     post "feedbacks/:id", :to => "feedbacks#contact", as: :feedback
 

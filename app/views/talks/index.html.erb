@@ -1,0 +1,33 @@
+<h1><%= t('.title') %></h1>
+
+<div class="papers">
+  <% if @talks.empty? %>
+    No submissions yet? Create one now and give us a solid reason to choose you!
+  <% else %>
+    <table class="table">
+      <tr>
+        <th>Call</th>
+        <th>Title</th>
+        <th>Created at</th>
+        <th></th>
+      </tr>
+
+      <% @talks.each do |talk| %>
+        <tr>
+          <%# <td class="call"><%= talk.call_title %1></td> %>
+          <td class="title"><%= talk.title %></td>
+          <td><%= talk.created_at.strftime('%B %d, %Y') %></td>
+          <td>
+            <%= link_to 'show', talk_path(talk.id) %>
+            <% if talk.editable? %>
+              <%= link_to 'edit', edit_talk_path(talk) %>
+              <%= link_to 'destroy', talk, data: { confirm: 'Are you sure?' }, method: :delete %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<p><%= link_to 'New talk', new_talk_path, class: 'button' %></p>

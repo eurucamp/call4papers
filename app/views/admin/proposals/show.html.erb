@@ -1,19 +1,10 @@
-<% unless @proposal.call.anonymous? %>
-  <h4><%= t('activerecord.models.attributes.bio') %></h4>
-  <p><strong><%= t('activerecord.models.attributes.user.name') %>:</strong>
-  <%= @proposal.user.name %></p>
-  <p><strong><%= t('activerecord.models.attributes.user.email') %>:</strong>
-  <%= @proposal.user.email %></p>
-  <p><strong><%= t('activerecord.models.attributes.user.github_handle') %>:</strong>
-  <%= @proposal.user.github_handle %></p>
-  <p><strong><%= t('activerecord.models.attributes.user.twitter_handle') %>:</strong>
-  <%= @proposal.user.twitter_handle %></p>
-  <p><strong><%= t('activerecord.models.attributes.user.bio') %>:</strong>
-  <%= @proposal.user.bio %></p>
-<% end %>
+<%= render 'talks/talk_details', talk: @proposal.talk %>
+
 
 <h3><%= t('admin.admin_section') %></h3>
-<% unless @proposal.call.open? %>
+<% if @proposal.call.open? %>
+  <%= t('admin.call_is_still_open') %>
+<% else %>
   <% if @proposal.call.anonymous? then %>
     <h4><%= t('admin.votes') %></h4>
     <%= simple_form_for @user_proposal_rating, url: admin_user_proposal_rating_path(@proposal) do |f| %>
@@ -29,6 +20,8 @@
       <%= f.submit 'Vote and go to papers list', class: 'button' %>
       <%= f.submit 'Vote and go to next paper', class: 'button' %>
     <% end %>
+  <% else %>
+    <%= render 'talks/talk_user_details', talk: @proposal.talk %>
   <% end %>
 
   <h4><%= t('admin.attach_personal_note') %></h4>

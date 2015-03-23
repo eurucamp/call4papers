@@ -1,0 +1,19 @@
+<%= render 'talk_details', talk: @talk %>
+
+<% if current_user %>
+  <% if current_user.can_edit_talk?(@talk) && @talk.editable? %>
+    <%= link_to 'Edit', edit_talk_path(@talk), class: 'button' %>
+  <% elsif @talk.editable? %>
+    <h3><%= t('feedback.title') %></h3>
+    <%= simple_form_for Feedback.new, url: mentor_feedback_path(@talk) do |f| %>
+      <%= f.input :feedback, as: :text, required: true, input_html: {rows: 10} %>
+      <%= f.submit t('feedback.submit'), class: 'button' %>
+    <% end %>
+    <p>
+      <%= t('feedback.explanation') %>
+    </p>
+  <% end %>
+  <% if current_user.staff? && @talk.calls.none?(&:anonymous?) %>
+    <%= render "talks/talk_user_details", talk: @talk %>
+  <% end %>
+<% end %>

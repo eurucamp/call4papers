@@ -2,7 +2,7 @@ class Admin::ProposalsController < Admin::AdminController
   def index
     @call = Call.find(params[:call_id])
     @dimensions = RatingDimension.all
-    @proposals = @call.proposals.visible.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @proposals = @call.proposals.visible.joins(:talk).order('selected DESC, track ASC, time_slot ASC, created_at DESC').to_a
     if params[:sort]
       @proposals.sort_by! do |p|
         score = p.score
@@ -23,11 +23,16 @@ class Admin::ProposalsController < Admin::AdminController
     @proposal = Proposal.find(params[:id])
     @proposal.selected = proposal_parameters[:selected]
     @proposal.save!
-    redirect_to proposal_path(@proposal)
+    redirect_to talk_path(@proposal.talk)
+  end
+
+  def show
+    @proposal = Proposal.find(params[:id])
+    @user_proposal_rating = current_user.user_proposal_rating_for_proposal(@proposal)
   end
 
   def export
-    @proposals = Proposal.order('selected DESC, track ASC, time_slot ASC, created_at DESC')
+    @proposals = Proposal.joins(:talk).order('selected DESC, track ASC, talks.time_slot ASC, created_at DESC')
 
     respond_to do |format|
       format.csv do
@@ -45,12 +50,12 @@ class Admin::ProposalsController < Admin::AdminController
       id
       user_name
       user_email
-      title
-      public_description
-      private_description
+      talk_title
+      talk_public_description
+      talk_private_description
       selected
       score
-      time_slot
+      talk_time_slot
       track
       created_at
       updated_at

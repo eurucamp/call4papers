@@ -9,17 +9,17 @@ module Admin
     end
 
     def formatted_time_slot
-      slot_value = time_slot.gsub(/ minutes$/, 'm')
+      slot_value = talk_time_slot.gsub(/ minutes$/, 'm')
       content_tag(:span, slot_value, class: "ts-#{slot_value}")
     end
 
     def formatted_created_at
-      formatted_time(created_at)
+      formatted_time(talk.created_at)
     end
 
     def formatted_updated_at
-      if updated?
-        formatted_time(updated_at)
+      if talk.updated?
+        formatted_time(talk.updated_at)
       else
         ''
       end

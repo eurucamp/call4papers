@@ -10,7 +10,7 @@
       <p>Open until <%= human_date_with_timezone(call.closes_at) %></p>
       <p><%= call.description %></p>
       <p>
-        <%= link_to 'New proposal', new_call_proposal_path(call_id: call.id), class: 'button' %>
+        <%= link_to 'New talk proposal', new_talk_path, class: 'button' %>
         <%= link_to t('.propose_speaker'), new_call_proposed_speaker_path(call_id: call.id), class: 'button' %>
       </p>
     </div>

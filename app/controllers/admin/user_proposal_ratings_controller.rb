@@ -10,14 +10,18 @@ class Admin::UserProposalRatingsController < Admin::AdminController
       when /papers list/i
         target = admin_call_proposals_path(call)
       when /next paper/i
-        target = call.proposals.visible.not_rated_by_user(current_user).order('random()').first
-        target ||= 'https://www.youtube.com/watch?v=xvX_5ym_ajI'
+        next_proposal = call.proposals.visible.not_rated_by_user(current_user).order('random()').first
+        if next_proposal
+          target = admin_proposal_path(next_proposal)
+        else
+          target = 'https://www.youtube.com/watch?v=xvX_5ym_ajI'
+        end
       else
-        target = @proposal
+        target = admin_proposal_path(@proposal)
       end
       redirect_to target, notice: "voting successful!"
     else
-      render "proposals/show"
+      render "admin/proposals/show"
     end
   end
 
