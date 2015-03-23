@@ -12,7 +12,7 @@
 
       <%= f.input :mentor_name %>
       <%= f.input :mentors_can_read %>
-      <% if @talk.new_record? %>
+      <% if @talk.calls.all?(&:open?) %>
         <%= f.association :calls, collection: @open_calls, as: :check_boxes %>
       <% end %>
     </div>
