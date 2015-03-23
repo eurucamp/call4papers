@@ -25,7 +25,7 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
-    resources :proposals, only: [:update] do
+    resources :proposals, only: [:update, :show] do
       collection do
         get :export
       end
