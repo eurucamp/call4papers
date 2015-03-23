@@ -4,12 +4,13 @@ class Admin::UserProposalRatingsController < Admin::AdminController
 
   def create
     @user_proposal_rating.assign_attributes(user_proposal_rating_params)
+    call = @user_proposal_rating.proposal.call
     if @user_proposal_rating.save then
       case params[:commit]
       when /papers list/i
-        target = admin_proposals_path
+        target = admin_call_proposals_path(call)
       when /next paper/i
-        target = Proposal.visible.not_rated_by_user(current_user).order('random()').first
+        target = call.proposals.visible.not_rated_by_user(current_user).order('random()').first
         target ||= 'https://www.youtube.com/watch?v=xvX_5ym_ajI'
       else
         target = @proposal
