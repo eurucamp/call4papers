@@ -11,4 +11,4 @@
 <% end %>
 <li><%= link_to t('nav.main.guide'), guide_path %></li>
 <li><%= link_to t('nav.main.mentorship'), mentorship_path %></li>
-<li><%= link_to t('nav.main.coc'), coc_path %></li>
+<li><%= link_to t('nav.main.coc'), Settings.conference.coc_link, target: '_blank' %></li>

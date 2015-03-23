@@ -8,6 +8,8 @@ defaults: &defaults
     to:
       - "cfp-errors@eurucamp.org"
   conference:
+    coc_link:
+      "https://rubyberlin.github.io/code-of-conduct/"
     time_slots:
       - 15 minutes
       - 30 minutes
