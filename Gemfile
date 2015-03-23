@@ -23,6 +23,9 @@ gem 'foundation-rails', '~> 5.4.0'
 gem 'font-awesome-sass'
 gem 'bourbon'
 
+gem 'uglifier',         '>= 1.0.3'
+gem 'jquery-rails',     '~> 3.1.0'
+
 gem 'rack-robotz',      '~> 0.0.3'
 gem 'localeapp'
 
