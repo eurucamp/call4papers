@@ -23,6 +23,9 @@ class TalksController < ApplicationController
   def create
     @talk = current_user.talks.new(talk_params)
     @talk.track = 'Test'
+    if talk_params[:user_attributes]
+      @talk.user_attributes = talk_params[:user_attributes]
+    end
 
     if @talk.save
       notify_excited_organizers
