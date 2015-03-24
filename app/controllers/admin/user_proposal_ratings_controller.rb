@@ -7,9 +7,9 @@ class Admin::UserProposalRatingsController < Admin::AdminController
     call = @user_proposal_rating.proposal.call
     if @user_proposal_rating.save then
       case params[:commit]
-      when /papers list/i
+      when /proposal list/i
         target = admin_call_proposals_path(call)
-      when /next paper/i
+      when /next proposal/i
         next_proposal = call.proposals.visible.not_rated_by_user(current_user).order('random()').first
         if next_proposal
           target = admin_proposal_path(next_proposal)

@@ -1,4 +1,4 @@
-# eurucamp Call for Papers
+# eurucamp Call for Proposals
   [![License](http://img.shields.io/:license-AGPL-0030c8.svg)](COPYRIGHT)
   ![Codeship Status](https://codeship.com/projects/2f6136b0-643a-0132-16ea-6e8486426495/status?branch=bump)
 

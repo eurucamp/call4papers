@@ -14,12 +14,38 @@ en:
         gender: The gender field is only tracked for outreach and statistical purposes
       communication:
         body: You can use Markdown for the body
+      defaults:
+        calls_html: 
+        email_html: 
+        mentor_html: 
+        mentor_name_html: 
+        mentors_can_read_html: 
+        password_html: 
+        private_description_html: 
+        public_description_html: 
+        remember_me_html: 
+        terms_and_conditions_html: 
+        time_slot_html: 
+        title_html: 
     labels:
       paper:
         time_slot: Preferred time slot
         mentors_can_read: Mentors can read my submission. This allows us to gives feedback during the submission phase.
       user:
         mentor: I am willing to mentor
+      defaults:
+        bio_html: 
+        calls_html: 
+        email_html: 
+        gender_html: 
+        mentor_name_html: 
+        mentors_can_read_html: 
+        password_html: 
+        private_description_html: 
+        public_description_html: 
+        remember_me_html: 
+        time_slot_html: 
+        title_html: 
     required:
       html: <abbr title="required">*</abbr>
     options:
@@ -35,6 +61,15 @@ en:
           call_empty_profiles: Users with empty profiles for selected Call
           call_selected_users: Users for selected Call with Papers selected
           call_mentors: Mentors for the selected Call
+    placeholders:
+      defaults:
+        bio_html: 
+        email_html: 
+        mentor_name_html: 
+        password_html: 
+        private_description_html: 
+        public_description_html: 
+        title_html: 
   activerecord:
     models:
       attributes:
@@ -49,6 +84,19 @@ en:
         proposed_speakers:
           created_at: Proposed at
           call_title: Call
+      talk: Talk
+    attributes:
+      talk:
+        calls: Calls
+        mentor_name: Mentor name
+        mentors_can_read: Mentors can read
+        private_description: Private description
+        public_description: Public description
+        time_slot: Time slot
+        title: Title
+      user:
+        bio: Bio
+        gender: Gender
   profiles:
     show:
       title: My profile
@@ -61,19 +109,19 @@ en:
     edit:
       title: Editing proposal
     index:
-      title: My papers
+      title: My proposals
     new:
-      title: New paper proposal
+      title: New proposal
       proposal: Proposal
       profile: Personal profile
     create:
-      success: Great job! You've successfully proposed a paper.
+      success: Great job! You've successfully proposed a talk.
       failure: Unfortunately, your proposal could not be saved.
     update:
       success: Well done! Your proposal has been updated.
   nav:
     main:
-      papers: Papers
+      papers: Proposals
       logout: Logout
       profile: Profile
       proposed_speakers: Proposed speakers
@@ -88,8 +136,8 @@ en:
         title: All users
     papers:
       index:
-        title: All papers
-        subtitle: 
+        title: All proposals
+        subtitle:
           one: You have rated 1 paper
           other: You have rated %{count} papers
     communications:
@@ -131,10 +179,12 @@ en:
     submit:
       proposed_speaker:
         create: Propose speaker
+      talk:
+        create: Create Talk
   mentor:
     papers:
       index:
-        title: Papers
+        title: Proposals
   feedback:
     title: Feedback
     submit: Give Feedback
