@@ -13,6 +13,7 @@ class Talk < ActiveRecord::Base
   validates :id, :title, :public_description, :time_slot, presence: true
   validates :user, presence: true
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
+  validates :calls, length: { minimum: 1 }
   attr_accessor :terms_and_conditions
 
   scope :not_from, -> user { where.not('user_id': user.id) }
