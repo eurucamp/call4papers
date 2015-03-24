@@ -1,5 +1,14 @@
 <%= render 'talk_details', talk: @talk %>
 
+<hr>
+<h4><%= t('.proposed-for-these-conferences') %></h4>
+
+<ul>
+<% @talk.calls.each do |call| %>
+  <li><%= call.title %></li>
+<% end %>
+</ul>
+
 <% if current_user %>
   <% if current_user.can_edit_talk?(@talk) && @talk.editable? %>
     <%= link_to 'Edit', edit_talk_path(@talk), class: 'button' %>
