@@ -10,7 +10,7 @@ class Talk < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :id, :title, :public_description, :time_slot, presence: true
+  validates :id, :title, :public_description, :private_description, :time_slot, presence: true
   validates :user, presence: true
   validates_acceptance_of :terms_and_conditions, if: -> { new_record? }
   validates :calls, length: { minimum: 1 }

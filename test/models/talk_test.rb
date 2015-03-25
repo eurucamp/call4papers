@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class TalkTest < ActiveSupport::TestCase
-  test "is valid with title, public_desc, time_slot, at least one call" do
+  test "is valid with title, public_desc, private_desc, time_slot, at least one call" do
     user = User.new(name: "Franz", email: "franz@example.com", password: '12345678')
-    talk = Talk.new(title: "Foo bar baz", public_description: "Foo bar baz explained", time_slot: "15 Minutes")
+    talk = Talk.new(title: "Foo bar baz", public_description: "Foo bar baz explained", time_slot: "15 Minutes", private_description: "secret")
     talk.calls << calls(:one)
     talk.user = user
     assert talk.valid?
@@ -19,6 +19,12 @@ class TalkTest < ActiveSupport::TestCase
     talk = Talk.new(title: "Foo bar baz", time_slot: "15 Minutes")
     talk.validate
     assert_not_empty talk.errors[:public_description]
+  end
+
+  test "is not valid without private description" do
+    talk = Talk.new(title: "Foo bar baz", time_slot: "15 Minutes")
+    talk.validate
+    assert_not_empty talk.errors[:private_description]
   end
 
   test "is not valid without time slot" do
