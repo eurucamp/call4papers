@@ -1,6 +1,5 @@
 <% if current_user %>
   <li><%= link_to t('nav.main.papers'), talks_path %></li>
-  <li><%= link_to t('nav.main.proposed_speakers'), proposed_speakers_path %></li>
   <li><%= link_to t('nav.main.profile'), profile_path %></li>
   <% if current_user.mentor? %>
     <li><%= link_to t('nav.main.mentor'), mentor_root_path %></li>
