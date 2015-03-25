@@ -5,7 +5,7 @@
   display: block;
 
   footer .columns {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.8);
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -14,11 +14,10 @@
   }
 }
 
-
 #homepage-background {
 
   section {
-    margin: 30% 0 10em;
+    margin: 40% 0 10em;
     text-align: center;
 
     h1 {
@@ -27,10 +26,6 @@
 
     .hint {
       color: white;
-
-      a, a:visited {
-        color: #fafb47; // $eurucampYellow;
-      }
     }
   }
 
