@@ -12,7 +12,8 @@ class MoveDataFromProposalToTalk < ActiveRecord::Migration
         talk.mentor_name         = proposal.read_attribute :mentor_name
         talk.mentors_can_read    = proposal.read_attribute :mentors_can_read
 
-        talk.save!
+        talk.valid? # Talk#id is generated before_validation…
+        talk.save!(validate: false) # validations complain about too few calls
         proposal.save!
       end
     end
