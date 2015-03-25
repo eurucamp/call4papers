@@ -2,7 +2,6 @@ Cfp::Application.routes.draw do
   get "home/show"
   get "guide", :to => "pages#guide"
   get "mentorship", :to => "pages#mentorship"
-  get "coc", :to => "pages#coc"
 
   get '/auth/:provider/callback' => 'authentications#create'
 
@@ -14,10 +13,9 @@ Cfp::Application.routes.draw do
 
   resource   :profile
   resources  :calls do
-    resources :papers, only: [:new, :create]
     resources :proposed_speakers, only: [:new, :create]
   end
-  resources  :papers,  only: [:index, :show, :edit, :update, :destroy]
+  resources  :talks
   resources  :proposed_speakers, only: [:destroy, :index]
   resources  :authentications
 
@@ -27,7 +25,7 @@ Cfp::Application.routes.draw do
         get :export
       end
     end
-    resources :papers do
+    resources :proposals, only: [:update, :show] do
       collection do
         get :export
       end
@@ -35,8 +33,11 @@ Cfp::Application.routes.draw do
         post :note, :to => "notes#create"
         patch :note, :to => "notes#update"
 
-        resource :user_paper_rating, only: [:create, :update]
+        resource :user_proposal_rating, only: [:create, :update]
       end
+    end
+    resources :calls, only: :index do
+      resources :proposals
     end
     resources :users do
       collection do
@@ -48,15 +49,15 @@ Cfp::Application.routes.draw do
         post :deliver
       end
     end
-    root :to => "papers#index", as: :root
+    root :to => "calls#index", as: :root
   end
 
   namespace :mentor do
-    resources :papers, only: [:index]
+    resources :talks, only: [:index]
 
     post "feedbacks/:id", :to => "feedbacks#contact", as: :feedback
 
-    root :to => "papers#index", as: :root
+    root :to => "proposals#index", as: :root
   end
   root :to => "home#show"
 end

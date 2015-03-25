@@ -1,12 +1,12 @@
 <div class="counters">
   <span>
-    <h1 class="muted"><%= @paper_counts.size %></h1>
-    <small>open calls have received papers</small>
+    <h1 class="muted"><%= @proposal_counts.size %></h1>
+    <small>open calls have received proposals</small>
   </span>
-  <% @paper_counts.each do |call, count| %>
+  <% @proposal_counts.each do |call, count| %>
   <span>
     <h1 class="muted"><%= count %></h1>
-    <small>papers<br/><%= call.title %></small>
+    <small>proposals<br/><%= call.title %></small>
   </span>
   <% end %>
   <span>

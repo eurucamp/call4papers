@@ -2,19 +2,22 @@ defaults: &defaults
   mailers:
     from: "cfp@eurucamp.org"
     notifications:
-      new_paper: "alex.coles@gmail.com"
+      new_paper: "cfp-new-papers@eurucamp.org"
   errors:
     from: "exception@eurucamp.org"
     to:
-      - "jose+cfp-errors@eurucamp.org"
-      - "florian+cfp-errors@eurucamp.org"
-      - "alex+cfp-errors@eurucamp.org"
+      - "cfp-errors@eurucamp.org"
   conference:
+    coc_link:
+      "https://rubyberlin.github.io/code-of-conduct/"
     time_slots:
       - 15 minutes
       - 30 minutes
       - 40 minutes
-      - workshop
+  conferences:
+    - eurucamp
+    - jrubyconf
+    - euruko
 
 development:
   <<: *defaults

@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require auth-buttons
- *= require font-awesome
  *= require_tree .
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

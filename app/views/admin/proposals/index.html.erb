@@ -1,0 +1,67 @@
+<h1>
+  <%= t('.title') %>
+  <small><%= t('.subtitle', count: current_user.user_proposal_ratings.count) %></small>
+</h1>
+
+<dl class="sub-nav">
+  <dt>Sort:</dt>
+  <% if params[:sort] %>
+    <dd><%= link_to('Unsorted', {}) %></dd>
+    <dd class="active"><a href="#">By score</a></dd>
+  <% else %>
+    <dd class="active"><a href="#">Unsorted</a></dd>
+    <dd><%= link_to('By score', { :sort => true }) %></dd>
+  <% end %>
+</dl>
+
+<div class="papers">
+  <% if @proposals.empty? %>
+    No submissions yet.
+  <% else %>
+    <table class="table table-header-rotated">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.models.attributes.paper.position') %></th>
+          <th><%= t('activerecord.models.attributes.paper.call') %></th>
+          <th><%= t('activerecord.models.attributes.paper.time_slot') %></th>
+          <th><%= t('activerecord.models.attributes.paper.id') %></th>
+          <th><%= t('activerecord.models.attributes.paper.title') %></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.created_at') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.updated_at') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.user') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.rated_by_you') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.notice_by_you') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.number_of_ratings') %></span></th>
+          <th class="rotate"><span><%= t('activerecord.models.attributes.paper.score') %></span></th>
+          <% @dimensions.each do |d| %>
+            <th class="rotate"><span><%= d.name %></span></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @proposals.each_with_index do |proposal,index| %>
+          <tr class="<%= 'selected' if proposal.selected? %>">
+            <td class="rank"><%= index + 1 %></td>
+            <td><%= proposal.call_title %></td>
+            <td class="time-slot"><%= proposal.formatted_time_slot %></td>
+            <td class="id"><%= proposal.id[0..5] %></td>
+            <th class="title"><%= link_to truncate(proposal.talk_title, length: 60), admin_proposal_path(proposal) %></th>
+            <td><%= proposal.formatted_created_at %></td>
+            <td><%= proposal.formatted_updated_at %></td>
+            <td><%= link_to(proposal.user.name, profile_path(proposal.user)) if proposal.call.deanonymized? %></td>
+            <td><%= "✔" if proposal.rated_by?(current_user) %></td>
+            <td><%= "✔" if proposal.note_attached_by?(current_user) %></td>
+            <td score="ratings"><%= proposal.user_proposal_ratings.count %></td>
+            <td class="score"><%= proposal.formatted_score %></td>
+            <% @dimensions.each do |d| %>
+              <td class="score"><%= proposal.formatted_score_by_dimension(d) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<%= link_to 'Export (CSV)', export_admin_proposals_path(format: 'csv'), class: 'button' %>
+<%= render "admin/main/nav_bar" %>

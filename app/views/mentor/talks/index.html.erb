@@ -1,0 +1,27 @@
+<h1><%= t('.title') %></h1>
+
+<div class="papers">
+  <% if @talks.empty? %>
+    No submissions yet.
+  <% else %>
+    <table class="table">
+      <tr>
+        <th><%= t('activerecord.models.attributes.talk.time_slot') %></th>
+        <th><%= t('activerecord.models.attributes.talk.id') %></th>
+        <th><%= t('activerecord.models.attributes.talk.title') %></th>
+        <th><%= t('activerecord.models.attributes.talk.created_at') %></th>
+        <th><%= t('activerecord.models.attributes.talk.updated_at') %></th>
+      </tr>
+
+      <% @talks.each do |talk| %>
+        <tr class="<%= 'selected' if talk.proposals.any?(&:selected?) %>">
+          <td class="time-slot"><%= talk.time_slot %></td>
+          <td class="id"><%= talk.id[0..5] %></td>
+          <td class="title"><%= link_to truncate(talk.title, length: 60), talk %></td>
+          <td><%= talk.created_at.strftime('%b %d, %Y') %></td>
+          <td><%= talk.updated_at.strftime('%b %d, %Y') if talk.updated? %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

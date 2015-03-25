@@ -1,0 +1,16 @@
+<h1><%= talk.title %></h1>
+
+<div class="papers">
+  <div class="time-slot"><%= talk.time_slot %></div>
+
+  <div class="descriptions">
+    <h4><%= t('activerecord.models.attributes.paper.private_description') %></h4>
+    <%= markdown talk.private_description %>
+
+    <% if talk.public_description.present? %>
+      <hr>
+      <h4><%= t('activerecord.models.attributes.paper.public_description') %></h4>
+      <%= markdown talk.public_description %>
+    <% end %>
+  </div>
+</div>

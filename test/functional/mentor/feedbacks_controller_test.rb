@@ -6,13 +6,13 @@ class Mentor::FeedbacksControllerTest < ActionController::TestCase
   end
 
   test 'valid feedback mails are delivered' do
-    paper = papers(:one)
+    proposal = proposals(:one)
     feedback = Feedback.new(feedback: 'Nice job')
 
     sign_in users(:mentor_user)
 
     ActionMailer::Base.deliveries.clear
-    post :contact, id: paper.id, feedback: { feedback: feedback.feedback }
+    post :contact, id: proposal.id, feedback: { feedback: feedback.feedback }
     assert_not ActionMailer::Base.deliveries.empty?, "mail not sent"
 
     mail = ActionMailer::Base.deliveries.last
@@ -20,13 +20,13 @@ class Mentor::FeedbacksControllerTest < ActionController::TestCase
   end
 
   test 'empty feedbacks mails are not delivered' do
-    paper = papers(:one)
+    proposal = proposals(:one)
     feedback = Feedback.new(feedback: '')
 
     sign_in users(:mentor_user)
 
     ActionMailer::Base.deliveries.clear
-    post :contact, id: paper.id, feedback: { feedback: feedback.feedback }
+    post :contact, id: proposal.id, feedback: { feedback: feedback.feedback }
     assert ActionMailer::Base.deliveries.empty?, "mail sent!"
   end
 end

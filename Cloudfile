@@ -1,5 +1,5 @@
 eurucamp-cfp-staging:
-  ruby_version: 2.1.5
+  ruby_version: 2.2.0
   environment: staging
   domains:
     - cfp-staging.eurucamp.org
@@ -11,7 +11,7 @@ eurucamp-cfp-staging:
       databases:
         - postgresql
 eurucamp-cfp-production:
-  ruby_version: 2.1.5
+  ruby_version: 2.2.0
   environment: production
   domains:
     - cfp.eurucamp.org

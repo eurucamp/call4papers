@@ -4,13 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Call for Papers | eurucamp" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Call for Proposals" %></title>
 
     <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="<%= 'frontpage'  if params[:action] ==  'index' %>">
+  <body class="<%= 'frontpage'  if params[:action] ==  'index' %> <%= @conference %>">
     <div id="fb-root"></div>
     <header>
       <%= render 'main/navigation' %>
@@ -21,8 +20,8 @@
         <%= yield %>
       </div>
     </main>
-    <%= render 'main/footer' %>
     <%= javascript_include_tag "application" %>
+    <%= render 'main/footer' %>
     <script type="text/javascript">
       (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -32,15 +31,6 @@
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-      // Google Analytics
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-24474861-2']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
       // Google +1
       (function() {
       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
