@@ -5,16 +5,13 @@
     <div class="small-8 columns">
       <h2><%= t('.proposal') %></h2>
       <%= f.input :title %>
-      <%= f.input :public_description, required: true, input_html: {rows: 5} %>
-      <%= f.input :private_description, required: false, input_html: {rows: 5} %>
+      <%= f.input :public_description, required: true, as: :text, input_html: {rows: 5} %>
+      <%= f.input :private_description, required: false, as: :text, input_html: {rows: 5} %>
 
       <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
 
       <%= f.input :mentor_name %>
       <%= f.input :mentors_can_read %>
-      <% if @talk.calls.all?(&:open?) %>
-        <%= f.association :calls, collection: @open_calls, as: :check_boxes %>
-      <% end %>
     </div>
     <div class="small-4 columns">
       <h2><%= t('profile') %></h2>
@@ -25,15 +22,18 @@
       <% end %>
     </div>
   </div>
+  <hr>
+  <div>
+    <% if @talk.calls.all?(&:open?) %>
+      <%= f.association :calls, collection: @open_calls, as: :check_boxes, label: t('.i-want-to-submit-this-to-the-following-conferences') %>
+    <% end %>
+  </div>
+  <hr>
 
   <div class="actions">
     <% if @talk.new_record? then %>
-      <%= f.input :terms_and_conditions, as: :boolean, required: true, label: false do %>
-        <%= f.input_field :terms_and_conditions, as: :boolean, required: true %>
-        <%= f.label :terms_and_conditions do %>
-          <%= raw t('simple_form.hints.paper.code_of_conduct_acceptance') % { :code_of_conduct_link => link_to(t('simple_from.hints.paper.code_of_conduct_text'), Settings.conference.coc_link, :target => '_blank') } %>
-        <% end %>
-      <% end %>
+      <% label = raw t('simple_form.hints.paper.code_of_conduct_acceptance') % { :code_of_conduct_link => link_to(t('simple_from.hints.paper.code_of_conduct_text'), Settings.conference.coc_link, :target => '_blank') } %>
+      <%= f.input :terms_and_conditions, as: :boolean, required: true, label: label %>
     <% end %>
     <%= f.button :submit, class: 'button' %>
   </div>

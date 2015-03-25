@@ -30,4 +30,8 @@
   <% end %>
 </div>
 
-<p><%= link_to 'New talk', new_talk_path, class: 'button' %></p>
+<% if @open_calls.empty? %>
+  <p>There are currently no open calls for proposals.</p>
+<% else %>
+  <p><%= link_to 'New talk', new_talk_path, class: 'button' %></p>
+<% end %>
