@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325220309) do
+ActiveRecord::Schema.define(version: 20150325234754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20150325220309) do
     t.integer  "call_id",                    null: false
     t.string   "talk_id"
   end
+
+  add_index "proposals", ["talk_id", "call_id"], name: "index_proposals_on_talk_id_and_call_id", unique: true, using: :btree
 
   create_table "proposed_speakers", force: :cascade do |t|
     t.integer  "inviter_id"
