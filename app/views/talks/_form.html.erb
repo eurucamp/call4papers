@@ -5,7 +5,7 @@
     <div class="small-8 columns">
       <h2><%= t('.proposal') %></h2>
       <%= f.input :title %>
-      <%= f.input :public_description, required: false, as: :text, input_html: {rows: 5} %>
+      <%= f.input :public_description, required: true, as: :text, input_html: {rows: 5} %>
       <%= f.input :private_description, required: true, as: :text, input_html: {rows: 5} %>
 
       <%= f.input :time_slot, :collection => Settings.conference.time_slots %>
