@@ -57,7 +57,7 @@ Cfp::Application.routes.draw do
 
     post "feedbacks/:id", :to => "feedbacks#contact", as: :feedback
 
-    root :to => "proposals#index", as: :root
+    root :to => "talks#index", as: :root
   end
   root :to => "home#show"
 end
