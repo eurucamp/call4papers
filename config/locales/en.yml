@@ -27,6 +27,7 @@ en:
         terms_and_conditions_html: 
         time_slot_html: 
         title_html: 
+        name_html: 
     labels:
       paper:
         time_slot: Preferred time slot
@@ -46,6 +47,7 @@ en:
         remember_me_html: 
         time_slot_html: 
         title_html: 
+        name_html: 
     required:
       html: <abbr title="required">*</abbr>
     options:
@@ -70,6 +72,7 @@ en:
         private_description_html: 
         public_description_html: 
         title_html: 
+        name_html: 
   activerecord:
     models:
       attributes:
@@ -85,11 +88,12 @@ en:
           created_at: Proposed at
           call_title: Call
       talk: Talk
+      user: User
     attributes:
       talk:
         calls: Calls
         mentor_name: Mentor name
-        mentors_can_read: Mentors can read
+        mentors_can_read: Let potential mentors see my talk
         private_description: Private description
         public_description: Public description
         time_slot: Time slot
@@ -97,6 +101,12 @@ en:
       user:
         bio: Bio
         gender: Gender
+        name: Name
+        email: Email
+        password: Password
+        remember_me: Remember me
+      proposal:
+        mentors_can_read: Let potential mentors see my talk
   profiles:
     show:
       title: My profile
@@ -181,6 +191,8 @@ en:
         create: Propose speaker
       talk:
         create: Create Talk
+      user:
+        update: Update User
   mentor:
     papers:
       index:
