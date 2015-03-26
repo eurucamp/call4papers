@@ -16,8 +16,9 @@ admins << User.create!(:email => "alice@example.com", :name => "Alice Example", 
 talks = []
 
 admins.each do |a|
-  talk = a.talks.create!(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :time_slot => "15 Minutes")
-  talk.proposals.create!(call: call)
+  talk = a.talks.new(:title => "My fancy paper", :public_description => "Very cool paper", :private_description => "In private: it sucks", :terms_and_conditions => "1", :time_slot => "15 Minutes")
+  talk.calls = [call]
+  talk.save!
   talks << talk
 end
 
