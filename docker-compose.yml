@@ -1,14 +1,14 @@
 db:
   image: "postgres:9.3"
-  volumes:
-    - db/postgresql/data/:/var/lib/postgresql/data/
+  #volumes:
+    #- db/postgresql/data/:/var/lib/postgresql/data/
   expose:
     - 5432
 web:
   build: .
-  command: bundle exec rails server
+  command: bundle exec rails server -b '0.0.0.0'
   volumes:
-    - .:/usr/src/app
+    - .:/cfp
   ports:
     - "3000:3000"
   links:
