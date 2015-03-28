@@ -27,7 +27,7 @@ class TalksController < ApplicationController
       notify_excited_organizers
       redirect_to @talk, notice: I18n.t('papers.create.success')
     else
-      render_enw_with_open_calls
+      render_new_with_open_calls
     end
   end
 
