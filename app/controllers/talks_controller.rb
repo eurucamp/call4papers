@@ -21,18 +21,13 @@ class TalksController < ApplicationController
   end
 
   def create
-    @talk = current_user.talks.new(talk_params)
+    @talk = current_user.talks.new(talk_params.except(:user_attributes))
     @talk.track = 'Test'
-    if talk_params[:user_attributes]
-      @talk.user_attributes = talk_params[:user_attributes]
-    end
-
-    if @talk.save
+    if @talk.save && update_user_params
       notify_excited_organizers
       redirect_to @talk, notice: I18n.t('papers.create.success')
     else
-      @open_calls = Call.open
-      render :new
+      render_new_with_open_calls
     end
   end
 
@@ -54,6 +49,18 @@ class TalksController < ApplicationController
   end
 
   private
+
+  def update_user_params
+    if talk_params[:user_attributes]
+      @talk.user_attributes = talk_params[:user_attributes]
+    end
+    @talk.save
+  end
+
+  def render_new_with_open_calls
+    @open_calls = Call.open
+    render :new
+  end
 
   def notify_excited_organizers
     ProposalsMailer.created(@talk.title, talk_url(@talk)).deliver_now

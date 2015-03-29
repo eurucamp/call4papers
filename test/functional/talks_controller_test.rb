@@ -68,4 +68,23 @@ class TalksControllerTest < ActionController::TestCase
 
     assert_redirected_to talks_path
   end
+
+  test 'should create talk and not fail with PG::UniqueViolation' do
+    call_id = calls(:one).id.to_s
+    post :create, talk: {
+           "title"=>"asdfsfd",
+           "public_description"=>"fasfsad",
+           "private_description"=>"fasdfasf",
+           "time_slot"=>"30 minutes",
+           "mentor_name"=>"",
+           "mentors_can_read"=>"1",
+           "terms_and_conditions"=>"1",
+           "user_attributes"=> {
+             "gender"=>"",
+             "mentor"=>"0",
+             "bio"=>""
+           },
+           "call_ids"=> [call_id, ""]
+         }
+  end
 end
