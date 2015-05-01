@@ -30,6 +30,6 @@ module ApplicationHelper
   end
 
   def human_date_with_timezone(datetime)
-    datetime.strftime("%e %B %Y, %l %P %Z")
+    datetime.strftime("%e %B %Y, %k:%M %Z")
   end
 end
