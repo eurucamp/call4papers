@@ -8,7 +8,8 @@ class Proposal < ActiveRecord::Base
     self.id = SecureRandom.hex(16)
   end
 
-  belongs_to :user
+  delegate :user, to: :talk
+
   belongs_to :call
   has_many :user_proposal_ratings, inverse_of: :proposal, dependent: :destroy
   has_many :ratings, through: :user_proposal_ratings
