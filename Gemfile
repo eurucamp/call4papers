@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.3.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rails', '4.2.0'
+gem 'unicorn'
 
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
