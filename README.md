@@ -29,6 +29,8 @@ An installed postgresql instance and a compiler is needed.
 * `TWITTER_KEY`: Your twitter application key.
 * `TWITTER_SECRET`: Your twitter application secret.
 * `LOCALE_API_KEY`: Your key for Locale.
+* `PORT`: The port to run on.
+* `HOSTNAME`: The hostname to bind to. (`0.0.0.0` for IPv4, or `::` for IPv6)
 
 ### Basic setup
 

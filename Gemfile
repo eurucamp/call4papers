@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby File.read(File.expand_path('../.ruby-version', __FILE__)).chop
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.6'
+gem 'unicorn'
 
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
